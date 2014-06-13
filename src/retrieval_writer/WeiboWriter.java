@@ -57,7 +57,7 @@ public class WeiboWriter {
 	}
 	
 	public static void WriteUserProfile2MySQL(User u,List<Tag> tags){
-		ConnDB conn=new ConnDB("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306?DatabaseName=posts", "root", "h67868377");
+		ConnDB conn=new ConnDB("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306?DatabaseName=posts", "root", "root");
 		StringBuffer buffer=new StringBuffer();
 		for(Tag t:tags){
 			buffer.append(t.getValue()+" ");
