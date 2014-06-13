@@ -1,0 +1,278 @@
+0    DEBUG [2014-06-13 00:52:22]  Request:
+1    DEBUG [2014-06-13 00:52:22]  GET:https://api.weibo.com/2/users/domain_show.json
+5047 DEBUG [2014-06-13 00:52:27]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+5047 DEBUG [2014-06-13 00:52:27]  API-RemoteIP: 218.30.64.194
+5740 DEBUG [2014-06-13 00:52:28]  Response:
+5740 DEBUG [2014-06-13 00:52:28]  https StatusCode:200
+5741 DEBUG [2014-06-13 00:52:28]  Server:nginx/1.2.0
+5741 DEBUG [2014-06-13 00:52:28]  Date:Thu, 12 Jun 2014 08:52:26 GMT
+5741 DEBUG [2014-06-13 00:52:28]  Content-Type:application/json;charset=UTF-8
+5741 DEBUG [2014-06-13 00:52:28]  Transfer-Encoding:chunked
+5741 DEBUG [2014-06-13 00:52:28]  Connection:keep-alive
+5741 DEBUG [2014-06-13 00:52:28]  Api-Server-IP:10.75.0.170
+5741 DEBUG [2014-06-13 00:52:28]  Vary:Accept-Encoding
+5743 WARN  [2014-06-13 00:52:28]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+5743 DEBUG [2014-06-13 00:52:28]  {"id":1941624714,"idstr":"1941624714","class":1,"screen_name":"广告设计精选","name":"广告设计精选","province":"400","city":"2","location":"海外 英国","description":"多元化设计资源微博","url":"http://weibo.com/1941624714","profile_image_url":"http://tp3.sinaimg.cn/1941624714/50/40050431588/0","cover_image":"http://ww2.sinaimg.cn/crop.0.0.980.300/73bad78agw1edwn10vw1oj20r808caa2.jpg","cover_image_phone":"http://ww4.sinaimg.cn/crop.0.0.0.0/73bad78ajw1edwz57d2dej20hq0hqdjw.jpg","profile_url":"chuangyilogo","domain":"chuangyilogo","weihao":"","gender":"f","followers_count":46526,"friends_count":590,"statuses_count":5746,"favourites_count":0,"created_at":"Wed Feb 16 14:51:50 +0800 2011","following":false,"allow_all_act_msg":true,"geo_enabled":false,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Thu Jun 12 14:17:52 +0800 2014","id":3720642966334147,"mid":"3720642966334147","idstr":"3720642966334147","text":"宝贝无需联系掌柜，掌柜旺旺离线状态也可以拍，付款后请自助提取（注：不发到旺旺），买家自动下载链接： http://t.cn/8sBLrRz （输入订单号跟旺旺名）如需将文件下载链接发送到QQ邮箱的，请在留言填写QQ邮箱！","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp3.sinaimg.cn/1941624714/180/40050431588/0","avatar_hd":"http://ww3.sinaimg.cn/crop.0.0.597.597.1024/73bad78agw1eerxyv3gfmj20go0ncdl6.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":1,"bi_followers_count":154,"lang":"zh-cn","star":0,"mbtype":12,"mbrank":3,"block_word":0,"block_app":1,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 03:08:20]  Request:
+1    DEBUG [2014-06-13 03:08:20]  GET:https://api.weibo.com/2/users/domain_show.json
+0    DEBUG [2014-06-13 03:08:40]  Request:
+1    DEBUG [2014-06-13 03:08:40]  GET:https://api.weibo.com/2/users/domain_show.json
+0    DEBUG [2014-06-13 03:10:12]  Request:
+0    DEBUG [2014-06-13 03:10:12]  GET:https://api.weibo.com/2/users/domain_show.json
+294  DEBUG [2014-06-13 03:10:12]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+294  DEBUG [2014-06-13 03:10:12]  API-RemoteIP: 218.30.64.194
+964  DEBUG [2014-06-13 03:10:13]  Response:
+964  DEBUG [2014-06-13 03:10:13]  https StatusCode:200
+964  DEBUG [2014-06-13 03:10:13]  Server:nginx/1.2.0
+964  DEBUG [2014-06-13 03:10:13]  Date:Thu, 12 Jun 2014 11:10:11 GMT
+965  DEBUG [2014-06-13 03:10:13]  Content-Type:application/json;charset=UTF-8
+965  DEBUG [2014-06-13 03:10:13]  Transfer-Encoding:chunked
+965  DEBUG [2014-06-13 03:10:13]  Connection:keep-alive
+965  DEBUG [2014-06-13 03:10:13]  Api-Server-IP:10.75.5.68
+965  DEBUG [2014-06-13 03:10:13]  Vary:Accept-Encoding
+967  WARN  [2014-06-13 03:10:13]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+967  DEBUG [2014-06-13 03:10:13]  {"id":1941624714,"idstr":"1941624714","class":1,"screen_name":"广告设计精选","name":"广告设计精选","province":"400","city":"2","location":"海外 英国","description":"多元化设计资源微博","url":"http://weibo.com/1941624714","profile_image_url":"http://tp3.sinaimg.cn/1941624714/50/40050431588/0","cover_image":"http://ww2.sinaimg.cn/crop.0.0.980.300/73bad78agw1edwn10vw1oj20r808caa2.jpg","cover_image_phone":"http://ww4.sinaimg.cn/crop.0.0.0.0/73bad78ajw1edwz57d2dej20hq0hqdjw.jpg","profile_url":"chuangyilogo","domain":"chuangyilogo","weihao":"","gender":"f","followers_count":46526,"friends_count":590,"statuses_count":5746,"favourites_count":0,"created_at":"Wed Feb 16 14:51:50 +0800 2011","following":false,"allow_all_act_msg":true,"geo_enabled":false,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Thu Jun 12 14:17:52 +0800 2014","id":3720642966334147,"mid":"3720642966334147","idstr":"3720642966334147","text":"宝贝无需联系掌柜，掌柜旺旺离线状态也可以拍，付款后请自助提取（注：不发到旺旺），买家自动下载链接： http://t.cn/8sBLrRz （输入订单号跟旺旺名）如需将文件下载链接发送到QQ邮箱的，请在留言填写QQ邮箱！","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp3.sinaimg.cn/1941624714/180/40050431588/0","avatar_hd":"http://ww3.sinaimg.cn/crop.0.0.597.597.1024/73bad78agw1eerxyv3gfmj20go0ncdl6.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":1,"bi_followers_count":154,"lang":"zh-cn","star":0,"mbtype":12,"mbrank":3,"block_word":0,"block_app":1,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:39:22]  Request:
+1    DEBUG [2014-06-13 06:39:22]  GET:https://api.weibo.com/2/users/domain_show.json
+0    DEBUG [2014-06-13 06:39:31]  Request:
+1    DEBUG [2014-06-13 06:39:31]  GET:https://api.weibo.com/2/users/domain_show.json
+5046 DEBUG [2014-06-13 06:39:36]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+5046 DEBUG [2014-06-13 06:39:36]  API-RemoteIP: 218.30.64.194
+11366 DEBUG [2014-06-13 06:39:42]  Response:
+11366 DEBUG [2014-06-13 06:39:42]  https StatusCode:200
+11367 DEBUG [2014-06-13 06:39:42]  Server:nginx/1.2.0
+11367 DEBUG [2014-06-13 06:39:42]  Date:Thu, 12 Jun 2014 14:39:40 GMT
+11367 DEBUG [2014-06-13 06:39:42]  Content-Type:application/json;charset=UTF-8
+11367 DEBUG [2014-06-13 06:39:42]  Transfer-Encoding:chunked
+11367 DEBUG [2014-06-13 06:39:42]  Connection:keep-alive
+11367 DEBUG [2014-06-13 06:39:42]  Api-Server-IP:10.75.5.104
+11367 DEBUG [2014-06-13 06:39:42]  Vary:Accept-Encoding
+11369 WARN  [2014-06-13 06:39:42]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+11369 DEBUG [2014-06-13 06:39:42]  {"id":1321349657,"idstr":"1321349657","class":1,"screen_name":"尚于博","name":"尚于博","province":"11","city":"1000","location":"北京","description":"生活太美好！","url":"http://blog.sina.com.cn/shangyb","profile_image_url":"http://tp2.sinaimg.cn/1321349657/50/5610203384/1","profile_url":"shangyubo","domain":"shangyubo","weihao":"","gender":"m","followers_count":114074,"friends_count":223,"statuses_count":277,"favourites_count":11,"created_at":"Mon Dec 28 16:03:44 +0800 2009","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":true,"verified_type":0,"remark":"","status":{"created_at":"Sun Dec 25 17:49:35 +0800 2011","id":3394547167677380,"mid":"3394547167677380","idstr":"3394547167677380","text":"转发微博","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":5,"allow_all_comment":false,"avatar_large":"http://tp2.sinaimg.cn/1321349657/180/5610203384/1","avatar_hd":"http://tp2.sinaimg.cn/1321349657/180/5610203384/1","verified_reason":"演员，《杜拉拉升职记》（电视剧），《海峡往事》，《娘家的故事》","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":116,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:40:16]  Request:
+1    DEBUG [2014-06-13 06:40:16]  GET:https://api.weibo.com/2/users/domain_show.json
+5050 DEBUG [2014-06-13 06:40:21]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+5050 DEBUG [2014-06-13 06:40:21]  API-RemoteIP: 218.30.64.194
+10619 DEBUG [2014-06-13 06:40:27]  Response:
+10619 DEBUG [2014-06-13 06:40:27]  https StatusCode:200
+10619 DEBUG [2014-06-13 06:40:27]  Server:nginx/1.2.0
+10619 DEBUG [2014-06-13 06:40:27]  Date:Thu, 12 Jun 2014 14:40:25 GMT
+10619 DEBUG [2014-06-13 06:40:27]  Content-Type:application/json;charset=UTF-8
+10620 DEBUG [2014-06-13 06:40:27]  Transfer-Encoding:chunked
+10620 DEBUG [2014-06-13 06:40:27]  Connection:keep-alive
+10620 DEBUG [2014-06-13 06:40:27]  Api-Server-IP:10.75.5.93
+10620 DEBUG [2014-06-13 06:40:27]  Vary:Accept-Encoding
+10621 WARN  [2014-06-13 06:40:27]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+10622 DEBUG [2014-06-13 06:40:27]  {"id":1807271747,"idstr":"1807271747","class":1,"screen_name":"圣女今后不再抱怨","name":"圣女今后不再抱怨","province":"44","city":"1","location":"广东 广州","description":"Sometimes the things we can't change, end up changing us.","url":"","profile_image_url":"http://tp4.sinaimg.cn/1807271747/50/5633999646/1","profile_url":"hzy19930701","domain":"hzy19930701","weihao":"","gender":"m","followers_count":766,"friends_count":96,"statuses_count":4416,"favourites_count":579,"created_at":"Wed Sep 01 11:39:22 +0800 2010","following":false,"allow_all_act_msg":true,"geo_enabled":false,"verified":false,"verified_type":220,"remark":"","status":{"created_at":"Fri Jun 29 02:56:38 +0800 2012","id":3462088980967291,"mid":"3462088980967291","idstr":"3462088980967291","text":"就这样吧，我走了，没有再见了","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp4.sinaimg.cn/1807271747/180/5633999646/1","avatar_hd":"http://tp4.sinaimg.cn/1807271747/180/5633999646/1","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":83,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:40:46]  Request:
+1    DEBUG [2014-06-13 06:40:46]  GET:https://api.weibo.com/2/users/domain_show.json
+66   DEBUG [2014-06-13 06:40:46]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+66   DEBUG [2014-06-13 06:40:46]  API-RemoteIP: 218.30.64.194
+697  DEBUG [2014-06-13 06:40:47]  Response:
+698  DEBUG [2014-06-13 06:40:47]  https StatusCode:200
+698  DEBUG [2014-06-13 06:40:47]  Server:nginx/1.2.0
+698  DEBUG [2014-06-13 06:40:47]  Date:Thu, 12 Jun 2014 14:40:45 GMT
+698  DEBUG [2014-06-13 06:40:47]  Content-Type:application/json;charset=UTF-8
+698  DEBUG [2014-06-13 06:40:47]  Transfer-Encoding:chunked
+698  DEBUG [2014-06-13 06:40:47]  Connection:keep-alive
+698  DEBUG [2014-06-13 06:40:47]  Api-Server-IP:10.75.5.94
+698  DEBUG [2014-06-13 06:40:47]  Vary:Accept-Encoding
+700  WARN  [2014-06-13 06:40:47]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+701  DEBUG [2014-06-13 06:40:47]  {"id":1344563642,"idstr":"1344563642","class":1,"screen_name":"水晶cheese","name":"水晶cheese","province":"12","city":"1000","location":"天津","description":"愿一切美好都只若初见~","url":"","profile_image_url":"http://tp3.sinaimg.cn/1344563642/50/5629356485/0","profile_url":"maning117","domain":"maning117","weihao":"","gender":"f","followers_count":727,"friends_count":205,"statuses_count":1438,"favourites_count":336,"created_at":"Wed Jul 21 16:25:54 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":220,"remark":"","status":{"created_at":"Tue Jan 07 18:00:10 +0800 2014","id":3664166402943972,"mid":"3664166402943972","idstr":"3664166402943972","text":"新版微博客户端全新发布啦！发布器全面升级，更多兴趣快捷分享；新增微博支付，移动消费一触即达；手机端快捷参与#让红包飞#活动，新春豪礼送不停！赶紧更新抢红包！下载地址：http://t.cn/zOZGnnD","source":"<a href=\"http://app.weibo.com/t/feed/3cwKnY\" rel=\"nofollow\">微博客户端</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/6cba0975jw1ec6k3n42i1j20dc0m8gnb.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/6cba0975jw1ec6k3on4blj20dc0m8jt0.jpg"},{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/6cba0975jw1ec6k3poazjj20dc0m875y.jpg"}],"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/6cba0975jw1ec6k3n42i1j20dc0m8gnb.jpg","bmiddle_pic":"http://ww3.sinaimg.cn/bmiddle/6cba0975jw1ec6k3n42i1j20dc0m8gnb.jpg","original_pic":"http://ww3.sinaimg.cn/large/6cba0975jw1ec6k3n42i1j20dc0m8gnb.jpg","geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp3.sinaimg.cn/1344563642/180/5629356485/0","avatar_hd":"http://tp3.sinaimg.cn/1344563642/180/5629356485/0","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":77,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+1    DEBUG [2014-06-13 06:41:03]  Request:
+1    DEBUG [2014-06-13 06:41:03]  GET:https://api.weibo.com/2/users/domain_show.json
+41   DEBUG [2014-06-13 06:41:03]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+41   DEBUG [2014-06-13 06:41:03]  API-RemoteIP: 218.30.64.194
+588  DEBUG [2014-06-13 06:41:03]  Response:
+588  DEBUG [2014-06-13 06:41:03]  https StatusCode:200
+588  DEBUG [2014-06-13 06:41:03]  Server:nginx/1.2.0
+588  DEBUG [2014-06-13 06:41:03]  Date:Thu, 12 Jun 2014 14:41:01 GMT
+588  DEBUG [2014-06-13 06:41:03]  Content-Type:application/json;charset=UTF-8
+588  DEBUG [2014-06-13 06:41:03]  Transfer-Encoding:chunked
+588  DEBUG [2014-06-13 06:41:03]  Connection:keep-alive
+588  DEBUG [2014-06-13 06:41:03]  Api-Server-IP:10.75.0.174
+588  DEBUG [2014-06-13 06:41:03]  Vary:Accept-Encoding
+590  WARN  [2014-06-13 06:41:03]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+591  DEBUG [2014-06-13 06:41:03]  {"id":1778053550,"idstr":"1778053550","class":1,"screen_name":"阿龙-Lonely","name":"阿龙-Lonely","province":"44","city":"6","location":"广东 佛山","description":"","url":"","profile_image_url":"http://tp3.sinaimg.cn/1778053550/50/1281418975/1","profile_url":"fslonely","domain":"fslonely","weihao":"","gender":"m","followers_count":228,"friends_count":182,"statuses_count":1038,"favourites_count":55,"created_at":"Sat Jul 31 18:02:43 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Sat Mar 24 13:24:47 +0800 2012","id":3427095437213048,"mid":"3427095437213048","idstr":"3427095437213048","text":"想不到最后是我自己击垮了自己。","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp3.sinaimg.cn/1778053550/180/1281418975/1","avatar_hd":"http://tp3.sinaimg.cn/1778053550/180/1281418975/1","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":53,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:41:17]  Request:
+1    DEBUG [2014-06-13 06:41:17]  GET:https://api.weibo.com/2/users/domain_show.json
+39   DEBUG [2014-06-13 06:41:17]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+39   DEBUG [2014-06-13 06:41:17]  API-RemoteIP: 218.30.64.194
+504  DEBUG [2014-06-13 06:41:17]  Response:
+504  DEBUG [2014-06-13 06:41:17]  https StatusCode:200
+504  DEBUG [2014-06-13 06:41:17]  Server:nginx/1.2.0
+505  DEBUG [2014-06-13 06:41:17]  Date:Thu, 12 Jun 2014 14:41:15 GMT
+505  DEBUG [2014-06-13 06:41:17]  Content-Type:application/json;charset=UTF-8
+505  DEBUG [2014-06-13 06:41:17]  Transfer-Encoding:chunked
+505  DEBUG [2014-06-13 06:41:17]  Connection:keep-alive
+505  DEBUG [2014-06-13 06:41:17]  Api-Server-IP:10.75.5.105
+505  DEBUG [2014-06-13 06:41:17]  Vary:Accept-Encoding
+507  WARN  [2014-06-13 06:41:17]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+507  DEBUG [2014-06-13 06:41:17]  {"id":1648007681,"idstr":"1648007681","class":1,"screen_name":"走饭","name":"走饭","province":"32","city":"1","location":"江苏 南京","description":"↓↓↓↓↓遗言","url":"http://blog.sina.com.cn/fandbi","profile_image_url":"http://tp2.sinaimg.cn/1648007681/50/5619353777/0","profile_url":"xiaofan116","domain":"xiaofan116","weihao":"","gender":"f","followers_count":148249,"friends_count":361,"statuses_count":1896,"favourites_count":1389,"created_at":"Thu Sep 17 22:24:02 +0800 2009","following":false,"allow_all_act_msg":true,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Sun Mar 18 10:54:03 +0800 2012","id":3424883176420210,"mid":"3424883176420210","idstr":"3424883176420210","text":"我有抑郁症，所以就去死一死，没什么重要的原因，大家不必在意我的离开。拜拜啦。","source":"<a href=\"http://app.weibo.com/t/feed/3auC5p\" rel=\"nofollow\">皮皮时光机</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp2.sinaimg.cn/1648007681/180/5619353777/0","avatar_hd":"http://tp2.sinaimg.cn/1648007681/180/5619353777/0","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":1,"bi_followers_count":147,"lang":"zh-cn","star":0,"mbtype":2,"mbrank":1,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:41:37]  Request:
+1    DEBUG [2014-06-13 06:41:37]  GET:https://api.weibo.com/2/users/domain_show.json
+36   DEBUG [2014-06-13 06:41:37]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+37   DEBUG [2014-06-13 06:41:37]  API-RemoteIP: 218.30.64.194
+565  DEBUG [2014-06-13 06:41:37]  Response:
+565  DEBUG [2014-06-13 06:41:37]  https StatusCode:200
+565  DEBUG [2014-06-13 06:41:37]  Server:nginx/1.2.0
+565  DEBUG [2014-06-13 06:41:37]  Date:Thu, 12 Jun 2014 14:41:35 GMT
+565  DEBUG [2014-06-13 06:41:37]  Content-Type:application/json;charset=UTF-8
+566  DEBUG [2014-06-13 06:41:37]  Transfer-Encoding:chunked
+566  DEBUG [2014-06-13 06:41:37]  Connection:keep-alive
+566  DEBUG [2014-06-13 06:41:37]  Api-Server-IP:10.75.5.63
+566  DEBUG [2014-06-13 06:41:37]  Vary:Accept-Encoding
+568  WARN  [2014-06-13 06:41:37]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+569  DEBUG [2014-06-13 06:41:37]  {"id":1848327791,"idstr":"1848327791","class":1,"screen_name":"泰泰itaitai","name":"泰泰itaitai","province":"11","city":"5","location":"北京 朝阳区","description":"回忆的森林太黑了 他选择往月亮走","url":"","profile_image_url":"http://tp4.sinaimg.cn/1848327791/50/5610336072/1","profile_url":"itaitai","domain":"itaitai","weihao":"","gender":"m","followers_count":3199,"friends_count":207,"statuses_count":305,"favourites_count":0,"created_at":"Fri Apr 29 22:05:47 +0800 2011","following":false,"allow_all_act_msg":true,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Mon Jul 02 21:48:06 +0800 2012","id":3463460895181537,"mid":"3463460895181537","idstr":"3463460895181537","text":"爸爸离开我后不久也是我二十岁生日的前两天。我都不知道是谁给我发的这条神秘的短信。我很感激，存在旧手机舍不得删除。只是很抱歉 ，我不是自己的神。对不起。","source":"<a href=\"http://app.weibo.com/t/feed/2r8o8p\" rel=\"nofollow\">美图秀秀iPhone版</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/6e2b3e6fjw1duiu3nayopj.jpg"}],"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/6e2b3e6fjw1duiu3nayopj.jpg","bmiddle_pic":"http://ww1.sinaimg.cn/bmiddle/6e2b3e6fjw1duiu3nayopj.jpg","original_pic":"http://ww1.sinaimg.cn/large/6e2b3e6fjw1duiu3nayopj.jpg","geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp4.sinaimg.cn/1848327791/180/5610336072/1","avatar_hd":"http://tp4.sinaimg.cn/1848327791/180/5610336072/1","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":84,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:41:51]  Request:
+1    DEBUG [2014-06-13 06:41:51]  GET:https://api.weibo.com/2/users/domain_show.json
+39   DEBUG [2014-06-13 06:41:51]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+40   DEBUG [2014-06-13 06:41:51]  API-RemoteIP: 218.30.64.194
+559  DEBUG [2014-06-13 06:41:52]  Response:
+560  DEBUG [2014-06-13 06:41:52]  https StatusCode:200
+560  DEBUG [2014-06-13 06:41:52]  Server:nginx/1.2.0
+560  DEBUG [2014-06-13 06:41:52]  Date:Thu, 12 Jun 2014 14:41:50 GMT
+560  DEBUG [2014-06-13 06:41:52]  Content-Type:application/json;charset=UTF-8
+560  DEBUG [2014-06-13 06:41:52]  Transfer-Encoding:chunked
+560  DEBUG [2014-06-13 06:41:52]  Connection:keep-alive
+560  DEBUG [2014-06-13 06:41:52]  Api-Server-IP:10.75.5.55
+560  DEBUG [2014-06-13 06:41:52]  Vary:Accept-Encoding
+562  WARN  [2014-06-13 06:41:52]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+563  DEBUG [2014-06-13 06:41:52]  {"id":1748372090,"idstr":"1748372090","class":1,"screen_name":"章一元","name":"章一元","province":"31","city":"15","location":"上海 浦东新区","description":"一名普通创业者，专注移动卫星通信、企业通讯、移动互联网及增值服务，团队核心业务是Empowering Your Mobility. 我的Twitter帐号：@zeedozhang","url":"http://www.185190.net","profile_image_url":"http://tp3.sinaimg.cn/1748372090/50/5600042707/1","profile_url":"zeedo","domain":"zeedo","weihao":"","gender":"m","followers_count":259,"friends_count":362,"statuses_count":316,"favourites_count":979,"created_at":"Sat May 29 21:24:00 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Wed Jun 22 19:59:34 +0800 2011","id":12787748514,"mid":"12787748514","idstr":"12787748514","text":"影片的英文名《TAKEN》取得更传神，特工男主角经济不宽裕,为人低调、木讷、宽容，没太多废话，打击对手出手狠、准、稳~~故事简单，对白没花哨，动作部分也没特技，但是各位主角、配角的演员演技个个到位，太赞了，","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp3.sinaimg.cn/1748372090/180/5600042707/1","avatar_hd":"http://tp3.sinaimg.cn/1748372090/180/5600042707/1","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":47,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:42:04]  Request:
+0    DEBUG [2014-06-13 06:42:04]  GET:https://api.weibo.com/2/users/domain_show.json
+42   DEBUG [2014-06-13 06:42:04]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+42   DEBUG [2014-06-13 06:42:04]  API-RemoteIP: 218.30.64.194
+513  DEBUG [2014-06-13 06:42:05]  Response:
+513  DEBUG [2014-06-13 06:42:05]  https StatusCode:200
+513  DEBUG [2014-06-13 06:42:05]  Server:nginx/1.2.0
+513  DEBUG [2014-06-13 06:42:05]  Date:Thu, 12 Jun 2014 14:42:03 GMT
+513  DEBUG [2014-06-13 06:42:05]  Content-Type:application/json;charset=UTF-8
+513  DEBUG [2014-06-13 06:42:05]  Transfer-Encoding:chunked
+513  DEBUG [2014-06-13 06:42:05]  Connection:keep-alive
+513  DEBUG [2014-06-13 06:42:05]  Api-Server-IP:10.75.24.202
+514  DEBUG [2014-06-13 06:42:05]  Vary:Accept-Encoding
+515  WARN  [2014-06-13 06:42:05]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+516  DEBUG [2014-06-13 06:42:05]  {"id":1916908381,"idstr":"1916908381","class":1,"screen_name":"Shirley__虫哥","name":"Shirley__虫哥","province":"44","city":"1000","location":"广东","description":"黎振庆 就系本人噶大名","url":"","profile_image_url":"http://tp2.sinaimg.cn/1916908381/50/5626589670/1","profile_url":"dj13598799043","domain":"dj13598799043","weihao":"","gender":"m","followers_count":285,"friends_count":292,"statuses_count":290,"favourites_count":83,"created_at":"Mon Jan 10 15:52:41 +0800 2011","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Thu Jul 12 12:24:05 +0800 2012","id":3466942830788399,"mid":"3466942830788399","idstr":"3466942830788399","text":"这样的家庭我没法生活 谢谢你陪我走过的时光 一切都是美好的","source":"<a href=\"http://app.weibo.com/t/feed/7E4i6P\" rel=\"nofollow\">S60客户端</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp2.sinaimg.cn/1916908381/180/5626589670/1","avatar_hd":"http://tp2.sinaimg.cn/1916908381/180/5626589670/1","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":116,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:42:22]  Request:
+1    DEBUG [2014-06-13 06:42:22]  GET:https://api.weibo.com/2/users/domain_show.json
+49   DEBUG [2014-06-13 06:42:22]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+50   DEBUG [2014-06-13 06:42:22]  API-RemoteIP: 218.30.64.194
+601  DEBUG [2014-06-13 06:42:22]  Response:
+601  DEBUG [2014-06-13 06:42:22]  https StatusCode:200
+601  DEBUG [2014-06-13 06:42:22]  Server:nginx/1.2.0
+601  DEBUG [2014-06-13 06:42:22]  Date:Thu, 12 Jun 2014 14:42:20 GMT
+602  DEBUG [2014-06-13 06:42:22]  Content-Type:application/json;charset=UTF-8
+602  DEBUG [2014-06-13 06:42:22]  Transfer-Encoding:chunked
+602  DEBUG [2014-06-13 06:42:22]  Connection:keep-alive
+602  DEBUG [2014-06-13 06:42:22]  Api-Server-IP:10.75.0.171
+602  DEBUG [2014-06-13 06:42:22]  Vary:Accept-Encoding
+604  WARN  [2014-06-13 06:42:22]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+604  DEBUG [2014-06-13 06:42:22]  {"id":1769758334,"idstr":"1769758334","class":1,"screen_name":"纵火青年屎蛋","name":"纵火青年屎蛋","province":"65","city":"30","location":"新疆 克孜勒苏","description":"我是屎蛋，画画的那个。 消极阴暗自留地，不喜请取消关注。自私无聊变态冒险，地狱天堂皆在人间。","url":"","profile_image_url":"http://tp3.sinaimg.cn/1769758334/50/5628495937/1","profile_url":"helsinkilittlelichen","domain":"helsinkilittlelichen","weihao":"","gender":"m","followers_count":621,"friends_count":1,"statuses_count":423,"favourites_count":0,"created_at":"Thu Jun 09 12:36:04 +0800 2011","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Sun Apr 08 00:26:23 +0800 2012","id":3432335364554232,"mid":"3432335364554232","idstr":"3432335364554232","text":"这样的凌晨适合一遍一遍地重温这部 http://t.cn/Sywuj5","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp3.sinaimg.cn/1769758334/180/5628495937/1","avatar_hd":"http://tp3.sinaimg.cn/1769758334/180/5628495937/1","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":0,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:42:34]  Request:
+0    DEBUG [2014-06-13 06:42:34]  GET:https://api.weibo.com/2/users/domain_show.json
+35   DEBUG [2014-06-13 06:42:35]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+35   DEBUG [2014-06-13 06:42:35]  API-RemoteIP: 218.30.64.194
+550  DEBUG [2014-06-13 06:42:35]  Response:
+551  DEBUG [2014-06-13 06:42:35]  https StatusCode:200
+551  DEBUG [2014-06-13 06:42:35]  Server:nginx/1.2.0
+551  DEBUG [2014-06-13 06:42:35]  Date:Thu, 12 Jun 2014 14:42:33 GMT
+551  DEBUG [2014-06-13 06:42:35]  Content-Type:application/json;charset=UTF-8
+551  DEBUG [2014-06-13 06:42:35]  Transfer-Encoding:chunked
+551  DEBUG [2014-06-13 06:42:35]  Connection:keep-alive
+551  DEBUG [2014-06-13 06:42:35]  Api-Server-IP:10.75.5.103
+551  DEBUG [2014-06-13 06:42:35]  Vary:Accept-Encoding
+553  WARN  [2014-06-13 06:42:35]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+554  DEBUG [2014-06-13 06:42:35]  {"id":1819493773,"idstr":"1819493773","class":1,"screen_name":"鬏儿baby","name":"鬏儿baby","province":"33","city":"2","location":"浙江 宁波","description":"爱吃殷桃蛋糕","url":"http://blog.sina.com.cn/sinat","profile_image_url":"http://tp2.sinaimg.cn/1819493773/50/5628503591/0","profile_url":"adawanzi","domain":"adawanzi","weihao":"","gender":"f","followers_count":241,"friends_count":196,"statuses_count":366,"favourites_count":1,"created_at":"Mon Sep 13 21:04:30 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Wed May 23 10:15:53 +0800 2012","id":3448791170616094,"mid":"3448791170616094","idstr":"3448791170616094","text":"新发型哟   哎   皮肤不会好了","source":"<a href=\"http://app.weibo.com/t/feed/c66T5g\" rel=\"nofollow\">Android客户端</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/6c73458djw1dt81b0mu1jj.jpg"}],"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/6c73458djw1dt81b0mu1jj.jpg","bmiddle_pic":"http://ww1.sinaimg.cn/bmiddle/6c73458djw1dt81b0mu1jj.jpg","original_pic":"http://ww1.sinaimg.cn/large/6c73458djw1dt81b0mu1jj.jpg","geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp2.sinaimg.cn/1819493773/180/5628503591/0","avatar_hd":"http://tp2.sinaimg.cn/1819493773/180/5628503591/0","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":70,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:42:49]  Request:
+1    DEBUG [2014-06-13 06:42:49]  GET:https://api.weibo.com/2/users/domain_show.json
+43   DEBUG [2014-06-13 06:42:49]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+43   DEBUG [2014-06-13 06:42:49]  API-RemoteIP: 218.30.64.194
+515  DEBUG [2014-06-13 06:42:50]  Response:
+515  DEBUG [2014-06-13 06:42:50]  https StatusCode:200
+515  DEBUG [2014-06-13 06:42:50]  Server:nginx/1.2.0
+515  DEBUG [2014-06-13 06:42:50]  Date:Thu, 12 Jun 2014 14:42:48 GMT
+515  DEBUG [2014-06-13 06:42:50]  Content-Type:application/json;charset=UTF-8
+515  DEBUG [2014-06-13 06:42:50]  Transfer-Encoding:chunked
+515  DEBUG [2014-06-13 06:42:50]  Connection:keep-alive
+516  DEBUG [2014-06-13 06:42:50]  Api-Server-IP:10.75.5.55
+516  DEBUG [2014-06-13 06:42:50]  Vary:Accept-Encoding
+517  WARN  [2014-06-13 06:42:50]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+518  DEBUG [2014-06-13 06:42:50]  {"id":1803919622,"idstr":"1803919622","class":1,"screen_name":"Catxj喵喵","name":"Catxj喵喵","province":"44","city":"3","location":"广东 深圳","description":"水瓶女 心有杰妹^","url":"http://blog.163.com/ben_yabi/","profile_image_url":"http://tp3.sinaimg.cn/1803919622/50/5642386509/0","profile_url":"cxjun00","domain":"cxjun00","weihao":"","gender":"f","followers_count":737,"friends_count":221,"statuses_count":41,"favourites_count":37,"created_at":"Mon Aug 30 23:25:13 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":220,"remark":"","status":{"created_at":"Sun Oct 21 22:32:49 +0800 2012","id":3503697206383881,"mid":"3503697206383881","idstr":"3503697206383881","text":"我可能舍得吗？不可能的 我只认定你了 我爱你[爱你]","source":"<a href=\"http://app.weibo.com/t/feed/9ksdit\" rel=\"nofollow\">iPhone客户端</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[{"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/6b85a106jw1dy376dl9i6j.jpg"}],"thumbnail_pic":"http://ww3.sinaimg.cn/thumbnail/6b85a106jw1dy376dl9i6j.jpg","bmiddle_pic":"http://ww3.sinaimg.cn/bmiddle/6b85a106jw1dy376dl9i6j.jpg","original_pic":"http://ww3.sinaimg.cn/large/6b85a106jw1dy376dl9i6j.jpg","geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp3.sinaimg.cn/1803919622/180/5642386509/0","avatar_hd":"http://tp3.sinaimg.cn/1803919622/180/5642386509/0","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":106,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:43:00]  Request:
+0    DEBUG [2014-06-13 06:43:00]  GET:https://api.weibo.com/2/users/domain_show.json
+39   DEBUG [2014-06-13 06:43:00]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+40   DEBUG [2014-06-13 06:43:00]  API-RemoteIP: 218.30.64.194
+529  DEBUG [2014-06-13 06:43:00]  Response:
+529  DEBUG [2014-06-13 06:43:00]  https StatusCode:200
+530  DEBUG [2014-06-13 06:43:00]  Server:nginx/1.2.0
+530  DEBUG [2014-06-13 06:43:00]  Date:Thu, 12 Jun 2014 14:42:58 GMT
+530  DEBUG [2014-06-13 06:43:00]  Content-Type:application/json;charset=UTF-8
+530  DEBUG [2014-06-13 06:43:00]  Transfer-Encoding:chunked
+530  DEBUG [2014-06-13 06:43:00]  Connection:keep-alive
+530  DEBUG [2014-06-13 06:43:00]  Api-Server-IP:10.75.24.205
+530  DEBUG [2014-06-13 06:43:00]  Vary:Accept-Encoding
+532  WARN  [2014-06-13 06:43:00]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+533  DEBUG [2014-06-13 06:43:00]  {"id":2019000980,"idstr":"2019000980","class":1,"screen_name":"方迪-fRancky","name":"方迪-fRancky","province":"12","city":"5","location":"天津 河北区","description":"MusIc","url":"http://10197366.5sing.com/","profile_image_url":"http://tp1.sinaimg.cn/2019000980/50/5613954165/1","profile_url":"fdsinger","domain":"fdsinger","weihao":"","gender":"m","followers_count":1370,"friends_count":293,"statuses_count":1130,"favourites_count":2,"created_at":"Sat Mar 19 19:31:11 +0800 2011","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Wed Nov 23 20:30:51 +0800 2011","id":3382991340622559,"mid":"3382991340622559","idstr":"3382991340622559","text":"真 不可思议啊 。。。。","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp1.sinaimg.cn/2019000980/180/5613954165/1","avatar_hd":"http://tp1.sinaimg.cn/2019000980/180/5613954165/1","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":99,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:43:10]  Request:
+1    DEBUG [2014-06-13 06:43:10]  GET:https://api.weibo.com/2/users/domain_show.json
+37   DEBUG [2014-06-13 06:43:10]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+37   DEBUG [2014-06-13 06:43:10]  API-RemoteIP: 218.30.64.194
+627  DEBUG [2014-06-13 06:43:11]  Response:
+627  DEBUG [2014-06-13 06:43:11]  https StatusCode:200
+627  DEBUG [2014-06-13 06:43:11]  Server:nginx/1.2.0
+627  DEBUG [2014-06-13 06:43:11]  Date:Thu, 12 Jun 2014 14:43:09 GMT
+627  DEBUG [2014-06-13 06:43:11]  Content-Type:application/json;charset=UTF-8
+628  DEBUG [2014-06-13 06:43:11]  Transfer-Encoding:chunked
+628  DEBUG [2014-06-13 06:43:11]  Connection:keep-alive
+628  DEBUG [2014-06-13 06:43:11]  Api-Server-IP:10.75.24.200
+628  DEBUG [2014-06-13 06:43:11]  Vary:Accept-Encoding
+630  WARN  [2014-06-13 06:43:11]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+630  DEBUG [2014-06-13 06:43:11]  {"id":1899429117,"idstr":"1899429117","class":1,"screen_name":"我只是一次次违背自己","name":"我只是一次次违背自己","province":"400","city":"16","location":"海外 其他","description":"世皆无常 会者定离","url":"","profile_image_url":"http://tp2.sinaimg.cn/1899429117/50/40037217018/1","profile_url":"lenovo301786","domain":"lenovo301786","weihao":"","gender":"m","followers_count":465,"friends_count":65,"statuses_count":1932,"favourites_count":26,"created_at":"Wed Dec 22 00:00:01 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":false,"verified":false,"verified_type":220,"remark":"","status":{"created_at":"Thu Dec 12 20:57:10 +0800 2013","id":3654788871299241,"mid":"3654788871299241","idstr":"3654788871299241","text":"这次我没有说再见，是因为真的不会再见了。歌词里说人总需要勇敢生存。总会有不勇敢的人，不敢面对。这段说走就走的路程，到终点站了。好想再多写一些。可是一切都已经来不及了。满天神佛，你们看到了吧！！！","source":"<a href=\"http://app.weibo.com/t/feed/c66T5g\" rel=\"nofollow\">Android客户端</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[{"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/7136fcfdjw1ebh7tby71dj20hs0dc74f.jpg"}],"thumbnail_pic":"http://ww1.sinaimg.cn/thumbnail/7136fcfdjw1ebh7tby71dj20hs0dc74f.jpg","bmiddle_pic":"http://ww1.sinaimg.cn/bmiddle/7136fcfdjw1ebh7tby71dj20hs0dc74f.jpg","original_pic":"http://ww1.sinaimg.cn/large/7136fcfdjw1ebh7tby71dj20hs0dc74f.jpg","geo":null,"annotations":[{"client_mblogid":"ff564922-9c29-4d0d-81b1-eb812e2c7841"}],"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":false,"avatar_large":"http://tp2.sinaimg.cn/1899429117/180/40037217018/1","avatar_hd":"http://ww1.sinaimg.cn/crop.0.0.499.499.1024/7136fcfdgw1e9v4e0dpezj20dw0dw0v3.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":55,"lang":"zh-cn","star":0,"mbtype":2,"mbrank":1,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:43:24]  Request:
+0    DEBUG [2014-06-13 06:43:24]  GET:https://api.weibo.com/2/users/domain_show.json
+35   DEBUG [2014-06-13 06:43:24]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+36   DEBUG [2014-06-13 06:43:24]  API-RemoteIP: 218.30.64.194
+695  DEBUG [2014-06-13 06:43:25]  Response:
+695  DEBUG [2014-06-13 06:43:25]  https StatusCode:200
+696  DEBUG [2014-06-13 06:43:25]  Server:nginx/1.2.0
+696  DEBUG [2014-06-13 06:43:25]  Date:Thu, 12 Jun 2014 14:43:23 GMT
+696  DEBUG [2014-06-13 06:43:25]  Content-Type:application/json;charset=UTF-8
+696  DEBUG [2014-06-13 06:43:25]  Transfer-Encoding:chunked
+696  DEBUG [2014-06-13 06:43:25]  Connection:keep-alive
+696  DEBUG [2014-06-13 06:43:25]  Api-Server-IP:10.75.5.65
+696  DEBUG [2014-06-13 06:43:25]  Vary:Accept-Encoding
+698  WARN  [2014-06-13 06:43:25]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+699  DEBUG [2014-06-13 06:43:25]  {"id":1686536017,"idstr":"1686536017","class":1,"screen_name":"密林精灵舞","name":"密林精灵舞","province":"100","city":"1000","location":"其他","description":"喜欢快乐地徜徉于星光和月光下，最爱参加吾王瑟兰督伊Thranduil举办的篝火宴会╭(╯3╰)╮","url":"","profile_image_url":"http://tp2.sinaimg.cn/1686536017/50/5676246807/0","profile_url":"yinxuetingzhu","domain":"yinxuetingzhu","weihao":"","gender":"f","followers_count":1519,"friends_count":230,"statuses_count":2369,"favourites_count":8,"created_at":"Tue Jan 26 15:43:28 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Mon Dec 16 12:08:13 +0800 2013","id":3656105299162978,"mid":"3656105299162978","idstr":"3656105299162978","text":"天国没有压力和欺骗，与世无争善良的姐姐，好好享受你喜欢的东西吧..你的马克西姆..精灵王，还有..超爱的电影","source":"<a href=\"http://weibo.com/\" rel=\"nofollow\">微博 weibo.com</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":false,"avatar_large":"http://tp2.sinaimg.cn/1686536017/180/5676246807/0","avatar_hd":"http://ww3.sinaimg.cn/crop.67.13.145.145.1024/64867f51jw1e9emzypv2aj20g4087myg.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":119,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+
+0    DEBUG [2014-06-13 06:43:38]  Request:
+1    DEBUG [2014-06-13 06:43:38]  GET:https://api.weibo.com/2/users/domain_show.json
+44   DEBUG [2014-06-13 06:43:38]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+44   DEBUG [2014-06-13 06:43:38]  API-RemoteIP: 218.30.64.194
+582  DEBUG [2014-06-13 06:43:39]  Response:
+582  DEBUG [2014-06-13 06:43:39]  https StatusCode:200
+582  DEBUG [2014-06-13 06:43:39]  Server:nginx/1.2.0
+583  DEBUG [2014-06-13 06:43:39]  Date:Thu, 12 Jun 2014 14:43:37 GMT
+583  DEBUG [2014-06-13 06:43:39]  Content-Type:application/json;charset=UTF-8
+583  DEBUG [2014-06-13 06:43:39]  Transfer-Encoding:chunked
+583  DEBUG [2014-06-13 06:43:39]  Connection:keep-alive
+583  DEBUG [2014-06-13 06:43:39]  Api-Server-IP:10.75.5.61
+583  DEBUG [2014-06-13 06:43:39]  Vary:Accept-Encoding
+585  WARN  [2014-06-13 06:43:39]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+586  DEBUG [2014-06-13 06:43:39]  {"id":1673640490,"idstr":"1673640490","class":1,"screen_name":"YYYYY1220","name":"YYYYY1220","province":"44","city":"3","location":"广东 深圳","description":"","url":"","profile_image_url":"http://tp3.sinaimg.cn/1673640490/50/5651546587/0","profile_url":"02wmj","domain":"02wmj","weihao":"","gender":"f","followers_count":239,"friends_count":115,"statuses_count":21,"favourites_count":150,"created_at":"Mon Jan 30 21:57:55 +0800 2012","following":false,"allow_all_act_msg":true,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","status":{"created_at":"Tue Feb 19 23:38:00 +0800 2013","id":3547562533960458,"mid":"3547562533960458","idstr":"3547562533960458","text":"王棉君的各位同学朋友们，王棉君于正月十二日（即国历2月21日）早上9点钟进行火化，如果有同学朋友们需要见她最后一面的请前往殡仪馆或者21号8点在黄木岗客家王前有专门中巴前往殡仪馆，我们不进行花圈仪式，如有疑问请致电15986630209","source":"<a href=\"http://app.weibo.com/t/feed/9ksdit\" rel=\"nofollow\">iPhone客户端</a>","favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_urls":[],"geo":null,"reposts_count":0,"comments_count":0,"attitudes_count":0,"mlevel":0,"visible":{"type":0,"list_id":0}},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp3.sinaimg.cn/1673640490/180/5651546587/0","avatar_hd":"http://tp3.sinaimg.cn/1673640490/180/5651546587/0","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":81,"lang":"zh-tw","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"worldcup_guess":0}
+

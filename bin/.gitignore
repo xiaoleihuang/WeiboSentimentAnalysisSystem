@@ -1,0 +1,7 @@
+/config.properties
+/log4j.properties
+/retrieval_System/
+/retrieval_extractor/
+/retrieval_receiver/
+/retrieval_writer/
+/weibo4j/
