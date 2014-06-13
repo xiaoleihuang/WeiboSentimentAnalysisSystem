@@ -14,8 +14,8 @@ import retrieval_writer.WeiboWriter;
  * @author xiaolei
  */
 public class CrawlSuicideWeiboAndProfile {
-	private final String name="610337308@qq.com";
-	private final String pwd="h67868377";
+	private final String name="";
+	private final String pwd="";
 	public static List<String> uids;
 	private WeiboCrawler crawler;
 	static{
