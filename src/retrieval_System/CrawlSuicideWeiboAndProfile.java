@@ -51,6 +51,7 @@ public class CrawlSuicideWeiboAndProfile {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub		
+		//args[0] is login account's name, args[1] is the password
 		new CrawlSuicideWeiboAndProfile(args[0],args[1]);
 	}
 }
