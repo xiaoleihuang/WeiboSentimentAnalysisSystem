@@ -1,10 +1,9 @@
-package retrieval_System;
+package buildIndex;
 
-public class TestFansFollowersCrawler {
+public class BuildIndex {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
-
 }
