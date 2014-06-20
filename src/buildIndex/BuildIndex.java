@@ -1,6 +1,7 @@
 package buildIndex;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -9,6 +10,7 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
@@ -34,7 +36,7 @@ public class BuildIndex {
 	GetAllWeiboPosts alldata=new GetAllWeiboPosts();
 	private List<OneWeibo> list=new ArrayList<OneWeibo>();
 	
-	public BuildIndex(){
+	public BuildIndex() throws CorruptIndexException, IOException{
 		start=System.currentTimeMillis();
 		//The place to put index data
 		File index=new File(this.index2bePlaced);
@@ -47,13 +49,13 @@ public class BuildIndex {
 		Analyzer luceneAnalyzer=new SmartChineseAnalyzer(Version.LUCENE_36,stopwords);
 		writer=new IndexWriter(indexDir,new IndexWriterConfig(Version.LUCENE_36,luceneAnalyzer));
 
-		for(OneComment comment:list){
+		for(OneWeibo comment:list){
 			Document doc=new Document();
 			
-			Field rate=new Field("rate", comment.getLevel(), Field.Store.YES, Field.Index.NOT_ANALYZED_NO_NORMS, Field.TermVector.NO);
+			Field date=new Field("date", comment.getDate(), Field.Store.YES, Field.Index.NOT_ANALYZED_NO_NORMS, Field.TermVector.NO);
 			Field content=new Field("content", comment.getContent(), Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
 			
-			doc.add(rate);
+			doc.add(date);
 			doc.add(content);
 			writer.addDocument(doc);
 		}
