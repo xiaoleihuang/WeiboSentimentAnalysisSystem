@@ -5,7 +5,6 @@ import weibo4j.model.User;
 /**
  * Get User's Profile information as JSon data format
  * @author xiaolei
- *
  */
 public class TestUserProfile {
 	public static void main(String[] args) {

@@ -14,8 +14,8 @@ import retrieval_writer.WeiboWriter;
  * @author xiaolei
  */
 public class CrawlSuicideWeiboAndProfile {
-	private final String name="";
-	private final String pwd="";
+	private String name="";
+	private String pwd="";
 	public static List<String> uids;
 	private WeiboCrawler crawler;
 	static{
@@ -23,9 +23,12 @@ public class CrawlSuicideWeiboAndProfile {
 		uids=reader.readUid();
 	}
 	/**
-	 * 
+	 * @param u name
+	 * @param p pwd
 	 */
-	public CrawlSuicideWeiboAndProfile(){
+	public CrawlSuicideWeiboAndProfile(String u, String p){
+		name=u;
+		pwd=p;
 		int count=0;
 		for(int i=0;i<uids.size();i++){
 			crawler=new WeiboCrawler(uids.get(i), name, pwd, 200);
@@ -48,6 +51,6 @@ public class CrawlSuicideWeiboAndProfile {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub		
-		
+		new CrawlSuicideWeiboAndProfile(args[0],args[1]);
 	}
 }
