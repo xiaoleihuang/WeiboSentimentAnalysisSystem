@@ -45,6 +45,18 @@
 	<classpathentry kind="lib" path="lib/webdriver/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.29-bin.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-analyzers-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-core-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-facet-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-grouping-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-highlighter-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-icu-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-queries-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-queryparser-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-smartcn-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-spellchecker-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-stempel-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene36/lucene-xml-query-parser-3.6.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
