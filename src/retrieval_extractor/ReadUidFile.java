@@ -29,7 +29,6 @@ public class ReadUidFile {
 		path=chooser.getSelectedFile().getAbsolutePath();
 		try {
 			reader=new BufferedReader(new FileReader(path));
-			reader.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,5 +58,14 @@ public class ReadUidFile {
 	 */
 	public String getPath(){
 		return this.path;
+	}
+	
+	public void close(){
+		try {
+			reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
