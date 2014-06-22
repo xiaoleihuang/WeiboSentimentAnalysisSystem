@@ -64,6 +64,9 @@ public class Segmentation {
 		GetStopWords getstop = new GetStopWords();
 		String str="我回北京了[熊猫]到家了！还有一个星期就开学啦！好想大家！！";
 		Segmentation s=new Segmentation(getstop.getWords());
-		s.getSegmentationResults(str);
+		List<Term> terms=s.getSegmentationResults(str);
+		for(Term t:terms){
+			System.out.print(t);
+		}
 	}
 }
