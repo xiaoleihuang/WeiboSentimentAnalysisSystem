@@ -3,12 +3,12 @@ package model_segmentation;
 import java.io.IOException;
 import java.util.List;
 
+import model_buildIndex.GetStopWords;
+
 import org.ansj.domain.Term;
 import org.ansj.recognition.NatureRecognition;
 import org.ansj.splitWord.analysis.ToAnalysis;
 import org.ansj.util.FilterModifWord;
-
-import buildIndex.GetStopWords;
 
 /**
  * Segment sentence into different terms, the terms could be either single word or phrase

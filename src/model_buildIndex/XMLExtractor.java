@@ -1,4 +1,4 @@
-package buildIndex;
+package model_buildIndex;
 
 import java.io.File;
 import java.io.IOException;
