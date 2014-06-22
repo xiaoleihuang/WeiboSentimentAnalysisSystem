@@ -60,7 +60,7 @@ public class WeiboExtractor {
 			String content=element.findElement(By.className("ctt")).getText();
 			String time=element.findElement(By.className("ct")).getText().split("来自")[0];
 			time=TimeExtractor.extractTime(time);
-			return new OneWeibo(content, time, 1);
+			return new OneWeibo(content, time, 0);
 		}
 	}
 }
