@@ -58,7 +58,6 @@
 	<classpathentry kind="lib" path="lib/lucene36/lucene-stempel-3.6.2.jar"/>
 	<classpathentry kind="lib" path="lib/lucene36/lucene-xml-query-parser-3.6.2.jar"/>
 	<classpathentry kind="lib" path="lib/analyzer/ansj_lucene3_plug-1.0.jar"/>
-	<classpathentry kind="lib" path="lib/analyzer/ansj_seg-1.4.1.jar"/>
 	<classpathentry kind="lib" path="lib/analyzer/tree_split-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/mallet/bsh.jar"/>
 	<classpathentry kind="lib" path="lib/mallet/grmm-deps.jar"/>
@@ -93,6 +92,7 @@
 			<attribute name="javadoc_location" value="jar:file:/home/xiaolei/jar/standford/stanford-corenlp-full-2014-01-04/stanford-corenlp-3.3.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/analyzer/ansj_seg-1.4.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

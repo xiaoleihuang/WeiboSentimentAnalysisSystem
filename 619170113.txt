@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <posts uid="619170113" count="209">
-<post type="1">
+<post type="0">
 <content>从今天起，我的微薄将会永远的关闭，再见各位！</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.12.01 17:30</date>
 </post>
 <post type="1">
@@ -49,18 +46,12 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.26 07:11</date>
 </post>
-<post type="1">
+<post type="0">
 <content>这里没有末路，你从不曾孤独。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.26 06:46</date>
 </post>
-<post type="1">
+<post type="0">
 <content>我是不是该去买个睡袋加帐篷mb</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.26 06:26</date>
 </post>
 <post type="1">
@@ -112,11 +103,8 @@
 <forwardChain>@尕靜L: 天蝎各种不讲道理！ </forwardChain>
 <date>2011.11.24 07:46</date>
 </post>
-<post type="1">
+<post type="0">
 <content>6点半起来坚挺到现在持续亢奋，又是愉快的一天= =</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.24 07:36</date>
 </post>
 <post type="1">
@@ -126,11 +114,8 @@
 <forwardChain>@甜蜜情侣吧: 有你的陪伴，我根本不需要天堂。[爱]</forwardChain>
 <date>2011.11.22 21:42</date>
 </post>
-<post type="1">
+<post type="0">
 <content>我参与了@VISION微视觉 发起的投票【调查一下，女孩子和男孩子看美女的眼光是不是一样？～】，我投给了"我是男的 我选3"这1个选项。快快来参与投票：http://t.cn/aRJMf5</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.22 19:10</date>
 </post>
 <post type="1">
@@ -161,11 +146,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.22 18:33</date>
 </post>
-<post type="1">
+<post type="0">
 <content>Oliver 你彻底亮了~~小生佩服的五体投地</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.22 18:25</date>
 </post>
 <post type="1">
@@ -182,11 +164,8 @@
 <forwardChain>@saki_小亚麻星: 嘿嘿 这种人我最后就不理他啦 何必呢</forwardChain>
 <date>2011.11.22 07:59</date>
 </post>
-<post type="1">
+<post type="0">
 <content>你好困难模式的第17年，再贱过往。[阴险][阴险]</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.22 01:04</date>
 </post>
 <post type="1">
@@ -238,11 +217,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.20 18:15</date>
 </post>
-<post type="1">
+<post type="0">
 <content>无论是什么样的夜晚都这么值得怀念~看完暮4转战网吧在公交车上死磕三小时的昨晚。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.19 23:50</date>
 </post>
 <post type="1">
@@ -294,11 +270,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.17 22:54</date>
 </post>
-<post type="1">
+<post type="0">
 <content>用自己的光照亮自己</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.17 22:54</date>
 </post>
 <post type="1">
@@ -315,18 +288,12 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.17 06:56</date>
 </post>
-<post type="1">
+<post type="0">
 <content>心情愉悦的一天，虽然吃顿饭还碰到最讨厌的人 没有之一。[花心]</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.17 06:48</date>
 </post>
-<post type="1">
+<post type="0">
 <content>完了，我觉得我要买闹钟了。现在没法自己起来了，爱赖床爱睡懒觉了。。。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.16 07:35</date>
 </post>
 <post type="1">
@@ -364,18 +331,12 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.15 23:11</date>
 </post>
-<post type="1">
+<post type="0">
 <content>= = 国足总爱这么爱玩</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.15 22:41</date>
 </post>
-<post type="1">
+<post type="0">
 <content>过了小情歌的简单纯情，忘了让我照顾你的一世承诺，换得哄我入睡的一夜无眠。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.15 04:31</date>
 </post>
 <post type="1">
@@ -420,11 +381,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.14 19:53</date>
 </post>
-<post type="1">
+<post type="0">
 <content>狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记狂人日记</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.14 17:54</date>
 </post>
 <post type="1">
@@ -448,11 +406,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.14 17:32</date>
 </post>
-<post type="1">
+<post type="0">
 <content>BUG?สสสสสส</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.14 17:31</date>
 </post>
 <post type="1">
@@ -504,11 +459,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.12 23:59</date>
 </post>
-<post type="1">
+<post type="0">
 <content>十年生死两茫茫，不思量，forever young，千里孤坟，everything’s gone。纵使相逢应不识，尘满面，hair’s long。 昨夜幽梦忽还乡，小轩窗，sing sad song，相顾无言，only tears down。料得年年断肠处，明月夜，must hold on。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.12 21:30</date>
 </post>
 <post type="1">
@@ -553,11 +505,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.11 19:24</date>
 </post>
-<post type="1">
+<post type="0">
 <content>2011-11-11 11:11</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.11 18:11</date>
 </post>
 <post type="1">
@@ -581,18 +530,12 @@
 <forwardChain>@全球家居汇: 今天是你往后日子里最年轻的一天了[good]</forwardChain>
 <date>2011.11.11 15:41</date>
 </post>
-<post type="1">
+<post type="0">
 <content>六一儿童节，世纪光棍节，世纪情人节快乐</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.11 07:00</date>
 </post>
-<post type="1">
+<post type="0">
 <content>一马一鞍，一心一意，一生一世</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.11 07:00</date>
 </post>
 <post type="1">
@@ -616,46 +559,28 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.10 21:39</date>
 </post>
-<post type="1">
+<post type="0">
 <content>怎么过..?</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.10 21:38</date>
 </post>
-<post type="1">
+<post type="0">
 <content>你回来你不回来 尽管天蹋下来 但仍然值得与你 用余下时间谈论爱</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.10 18:23</date>
 </post>
-<post type="1">
+<post type="0">
 <content>[熊猫] 心情不好，可是明天还要上班上学。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.10 06:46</date>
 </post>
-<post type="1">
+<post type="0">
 <content>一在天之涯，一在地之角，生而影不与吾形相依，死而魂不与吾梦相接。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.10 06:40</date>
 </post>
-<post type="1">
+<post type="0">
 <content>我希望长大以后不犯错，我希望一家几口好好过。我希望爱我的人不寂寞，我希望我爱的人喜欢我。我希望流浪的人有个窝，我希望主义不是个枷锁。我希望没有一生有苹果，我希望我的愿望不算多。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.10 06:31</date>
 </post>
-<post type="1">
+<post type="0">
 <content>别听陈奕迅..</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.10 06:11</date>
 </post>
 <post type="1">
@@ -679,18 +604,12 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.10 05:18</date>
 </post>
-<post type="1">
+<post type="0">
 <content>剥开洋葱发现没有心，其实你剥的就是一颗心。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.10 02:41</date>
 </post>
-<post type="1">
+<post type="0">
 <content>每一个男人的心中，有多少的焦虑有多少的恐慌，因为这个世界上这么多的狼，我这只牧羊犬只好放弃我的温顺，向着这个世界放出最耀眼的光。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.09 19:20</date>
 </post>
 <post type="1">
@@ -717,7 +636,7 @@
 <post type="1">
 <content>如果你在蹦极过程中绳子突然断了，但你只能喊两个字，你会喊什么？？？</content>
 <forwardReason>转发理由:真好</forwardReason>
-<fromWho>kuangjinhua</fromWho>
+<fromWho>277226033</fromWho>
 <forwardChain>@全球奇闻趣事: 跟斗云！[呲牙]</forwardChain>
 <date>2011.11.09 17:44</date>
 </post>
@@ -791,11 +710,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.08 18:18</date>
 </post>
-<post type="1">
+<post type="0">
 <content>唯有说不出来的苦，最耐人寻味。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.08 04:45</date>
 </post>
 <post type="1">
@@ -812,11 +728,8 @@
 <forwardChain>@我们爱讲冷笑话: [奥特曼] 小明最近好红。。。</forwardChain>
 <date>2011.11.07 19:30</date>
 </post>
-<post type="1">
+<post type="0">
 <content>给你</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.07 19:28</date>
 </post>
 <post type="1">
@@ -882,11 +795,8 @@
 <forwardChain>@天蝎座専属: 不要越过天蝎的底线，后果很严重！！！！！</forwardChain>
 <date>2011.11.07 14:43</date>
 </post>
-<post type="1">
+<post type="0">
 <content>连路灯都疲照亮我的床头？NMB。。。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.07 07:27</date>
 </post>
 <post type="1">
@@ -896,32 +806,20 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.07 07:18</date>
 </post>
-<post type="1">
+<post type="0">
 <content>分享图片</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.07 06:31</date>
 </post>
-<post type="1">
+<post type="0">
 <content>卖相还是不错的，惬意...</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.07 06:21</date>
 </post>
-<post type="1">
+<post type="0">
 <content>开心可以不必和我分享，但是难过的时候一定要来找我。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.07 05:53</date>
 </post>
-<post type="1">
+<post type="0">
 <content>要更加努力咯，加油</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.06 23:56</date>
 </post>
 <post type="1">
@@ -966,18 +864,12 @@
 <forwardChain>@星座爱情001: 是啊！听了就不爽[怒]</forwardChain>
 <date>2011.11.06 04:20</date>
 </post>
-<post type="1">
+<post type="0">
 <content>当我们爱上上一个人她是展现在公众前的样子，自信优雅时髦幽默体贴善解人意，我们爱上那个人，才发现她身体里，那么多的喜怒哀乐她的悲伤 她的软弱，她的种种的让你觉得你怎么会爱上这样一个人，你无法忍受的地方一一暴露在你的面前。这个时候我们总会忘了最重要的事，你能看到这些是因为她也爱你。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.03 21:31</date>
 </post>
-<post type="1">
+<post type="0">
 <content>气场是吸引力是魔力!!!来测测你的气场有多强？@林修武 的气场强度是75，主气场颜色是胭脂红，神秘又充满魅力，有着很大的野心，喜欢挑战。真是太准了！！你也来试试>> http://t.cn/aFEYrb (来自@堆糖网)</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.03 18:48</date>
 </post>
 <post type="1">
@@ -994,11 +886,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.03 18:36</date>
 </post>
-<post type="1">
+<post type="0">
 <content>整点睡觉。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.03 07:00</date>
 </post>
 <post type="1">
@@ -1029,18 +918,12 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.02 20:34</date>
 </post>
-<post type="1">
+<post type="0">
 <content>= = 抽根烟去@t_C_ 一根还真是会晕~</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.02 11:59</date>
 </post>
-<post type="1">
+<post type="0">
 <content>晚安， 20111102。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.02 07:00</date>
 </post>
 <post type="1">
@@ -1057,11 +940,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.02 04:48</date>
 </post>
-<post type="1">
+<post type="0">
 <content>一路上给我来好几个急刹车，司机你肿末了？</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.02 00:55</date>
 </post>
 <post type="1">
@@ -1072,9 +952,9 @@
 <date>2011.11.02 00:52</date>
 </post>
 <post type="1">
-<content>我以我的方式爱你，你却说我不了解你，可是我想告诉你，我也许给你的不是你想要的，但是我给你的都是我认为最好的。。。《第一百二十二封》@妮可的999封情书</content>
+<content>抱歉，此微博已被作者删除。查看帮助：http://t.cn/zWSudZc</content>
 <forwardReason>转发理由:无 赞[0] 转发[0] 评论[0] 收藏 2011-11-02 00:50:37 来自iPhone客户端</forwardReason>
-<fromWho>nkdqs</fromWho>
+<fromWho>sinaurl?f=w&u=http%3A%2F%2Ft.cn%2FzWSudZc&ep=xvvhvyMSs%2C1737811415%2CxvrFm7OjY%2C</fromWho>
 <forwardChain>null</forwardChain>
 <date>2011.11.02 00:50</date>
 </post>
@@ -1099,32 +979,20 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.01 10:01</date>
 </post>
-<post type="1">
+<post type="0">
 <content>Hello，November</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.01 07:00</date>
 </post>
-<post type="1">
+<post type="0">
 <content>我要慢节奏，不急不躁~</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.01 06:18</date>
 </post>
-<post type="1">
+<post type="0">
 <content>我荒废的今日，正是昨日殒身之人祈求的明日。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.01 05:42</date>
 </post>
-<post type="1">
+<post type="0">
 <content>要留心河上的船儿，看看经过的火车、肩负重物的乡下人，观察有钱人的自大，那些大人物和自以为是的万事通的骄傲。你只要观察，不要批判。如果你能机警地、敏锐地观察，而不加以评断，不做结论，你会发现自己的思想变得惊人的敏锐，然后你就能一直不断地学习。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.01 05:36</date>
 </post>
 <post type="1">
@@ -1134,18 +1002,12 @@
 <forwardChain>null</forwardChain>
 <date>2011.11.01 05:35</date>
 </post>
-<post type="1">
+<post type="0">
 <content>半梦半醒脑子在想一些问题，突然像是进入梦里有个声音竟然回答了我那些问题，清醒过来的时候突然觉的可怕。。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.01 05:18</date>
 </post>
-<post type="1">
+<post type="0">
 <content>噗，原来是这种感觉。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.11.01 01:08</date>
 </post>
 <post type="1">
@@ -1170,9 +1032,9 @@
 <date>2011.10.31 16:45</date>
 </post>
 <post type="1">
-<content>我想要的不过是一个不管多难却始终都会在我身边的人。。。《第一百一十六封》@妮可的999封情书</content>
+<content>抱歉，此微博已被作者删除。查看帮助：http://t.cn/zWSudZc</content>
 <forwardReason>转发理由:转发微博</forwardReason>
-<fromWho>nkdqs</fromWho>
+<fromWho>sinaurl?f=w&u=http%3A%2F%2Ft.cn%2FzWSudZc&ep=xvix955zB%2C1737811415%2CxvfSJr7zg%2C</fromWho>
 <forwardChain>null</forwardChain>
 <date>2011.10.31 16:23</date>
 </post>
@@ -1190,11 +1052,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.10.30 19:31</date>
 </post>
-<post type="1">
+<post type="0">
 <content>如果有一天你说你要离去，我会迷失我自己，走入无边人海里。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.30 00:50</date>
 </post>
 <post type="1">
@@ -1239,11 +1098,8 @@
 <forwardChain>@甜蜜情侣吧:人生到底该多担心还是不必担心，真是让人很担心。[生病] @几米漫画故事</forwardChain>
 <date>2011.10.26 15:44</date>
 </post>
-<post type="1">
+<post type="0">
 <content>我爱你宝贝晚安</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.26 08:48</date>
 </post>
 <post type="1">
@@ -1267,11 +1123,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.10.25 14:05</date>
 </post>
-<post type="1">
+<post type="0">
 <content>火锅火锅火锅火锅~丰盛的一顿</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.24 22:57</date>
 </post>
 <post type="1">
@@ -1281,11 +1134,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.10.22 17:06</date>
 </post>
-<post type="1">
+<post type="0">
 <content>暧昧爱你妹</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.22 13:42</date>
 </post>
 <post type="1">
@@ -1302,18 +1152,12 @@
 <forwardChain>@时尚经典语录:陈奕迅《好久不见》动画改编</forwardChain>
 <date>2011.10.22 13:38</date>
 </post>
-<post type="1">
+<post type="0">
 <content>谁给的世界我都会怀疑。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.22 13:37</date>
 </post>
-<post type="1">
+<post type="0">
 <content>一个月整</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.21 21:52</date>
 </post>
 <post type="1">
@@ -1323,11 +1167,8 @@
 <forwardChain>@美容健康: [偷笑]</forwardChain>
 <date>2011.10.21 20:45</date>
 </post>
-<post type="1">
+<post type="0">
 <content>生活不可能像你想象得那么好，但也不会像你想象得那么糟。我觉得人的脆弱和坚强都超乎自己的想象。有时，我可能脆弱得一句话就泪流满面，有时，也发现自己咬着牙走了很长的路。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.21 20:16</date>
 </post>
 <post type="1">
@@ -1351,11 +1192,8 @@
 <forwardChain>@星座爱情001: @几米漫画世界</forwardChain>
 <date>2011.10.21 18:19</date>
 </post>
-<post type="1">
+<post type="0">
 <content>知道了男人的心酸，才知道女人的眼泪有多轻。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.21 17:56</date>
 </post>
 <post type="1">
@@ -1366,9 +1204,9 @@
 <date>2011.10.21 16:33</date>
 </post>
 <post type="1">
-<content>我不需要那个人有多完美，我只需要那个人能让我感觉到，我就是唯一。。。《第七十一封》@妮可的999封情书</content>
+<content>抱歉，此微博已被作者删除。查看帮助：http://t.cn/zWSudZc</content>
 <forwardReason>转发理由:无 赞[0] 转发[0] 评论[0] 收藏 2011-10-21 07:25:54 来自iPhone客户端</forwardReason>
-<fromWho>nkdqs</fromWho>
+<fromWho>sinaurl?f=w&u=http%3A%2F%2Ft.cn%2FzWSudZc&ep=xtIK01rhM%2C1737811415%2CxtzZ9yKp5%2C</fromWho>
 <forwardChain>null</forwardChain>
 <date>2011.10.21 07:25</date>
 </post>
@@ -1386,11 +1224,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.10.21 06:34</date>
 </post>
-<post type="1">
+<post type="0">
 <content>~</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.20 23:28</date>
 </post>
 <post type="1">
@@ -1407,11 +1242,8 @@
 <forwardChain>@星座爱情001: 最独特的个性标志[兔子]</forwardChain>
 <date>2011.10.19 17:50</date>
 </post>
-<post type="1">
+<post type="0">
 <content>一个晚上下了三场梦折腾..</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.19 15:44</date>
 </post>
 <post type="1">
@@ -1428,11 +1260,8 @@
 <forwardChain>null</forwardChain>
 <date>2011.10.19 07:00</date>
 </post>
-<post type="1">
+<post type="0">
 <content>给一片温暖的寂地，没有背信弃义，没有逢场作戏，只有情真意切，只有摇曳生姿的笑容。不愿一个人的兵荒马乱。</content>
-<forwardReason>null</forwardReason>
-<fromWho>null</fromWho>
-<forwardChain>null</forwardChain>
 <date>2011.10.19 04:00</date>
 </post>
 <post type="1">
