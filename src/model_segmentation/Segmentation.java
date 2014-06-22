@@ -9,8 +9,6 @@ import org.ansj.splitWord.analysis.ToAnalysis;
 import org.ansj.util.FilterModifWord;
 
 import buildIndex.GetStopWords;
-import retrieval_extractor.GetAllWeiboPosts;
-import retrieval_extractor.OneWeibo;
 
 /**
  * Segment sentence into different terms, the terms could be either single word or phrase
@@ -18,26 +16,54 @@ import retrieval_extractor.OneWeibo;
  * @version 1.0
  */
 public class Segmentation {
-	List<OneWeibo> list;
-	GetAllWeiboPosts posts=new GetAllWeiboPosts();
+	List<Term> terms;
 	GetStopWords getstop;
+	/**
+	 * constructor with preset stop words
+	 */
 	public Segmentation(){
 		try {
-			getstop=new GetStopWords();
-			FilterModifWord.insertStopWords(getstop.getWords());
-			list=posts.getList();
-			List<Term> terms=ToAnalysis.parse("");
-			new NatureRecognition(terms).recognition();
-			terms=FilterModifWord.modifResult(terms);
+			getstop = new GetStopWords();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		FilterModifWord.insertStopWords(getstop.getWords());
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	/**
+	 * constructor with user defined stop words
+	 * @param stopwords stop words
+	 */
+	public Segmentation(List<String> stopwords){
+		FilterModifWord.insertStopWords(stopwords);
 	}
-
+	
+	/**
+	 * @param content the sentence needs to be segmented
+	 * @return list of terms, contains terms' nature and segmented terms with filtered by stop words.
+	 */
+	public List<Term> getSegmentationResults(String content){
+		terms=ToAnalysis.parse(content);
+		new NatureRecognition(terms).recognition();
+		terms=FilterModifWord.modifResult(terms);
+		return this.terms;
+	}
+	
+	/**
+	 * static method to segment sentence into terms, this method with no stop word filter
+	 * @param str the sentence needs to be segmented
+	 * @return list of terms, contains terms' nature and segmented terms.
+	 */
+	public static List<Term> segmentSentence(String str){
+		return ToAnalysis.parse(str);
+	}
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		GetStopWords getstop = new GetStopWords();
+		String str="我回北京了[熊猫]到家了！还有一个星期就开学啦！好想大家！！";
+		Segmentation s=new Segmentation(getstop.getWords());
+		s.getSegmentationResults(str);
+	}
 }

@@ -77,10 +77,22 @@
 	<classpathentry kind="lib" path="lib/stanford/topicModel.jar"/>
 	<classpathentry kind="lib" path="lib/stanford/xom.jar"/>
 	<classpathentry kind="lib" path="lib/stanford/parser/stanford-parser-3.3.1-models.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/parser/stanford-parser.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/classifier/stanford-classifier.jar"/>
+	<classpathentry kind="lib" path="lib/stanford/parser/stanford-parser.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/home/xiaolei/jar/standford/stanford-parser-full-2014-01-04/stanford-parser-3.3.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/stanford/classifier/stanford-classifier.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/home/xiaolei/jar/standford/stanford-classifier-2014-01-04/stanford-classifier-3.3.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/stanford/core/stanford-corenlp-3.3.1-models.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/core/stanford-corenlp-3.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/stanford/core/stanford-corenlp-3.3.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/home/xiaolei/jar/standford/stanford-corenlp-full-2014-01-04/stanford-corenlp-3.3.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
