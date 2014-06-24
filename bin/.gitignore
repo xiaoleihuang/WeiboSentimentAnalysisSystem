@@ -1,3 +1,8 @@
-/model_segmentation/
-/model_buildIndex/
 /model_word2vec/
+/retrieval_System/
+/retrieval_extractor/
+/retrieval_receiver/
+/retrieval_writer/
+/weibo4j/
+/model_buildIndex/
+/model_segmentation/

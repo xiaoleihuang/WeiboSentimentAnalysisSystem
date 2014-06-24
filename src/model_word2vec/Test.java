@@ -2,7 +2,7 @@ package model_word2vec;
 
 import java.io.IOException;
 
-import org.ansj.splitWord.analysis.ToAnalysis;
+//import org.ansj.splitWord.analysis.ToAnalysis;
 
 public class Test {
     public static void main(String[] args) throws IOException {

@@ -1,7 +1,6 @@
 package model_word2vec;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.TreeSet;
 
 /**
