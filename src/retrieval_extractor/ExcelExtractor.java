@@ -1,6 +1,8 @@
 package retrieval_extractor;
 
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 //import javax.swing.JFileChooser;
@@ -85,8 +87,22 @@ public class ExcelExtractor {
 	public List<ExcelWeiboPost> getList(){
 		return this.list;
 	}
+	
+	public void Write2File(){
+		try {
+			BufferedWriter writer=new BufferedWriter(new FileWriter("./resource/suicide.txt"));
+			for(ExcelWeiboPost post:list){
+				writer.append(post.getPostId()+"\t"+post.getContent()+"\t"+post.getDate()+"\n");
+			}
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new ExcelExtractor();
+		new ExcelExtractor().Write2File();;
 	}
 }
