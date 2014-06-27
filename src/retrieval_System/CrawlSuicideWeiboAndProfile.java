@@ -36,9 +36,9 @@ public class CrawlSuicideWeiboAndProfile {
 			count=+crawler.getPostsList().size();
 			crawler.close();
 			WeiboWriter.WritePosts2File(uids.get(i), crawler.getPostsList(), "");//write file under the project
-			GetUserProfile profile=new GetUserProfile();
-			GetUserTags getTags=new GetUserTags();
-			WeiboWriter.WriteUserProfile2MySQL(profile.getUserById(uids.get(i)), getTags.getTags(uids.get(i)));
+//			GetUserProfile profile=new GetUserProfile();
+//			GetUserTags getTags=new GetUserTags();
+//			WeiboWriter.WriteUserProfile2MySQL(profile.getUserById(uids.get(i)), getTags.getTags(uids.get(i)));
 			if(count>950){
 				try {
 					Thread.sleep(3600000);
@@ -53,6 +53,6 @@ public class CrawlSuicideWeiboAndProfile {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub		
 		//args[0] is login account's name, args[1] is the password
-		new CrawlSuicideWeiboAndProfile("","");
+		new CrawlSuicideWeiboAndProfile("@","");
 	}
 }
