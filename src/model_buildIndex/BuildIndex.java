@@ -3,9 +3,10 @@ package model_buildIndex;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
+import org.ansj.lucene3.AnsjAnalysis;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.Document;
@@ -33,7 +34,7 @@ public class BuildIndex {
 	private IndexWriter writer;
 	GetStopWords gsw=new GetStopWords();
 	private final String index2bePlaced="./index/";
-	GetAllWeiboPosts alldata=new GetAllWeiboPosts();
+	GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/all.txt");
 	private List<OneWeibo> list=new ArrayList<OneWeibo>();
 	
 	public BuildIndex() throws CorruptIndexException, IOException{
@@ -41,12 +42,14 @@ public class BuildIndex {
 		//The place to put index data
 		File index=new File(this.index2bePlaced);
 		indexDir=FSDirectory.open(index);
+
 		
-		Set<String>stopwords=null;
-//		=gsw.getWords();
+		HashSet<String> filter=new HashSet<String>(gsw.getWords());
+		
 		list=alldata.getList();
 		
-		Analyzer luceneAnalyzer=new SmartChineseAnalyzer(Version.LUCENE_36,stopwords);
+//		Analyzer luceneAnalyzer=new AnsjAnalysis(filter,false);
+		Analyzer luceneAnalyzer=new SmartChineseAnalyzer(Version.LUCENE_36, filter);
 		writer=new IndexWriter(indexDir,new IndexWriterConfig(Version.LUCENE_36,luceneAnalyzer));
 
 		for(OneWeibo comment:list){
@@ -54,9 +57,10 @@ public class BuildIndex {
 			
 			Field date=new Field("date", comment.getDate(), Field.Store.YES, Field.Index.NOT_ANALYZED_NO_NORMS, Field.TermVector.NO);
 			Field content=new Field("content", comment.getContent(), Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
-			
+			Field pid=new Field("pid",comment.getPid(),Field.Store.YES,Field.Index.NOT_ANALYZED_NO_NORMS,Field.TermVector.NO);
 			doc.add(date);
 			doc.add(content);
+			doc.add(pid);
 			writer.addDocument(doc);
 		}
 		

@@ -7,6 +7,7 @@ import model_buildIndex.GetStopWords;
 
 import org.ansj.domain.Term;
 import org.ansj.recognition.NatureRecognition;
+import org.ansj.splitWord.analysis.NlpAnalysis;
 import org.ansj.splitWord.analysis.ToAnalysis;
 import org.ansj.util.FilterModifWord;
 
@@ -44,7 +45,7 @@ public class Segmentation {
 	 * @return list of terms, contains terms' nature and segmented terms with filtered by stop words.
 	 */
 	public List<Term> getSegmentationResults(String content){
-		terms=ToAnalysis.parse(content);
+		terms=NlpAnalysis.parse(content);
 		new NatureRecognition(terms).recognition();
 		terms=FilterModifWord.modifResult(terms);
 		return this.terms;

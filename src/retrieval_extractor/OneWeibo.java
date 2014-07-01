@@ -12,6 +12,7 @@ public class OneWeibo{
 	private String fromWho;
 	private String forwardReason;
 	private String forwardChain;
+	private String pid;
 	/**
 	 * Store one post's information, this post is original post
 	 * @param c the content of post
@@ -41,6 +42,19 @@ public class OneWeibo{
 		this.forwardReason=fR;
 	}
 	
+	public OneWeibo(String content, String date, String pid) {
+		// TODO Auto-generated constructor stub
+		this.content=content;
+		this.date=date;
+		this.pid=pid;
+	}
+	
+	/**
+	 * @return post's id
+	 */
+	public String getPid(){
+		return this.pid;
+	}
 	/**
 	 * posts' content, for forward post, this is original post's information, not containing current user's opinions
 	 * @return
