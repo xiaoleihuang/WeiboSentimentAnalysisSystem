@@ -1,8 +1,15 @@
 package model_buildIndex;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.lucene.analysis.Analyzer;
@@ -14,11 +21,12 @@ import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.Sort;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
+
+import retrieval_extractor.Regex;
 
 public class CosineSimilarity {
 	IndexReader reader=null;
@@ -26,10 +34,9 @@ public class CosineSimilarity {
 	IndexSearcher searcher=null;
 	Query q=null;
 	Analyzer analyzer=null;
-	Sort sort;
 	TopDocs docs;
 	
-	double allScore[]=new double[10];
+	double allScore[];
 	double countScore=0.0;
 	String[] contents=new String[10];
 	double queryScore=0.0;
@@ -37,7 +44,7 @@ public class CosineSimilarity {
 	GetStopWords gsw;
 	Document[] docsReader;
 	
-	public CosineSimilarity(String query){
+	public CosineSimilarity(){
 		try {
 			gsw=new GetStopWords();
 			indexDir=FSDirectory.open(new File("./index"));
@@ -51,50 +58,53 @@ public class CosineSimilarity {
 		Set<String> filter=new HashSet<String>(gsw.getWords());
 		analyzer=new SmartChineseAnalyzer(Version.LUCENE_36, filter);
 		
-		String fields="content";
-		try {
-			q=new QueryParser(Version.LUCENE_36, fields, analyzer).parse(query);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		analyzer=new AnsjAnalysis(filter,false);
+	}
+	
+	public double search(String query) throws ParseException{
+		allScore=new double[10];
+		countScore=0;
+		queryScore=0;
 		
-		sort=Sort.RELEVANCE;
+		q=new QueryParser(Version.LUCENE_36, "content", analyzer).parse(query);
 		
 		//get top 10 docs
 		try {
-			docs=searcher.search(q,10, sort);
+			docs=searcher.search(q,10);
 			//read comments
 			docsReader=new Document[10];
-			for(int i=0;i<10;i++){
+			
+			for(int i=0;i<docs.scoreDocs.length-1;i++){
 				docsReader[i]=searcher.doc(docs.scoreDocs[i].doc);
-				System.out.println(docsReader[i].get(fields));
+//				System.out.println(docs.scoreDocs[i]);
 			}
 			ScoreDoc[] scoreDoc=docs.scoreDocs;
 			
-			for(int i=0;i<10;i++){
-				String temp=scoreDoc[i].toString();
-				System.out.println(temp);
-//				temp=temp.substring(temp.length()-11, temp.length()-1);
-//
-//				double score = Double.valueOf(temp);
-////				double score=scoreDoc[i].score;
-//				
-//				allScore[i]=score;
-//				countScore=countScore+score;
-//				
+			for(int i=0;i<docs.scoreDocs.length-1;i++){
+				String temp=scoreDoc[i].toString();				
+				temp=Regex.extractMotion(temp);
+				double score=0;
+				if(temp.contains("."))
+					score= Double.valueOf(temp);
+				else
+					score=scoreDoc[i].score;
+				allScore[i]=score;
 //				System.out.println(score);
+				
+				countScore=countScore+score;
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-				
 		//Calculate Scores for input query
-//		for(int m=0;m<10;m++){
-//			queryScore=queryScore+allScore[m]/countScore;
-//		}
-//		System.out.println(queryScore);				
+//		System.out.println("countScore"+countScore);
+		for(int m=0;m<docs.scoreDocs.length-1;m++){
+//			System.out.println(allScore[m]);
+			queryScore=queryScore+allScore[m]*(allScore[m]/countScore);
+		}
+//		System.out.println(queryScore);
+		return queryScore;
 	}
 	
 	public void close() throws Exception{
@@ -125,8 +135,71 @@ public class CosineSimilarity {
 	public double getQueryScore(){
 		return this.queryScore;
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		new CosineSimilarity("从今天起，我的微薄将会永远的关闭，再见各位！");
+		HashMap<String,List<String>> map=new HashMap<String,List<String>>();
+		File dir=new File("/home/xiaolei/Documents/Web Mining/project补充数据/Weibo");
+		File[] files=dir.listFiles();
+		CosineSimilarity c=new CosineSimilarity();
+		List<String> errorLine=new ArrayList<String>();
+		
+		List<String> list=new ArrayList<String>();
+		for(File file:files){
+			BufferedReader reader=new BufferedReader(new FileReader(file));
+			String line=new String();
+			System.err.println(file.getName());
+			while((line=reader.readLine())!=null){
+				try{
+					line=line.split("\t")[1];
+				}catch(Exception e){
+					continue;
+				}
+//				System.out.println(line);
+				line=line.trim();
+				line=line.concat(" ");
+				line=line.replaceAll("\\[([^\\]]*)\\]", "");
+				line=line.replace("?", "");
+				
+				line=line.replace("~", "");
+				line=line.replace(":", "");
+				line=line.replace("-", "");
+				line=line.replace("^", "");
+				line=line.replace("!", "");				
+//				System.out.println(line);
+				
+				try{
+					double score=c.search(line);
+//					System.out.println(line+"\t"+score);
+					if(score>1){
+						list.add(file.getName()+"\t"+line+"\t"+score);
+						System.out.println(line+"\t"+score);
+					}
+				}catch(Exception e){
+					errorLine.add(line);
+				}				
+			}
+			reader.close();
+		}
+		try {
+			c.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(list.size());
+		
+		BufferedWriter writer=new BufferedWriter(new FileWriter("./1.txt"));
+		for(String s:list){
+			writer.append(s+"\n");
+		}
+		writer.flush();
+		writer.close();
+		
+		writer=new BufferedWriter(new FileWriter("./error.txt"));
+		for(String s:list){
+			writer.append(s+"\n");
+		}
+		writer.flush();
+		writer.close();
 	}
 }
