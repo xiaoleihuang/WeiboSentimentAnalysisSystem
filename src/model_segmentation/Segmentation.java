@@ -1,6 +1,9 @@
 package model_segmentation;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import model_buildIndex.GetStopWords;
@@ -10,6 +13,10 @@ import org.ansj.recognition.NatureRecognition;
 import org.ansj.splitWord.analysis.NlpAnalysis;
 import org.ansj.splitWord.analysis.ToAnalysis;
 import org.ansj.util.FilterModifWord;
+
+import retrieval_extractor.GetAllWeiboPosts;
+import retrieval_extractor.OneWeibo;
+import retrieval_extractor.Regex;
 
 /**
  * Segment sentence into different terms, the terms could be either single word or phrase
@@ -63,11 +70,26 @@ public class Segmentation {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		GetStopWords getstop = new GetStopWords();
-		String str="我回北京了[熊猫]到家了！还有一个星期就开学啦！好想大家！！";
+		GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/all.txt");
+		List<OneWeibo> list=alldata.getList();
 		Segmentation s=new Segmentation(getstop.getWords());
-		List<Term> terms=s.getSegmentationResults(str);
-		for(Term t:terms){
-			System.out.print(t);
+		List<String> segmentedList=new ArrayList<String>();
+		
+		for(OneWeibo post:list){
+			String str=Regex.removeHttp(post.getContent());
+			List<Term> terms=s.getSegmentationResults(str);
+			StringBuffer buffer=new StringBuffer();
+			for(Term t:terms){
+				buffer.append(t.getName()+" ");
+			}
+			segmentedList.add(buffer.toString().trim());
 		}
+		
+		BufferedWriter writer=new BufferedWriter(new FileWriter("/home/xiaolei/Desktop/dataset/suicide/Segmentedall.txt"));
+		for(String str:segmentedList){
+			writer.append(str+"\n");
+		}
+		writer.flush();
+		writer.close();
 	}
 }

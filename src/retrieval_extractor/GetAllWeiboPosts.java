@@ -18,7 +18,6 @@ public class GetAllWeiboPosts {
 				String content=infos[1];
 				String date=infos[2];
 				
-				System.out.println(infos.length);
 				list.add(new OneWeibo(content, date, pid));
 			}
 			System.out.println(list.size());

@@ -77,7 +77,7 @@ public class Regex {
 		System.out.println(motion.replaceAll("\\[([^\\]]*)\\]", ""));
 		String atSomeOne="@lixie911  小Z拿回来了。去医院复诊，接着就回公司报道去。接近崩溃‍";
 		System.out.println(extractAtSomeOne(atSomeOne));
-		String  link="抓狂 http://t.cn/bR6K4  尼玛我这什么记性啊，我去死了算了！！！";
+		String  link="http://t.cn/heuvLe 《孤独》把镜头对准那些生活在精神病院里有各种心理残疾的儿童，抑郁，自闭，妄想等各种精神疾病折磨着他们，被隔离在铁丝网的围墙内，发病时不停地用头撞墙发出闷响，墙上铺着很厚的海棉，但那声音依然让你无法忍受。她们就在监狱般的医院里，孤独地“活”着。";
 		System.out.println(extractHttp(link));
 		System.out.println(removeHttp(link));
 		String retweet="  //@走饭:4、没死。//@虽浓未醇: 1、亲上一个同性的嘴唇,六十岁左右。2、裤子甩丢了。3、砸坏了路过行驶的奔驰要求赔偿。。 从急速行驶公交车里甩出去之后，最吓人的后果是什么样的？‍";
@@ -97,5 +97,4 @@ public class Regex {
 		System.out.println(line.replace("?", ""));
 		System.out.println(line.replace("~", ""));
 	}
-
 }

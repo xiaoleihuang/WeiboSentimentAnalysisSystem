@@ -92,7 +92,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/analyzer/tree_split-1.4.jar"/>
-	<classpathentry kind="lib" path="lib/analyzer/ansj_seg-1.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/analyzer/ansj_seg-1.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/poi"/>
 	<classpathentry kind="output" path="bin"/>
