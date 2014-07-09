@@ -9,17 +9,17 @@ import java.io.IOException;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.ansj.lucene4.AnsjAnalysis;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.queryParser.ParseException;
-import org.apache.lucene.queryParser.QueryParser;
+import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -50,7 +50,7 @@ public class CosineSimilarity {
 		try {
 			gsw=new GetStopWords();
 			indexDir=FSDirectory.open(new File("./index"));
-			reader=IndexReader.open(indexDir);
+			reader=DirectoryReader.open(indexDir);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,9 +58,8 @@ public class CosineSimilarity {
 		
 		searcher=new IndexSearcher(reader);
 		Set<String> filter=new HashSet<String>(gsw.getWords());
-		analyzer=new SmartChineseAnalyzer(Version.LUCENE_36, filter);
-		
-//		analyzer=new AnsjAnalysis(filter,false);
+//		analyzer=new SmartChineseAnalyzer(Version.LUCENE_4_9,new CharArraySet(Version.LUCENE_4_9,filter,false));
+		analyzer=new AnsjAnalysis(filter,false);
 	}
 	
 	public double search(String query) throws ParseException{
@@ -68,7 +67,7 @@ public class CosineSimilarity {
 		countScore=0;
 		queryScore=0;
 		
-		q=new QueryParser(Version.LUCENE_36, "content", analyzer).parse(query);
+		q=new QueryParser(Version.LUCENE_4_9, "content", analyzer).parse(query);
 		
 		//get top 10 docs
 		try {
@@ -110,7 +109,6 @@ public class CosineSimilarity {
 	}
 	
 	public void close() throws Exception{
-		searcher.close();
 		reader.close();
 		indexDir.close();
 	}
@@ -139,7 +137,6 @@ public class CosineSimilarity {
 	}
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		HashMap<String,Double> map=new HashMap<String,Double>();
 		File dir=new File("/home/xiaolei/Documents/Web Mining/project补充数据/Weibo");
 		File[] files=dir.listFiles();
 		CosineSimilarity c=new CosineSimilarity();

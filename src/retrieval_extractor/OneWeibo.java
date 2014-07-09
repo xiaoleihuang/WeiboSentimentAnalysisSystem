@@ -42,6 +42,11 @@ public class OneWeibo{
 		this.forwardReason=fR;
 	}
 	
+	/**
+	 * @param content
+	 * @param date
+	 * @param pid
+	 */
 	public OneWeibo(String content, String date, String pid) {
 		// TODO Auto-generated constructor stub
 		this.content=content;

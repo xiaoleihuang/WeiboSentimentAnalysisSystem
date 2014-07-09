@@ -3,8 +3,6 @@ package retrieval_System;
 import java.util.List;
 
 import retrieval_extractor.ReadUidFile;
-import retrieval_receiver.GetUserProfile;
-import retrieval_receiver.GetUserTags;
 import retrieval_receiver.WeiboCrawler;
 import retrieval_writer.WeiboWriter;
 

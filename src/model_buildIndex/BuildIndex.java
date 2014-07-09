@@ -5,12 +5,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import org.ansj.lucene3.AnsjAnalysis;
+import org.ansj.lucene4.AnsjAnalysis;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.StringField;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -20,9 +22,8 @@ import org.apache.lucene.util.Version;
 
 import retrieval_extractor.GetAllWeiboPosts;
 import retrieval_extractor.OneWeibo;
-
 /**
- * Using Lucene to build index of data set, by reading index we can get statistical data of term, term occurrence, term position
+ * Using Lucene4 to build index of data set, by reading index we can get statistical data of term, term occurrence, term position
  * @author xiaolei
  * @version 1.0
  */
@@ -39,28 +40,20 @@ public class BuildIndex {
 	
 	public BuildIndex() throws CorruptIndexException, IOException{
 		start=System.currentTimeMillis();
-		//The place to put index data
-		File index=new File(this.index2bePlaced);
-		indexDir=FSDirectory.open(index);
-
-		
-		HashSet<String> filter=new HashSet<String>(gsw.getWords());
-		
+		Set<String> filter=new HashSet<String>(gsw.getWords());
 		list=alldata.getList();
 		
-//		Analyzer luceneAnalyzer=new AnsjAnalysis(filter,false);
-		Analyzer luceneAnalyzer=new SmartChineseAnalyzer(Version.LUCENE_36, filter);
-		writer=new IndexWriter(indexDir,new IndexWriterConfig(Version.LUCENE_36,luceneAnalyzer));
+		//The place to put index data. Configuring Lucene4
+		File index=new File(this.index2bePlaced);
+		indexDir=FSDirectory.open(index);		
+		Analyzer luceneAnalyzer=new AnsjAnalysis(filter,false);
+//		Analyzer luceneAnalyzer=new SmartChineseAnalyzer(Version.LUCENE_4_9,new CharArraySet(Version.LUCENE_4_9,filter,false));
+		writer=new IndexWriter(indexDir,new IndexWriterConfig(Version.LUCENE_4_9,luceneAnalyzer));
 
 		for(OneWeibo comment:list){
 			Document doc=new Document();
-			
-			Field date=new Field("date", comment.getDate(), Field.Store.YES, Field.Index.NOT_ANALYZED_NO_NORMS, Field.TermVector.NO);
-			Field content=new Field("content", comment.getContent(), Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
-			Field pid=new Field("pid",comment.getPid(),Field.Store.YES,Field.Index.NOT_ANALYZED_NO_NORMS,Field.TermVector.NO);
-			doc.add(date);
-			doc.add(content);
-			doc.add(pid);
+			doc.add(new Field("content",comment.getContent(),TextField.TYPE_STORED));
+			doc.add(new StringField("pid",comment.getPid(), Field.Store.YES));
 			writer.addDocument(doc);
 		}
 		

@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Formatter;
@@ -31,6 +30,7 @@ import cc.mallet.types.LabelSequence;
 
 public class BuildLDA {
 	String path2="/home/xiaolei/Desktop/dataset/trainData/train.txt";
+	@SuppressWarnings("unused")
 	public BuildLDA() throws IOException{
 //		PrintStream outstream=new PrintStream(new File("./test.txt"));
 //		System.setOut(outstream);
