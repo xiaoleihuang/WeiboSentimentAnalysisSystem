@@ -6,7 +6,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -137,20 +139,26 @@ public class CosineSimilarity {
 	}
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		HashMap<String,List<String>> map=new HashMap<String,List<String>>();
+		HashMap<String,Double> map=new HashMap<String,Double>();
 		File dir=new File("/home/xiaolei/Documents/Web Mining/project补充数据/Weibo");
 		File[] files=dir.listFiles();
 		CosineSimilarity c=new CosineSimilarity();
 		List<String> errorLine=new ArrayList<String>();
 		
+		int count=0;
 		List<String> list=new ArrayList<String>();
+		List<String> list1=new ArrayList<String>();
 		for(File file:files){
 			BufferedReader reader=new BufferedReader(new FileReader(file));
 			String line=new String();
 			System.err.println(file.getName());
+			
 			while((line=reader.readLine())!=null){
+				String pid;
 				try{
+					pid=line.split("\t")[0];
 					line=line.split("\t")[1];
+					count++;
 				}catch(Exception e){
 					continue;
 				}
@@ -171,11 +179,13 @@ public class CosineSimilarity {
 					double score=c.search(line);
 //					System.out.println(line+"\t"+score);
 					if(score>1){
-						list.add(file.getName()+"\t"+line+"\t"+score);
+						list.add(file.getName()+"\t"+pid+"\t"+line+"\t"+score);
 						System.out.println(line+"\t"+score);
+					}else if(score<0.2){
+						list1.add(score+"\t"+file.getName()+"\t"+pid+"\t"+line);
 					}
 				}catch(Exception e){
-					errorLine.add(line);
+					errorLine.add(file.getName()+"\t"+pid+"\t"+line);
 				}				
 			}
 			reader.close();
@@ -188,7 +198,7 @@ public class CosineSimilarity {
 		}
 		System.out.println(list.size());
 		
-		BufferedWriter writer=new BufferedWriter(new FileWriter("./1.txt"));
+		BufferedWriter writer=new BufferedWriter(new FileWriter("./CosineSimilarity.txt"));
 		for(String s:list){
 			writer.append(s+"\n");
 		}
@@ -196,10 +206,19 @@ public class CosineSimilarity {
 		writer.close();
 		
 		writer=new BufferedWriter(new FileWriter("./error.txt"));
-		for(String s:list){
+		for(String s:errorLine){
 			writer.append(s+"\n");
 		}
 		writer.flush();
 		writer.close();
+		
+		Collections.sort(list1,Collator.getInstance(java.util.Locale.CHINA));
+		writer=new BufferedWriter(new FileWriter("./a.txt"));
+		for(String s:list1){
+			writer.append(s+"\n");
+		}
+		writer.flush();
+		writer.close();
+		System.out.println(count);
 	}
 }

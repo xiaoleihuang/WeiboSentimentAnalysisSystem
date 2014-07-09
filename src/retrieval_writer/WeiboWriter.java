@@ -78,4 +78,13 @@ public class WeiboWriter {
 			return "null";
 		}
 	}
+	
+	public static void write2file(List<String>list,String filename) throws IOException{
+		BufferedWriter writer=new BufferedWriter(new FileWriter("./resource/"+filename));
+		for(String str:list){
+			writer.append(str+"\n");
+		}
+		writer.flush();
+		writer.close();
+	}
 }

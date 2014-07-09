@@ -1,7 +1,5 @@
 package model_segmentation;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +15,7 @@ import org.ansj.util.FilterModifWord;
 import retrieval_extractor.GetAllWeiboPosts;
 import retrieval_extractor.OneWeibo;
 import retrieval_extractor.Regex;
+import retrieval_writer.WeiboWriter;
 
 /**
  * Segment sentence into different terms, the terms could be either single word or phrase
@@ -80,16 +79,14 @@ public class Segmentation {
 			List<Term> terms=s.getSegmentationResults(str);
 			StringBuffer buffer=new StringBuffer();
 			for(Term t:terms){
-				buffer.append(t.getName()+" ");
+				buffer.append(t.getName().trim()+" ");
 			}
-			segmentedList.add(buffer.toString().trim());
+			String temp=buffer.toString().trim();
+			temp=post.getPid()+"\t"+"1"+"\t"+temp;
+			
+			segmentedList.add(temp);
 		}
 		
-		BufferedWriter writer=new BufferedWriter(new FileWriter("/home/xiaolei/Desktop/dataset/suicide/Segmentedall.txt"));
-		for(String str:segmentedList){
-			writer.append(str+"\n");
-		}
-		writer.flush();
-		writer.close();
+		WeiboWriter.write2file(segmentedList, "Segmentedall.txt");
 	}
 }

@@ -30,11 +30,10 @@ import cc.mallet.types.InstanceList;
 import cc.mallet.types.LabelSequence;
 
 public class BuildLDA {
-	String path1="/home/xiaolei/ap.txt";
-	String path2="data.txt";
+	String path2="/home/xiaolei/Desktop/dataset/trainData/train.txt";
 	public BuildLDA() throws IOException{
-		PrintStream outstream=new PrintStream(new File("./test.txt"));
-		System.setOut(outstream);
+//		PrintStream outstream=new PrintStream(new File("./test.txt"));
+//		System.setOut(outstream);
 		ArrayList<Pipe> pipeList=new ArrayList<Pipe>();
 		// Pipes: lowercase, tokenize, remove stopwords, map to features
         pipeList.add( new CharSequenceLowercase() );
@@ -46,10 +45,10 @@ public class BuildLDA {
         Reader fileReader=new InputStreamReader(new FileInputStream(new File(path2)),"UTF-8");
         instances.addThruPipe(new CsvIterator (fileReader, Pattern.compile("^(\\S*)[\\s,]*(\\S*)[\\s,]*(.*)$"), 3, 2, 1)); // data, label, name fields
         
-        // Create a model with 100 topics, alpha_t = 0.01, beta_w = 0.01
+        // Create a model with 30 topics, alpha_t = 0.01, beta_w = 0.01
         //  Note that the first parameter is passed as the sum over topics, while
         //  the second is the parameter for a single dimension of the Dirichlet prior.
-        int numTopics = 200;
+        int numTopics = 30;
         ParallelTopicModel model = new ParallelTopicModel(numTopics, 1.0, 0.01);
         model.addInstances(instances);
         
@@ -65,6 +64,14 @@ public class BuildLDA {
         // Show the words and topics in the first instance
         // The data alphabet maps word IDs to strings
         Alphabet dataAlphabet = instances.getDataAlphabet();
+//        Object[] arrays=dataAlphabet.toArray();
+//        System.err.println("array length"+arrays.length);
+//        int index=dataAlphabet.lookupIndex("对不起");
+//        System.err.println(index);
+        System.err.println("Size:"+dataAlphabet.size());
+//        for(Object a:arrays){
+//        	System.err.println(a.toString());
+//        }
         
         FeatureSequence tokens = (FeatureSequence) model.getData().get(0).instance.getData();
         LabelSequence topics = model.getData().get(0).topicSequence;
@@ -73,7 +80,7 @@ public class BuildLDA {
         for (int position = 0; position < tokens.getLength(); position++) {
             out.format("%s-%d ", dataAlphabet.lookupObject(tokens.getIndexAtPosition(position)), topics.getIndexAtPosition(position));
         }
-        System.out.println(out);
+        System.err.println(out);
         
         // Estimate the topic distribution of the first instance, 
         //  given the current Gibbs state.
@@ -102,11 +109,11 @@ public class BuildLDA {
         StringBuilder topicZeroText = new StringBuilder();
         Iterator<IDSorter> iterator = topicSortedWords.get(0).iterator();
 
-        int rank = 0;
-        while (iterator.hasNext() && rank < 5) {
+        //int rank = 0;
+        while (iterator.hasNext()){ //&& rank < 5) {
             IDSorter idCountPair = iterator.next();
             topicZeroText.append(dataAlphabet.lookupObject(idCountPair.getID()) + " ");
-            rank++;
+        //    rank++;
         }
 
         // Create a new instance named "test instance" with empty target and source fields.
@@ -114,7 +121,9 @@ public class BuildLDA {
         testing.addThruPipe(new Instance(topicZeroText.toString(), null, "test instance", null));
 
         TopicInferencer inferencer = model.getInferencer();
+        
         double[] testProbabilities = inferencer.getSampledDistribution(testing.get(0), 10, 1, 5);
+        System.out.println(testProbabilities.length);
         System.out.println("\t" + testProbabilities[0]);
         
         //topic probability
@@ -122,12 +131,14 @@ public class BuildLDA {
         //BufferedWriter
         for(int topic =0;topic<numTopics;topic++){
         	double[] probs = model.getTopicProbabilities(topic);
-        	String line = new String();
-        	for(int i=0;i<probs.length;i++)
-        		line += String.valueOf(probs[i])+" ";
-        	System.out.println(line);
+//        	String line = new String();
+//        	for(int i=0;i<probs.length;i++)
+//        		line += String.valueOf(probs[i])+" ";
+//        		System.out.println(probs.length);
+//        	System.out.println(line);
         }
-        
+        System.out.println(model.getTopicProbabilities(5479)[1]);
+        System.out.print(instances.size());
         
         model.write(new File("/home/xiaolei/model.txt"));
 	}

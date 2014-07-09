@@ -66,9 +66,13 @@ public class ExcelExtractor {
 //					}
 					
 					
-					if(Double.parseDouble(row.getCell(degree).toString())>0){
-						String contents=row.getCell(content).toString()+" ";
-						
+					if(Double.parseDouble(row.getCell(degree).toString())<1){
+						String contents;
+						try{
+							contents=row.getCell(content).toString()+" ";
+						}catch(Exception e){
+							continue;
+						}
 						if(!row.getCell(content+1).toString().contains("N/A")&&!row.getCell(content+1).toString().contains("此微博已被作者删除")){
 							contents=contents+"。 "+row.getCell(content+1).toString()+" ";
 						}
