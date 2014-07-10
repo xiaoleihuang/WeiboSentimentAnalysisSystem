@@ -44,14 +44,27 @@ public class OneWeibo{
 	
 	/**
 	 * @param content
-	 * @param date
-	 * @param pid
+	 * @param date the date of post
+	 * @param pid post id
 	 */
 	public OneWeibo(String content, String date, String pid) {
 		// TODO Auto-generated constructor stub
 		this.content=content;
 		this.date=date;
 		this.pid=pid;
+	}
+	
+	/**
+	 * 
+	 * @param content
+	 * @param pid post id
+	 * @param type 1 for suicidal post, 0 for non-suicidal post
+	 * @param date
+	 */
+	public OneWeibo(String content,String pid,String type,String date){
+		this.content=content;
+		this.pid=pid;
+		this.type=Integer.parseInt(type);
 	}
 	
 	/**
