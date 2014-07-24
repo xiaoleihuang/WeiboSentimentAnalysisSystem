@@ -65,6 +65,7 @@ public class OneWeibo{
 		this.content=content;
 		this.pid=pid;
 		this.type=Integer.parseInt(type);
+		this.date=date;
 	}
 	
 	/**

@@ -13,10 +13,11 @@ public class GetAllWeiboPosts {
 			BufferedReader reader=new BufferedReader(new FileReader(p));
 			String line;
 			while((line=reader.readLine())!=null){
+				System.out.println(line);
 				String[] infos=line.split("\t");
 				String pid=infos[0];
-				String content=infos[1];
-				String date=infos[2];
+				String content=infos[2];
+				String date=infos[1];
 				
 				list.add(new OneWeibo(content, date, pid));
 			}

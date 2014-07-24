@@ -1,7 +1,9 @@
 package model_lda;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -31,7 +33,13 @@ import cc.mallet.types.LabelSequence;
 public class BuildLDA {
 	String path2="/home/xiaolei/Desktop/dataset/trainData/train.txt";
 	@SuppressWarnings("unused")
-	public BuildLDA() throws IOException{
+	/**
+	 * @param num number of topics
+	 * @param alphaPath a topic matrix
+	 * @param probPath a probability of topic matrix
+	 * @throws IOException
+	 */
+	public BuildLDA(int num,String alphaPath,String probPath) throws IOException{
 //		PrintStream outstream=new PrintStream(new File("./test.txt"));
 //		System.setOut(outstream);
 		ArrayList<Pipe> pipeList=new ArrayList<Pipe>();
@@ -48,17 +56,17 @@ public class BuildLDA {
         // Create a model with 30 topics, alpha_t = 0.01, beta_w = 0.01
         //  Note that the first parameter is passed as the sum over topics, while
         //  the second is the parameter for a single dimension of the Dirichlet prior.
-        int numTopics = 30;
+        int numTopics = num;
         ParallelTopicModel model = new ParallelTopicModel(numTopics, 1.0, 0.01);
         model.addInstances(instances);
         
         // Use two parallel samplers, which each look at one half the corpus and combine
         //  statistics after every iteration.
-        model.setNumThreads(2);
+        model.setNumThreads(4);
         
         // Run the model for 50 iterations and stop (this is for testing only, 
         //  for real applications, use 1000 to 2000 iterations)
-        model.setNumIterations(50);
+        model.setNumIterations(1000);
         model.estimate();
         
         // Show the words and topics in the first instance
@@ -91,20 +99,26 @@ public class BuildLDA {
         ArrayList<TreeSet<IDSorter>> topicSortedWords = model.getSortedWords();
         
         // Show top 5 words in topics with proportions for the first document
+        BufferedWriter writer=new BufferedWriter(new FileWriter("./resource/lda/topicIterations/"+alphaPath+"topics.txt"));
         for (int topic = 0; topic < numTopics; topic++) {
             Iterator<IDSorter> iterator = topicSortedWords.get(topic).iterator();
             
             out = new Formatter(new StringBuilder(), Locale.US);
             out.format("%d\t%.3f\t", topic, topicDistribution[topic]);
             int rank = 0;
-            while (iterator.hasNext() && rank < 5) {
+            
+            while (iterator.hasNext()) {
                 IDSorter idCountPair = iterator.next();
-                out.format("%s (%.0f) ", dataAlphabet.lookupObject(idCountPair.getID()), idCountPair.getWeight());
+//                out.format("%s (%.0f) ", dataAlphabet.lookupObject(idCountPair.getID()), idCountPair.getWeight());
+                out.format("%s ", dataAlphabet.lookupObject(idCountPair.getID()), idCountPair.getWeight());
+                
                 rank++;
             }
+            writer.write(out.toString()+"\n");
+            
             System.out.println(out);
         }
-        
+        writer.flush();writer.close();
         // Create a new instance with high probability of topic 0
         StringBuilder topicZeroText = new StringBuilder();
         Iterator<IDSorter> iterator = topicSortedWords.get(0).iterator();
@@ -123,28 +137,43 @@ public class BuildLDA {
         TopicInferencer inferencer = model.getInferencer();
         
         double[] testProbabilities = inferencer.getSampledDistribution(testing.get(0), 10, 1, 5);
+        System.out.println(testing.get(0));
         System.out.println(testProbabilities.length);
         System.out.println("\t" + testProbabilities[0]);
         
         //topic probability
         File featurefile = new File("job.arff");
         //BufferedWriter
-        for(int topic =0;topic<numTopics;topic++){
-        	double[] probs = model.getTopicProbabilities(topic);
-//        	String line = new String();
-//        	for(int i=0;i<probs.length;i++)
-//        		line += String.valueOf(probs[i])+" ";
-//        		System.out.println(probs.length);
-//        	System.out.println(line);
+        writer=new BufferedWriter(new FileWriter("./resource/lda/probIterations/"+probPath+"prob.csv"));
+        writer.append("class,"+"topic,");
+        for(int a=0;a<numTopics;a++){
+        	if(a!=(numTopics-1))
+        		writer.append("topic"+a+",");
+        	else
+        		writer.append("topic"+a+"\n");
         }
-        System.out.println(model.getTopicProbabilities(5479)[1]);
+        for(int topic =0;topic<instances.size();topic++){
+        	double[] probs = model.getTopicProbabilities(topic);
+        	String line = new String();
+        	for(int i=0;i<probs.length;i++)
+        		line += String.valueOf(probs[i])+",";
+//        		System.out.println(probs.length);
+        	line=line.substring(0, line.length()-1);
+//        	System.out.println(topic+"\t"+line);
+        	if(topic<500)
+        		writer.append("1,"+topic+","+line+"\n");
+        	else
+        		writer.append("0,"+topic+","+line+"\n");
+        }
         System.out.print(instances.size());
-        
-        model.write(new File("/home/xiaolei/model.txt"));
+        writer.flush();writer.close();
+        model.write(new File("./resource/lda/model.txt"));
 	}
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		new BuildLDA();
+		for(int i=700;i<=1000;i=i+100){
+			new BuildLDA(i,String.valueOf(i),String.valueOf(i));
+		}
 	}
 }

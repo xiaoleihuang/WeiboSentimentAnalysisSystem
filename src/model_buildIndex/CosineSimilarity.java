@@ -175,12 +175,19 @@ public class CosineSimilarity {
 				try{
 					double score=c.search(line);
 //					System.out.println(line+"\t"+score);
-					if(score>1){
-						list.add(file.getName()+"\t"+pid+"\t"+line+"\t"+score);
+					if(line.contains("死")){
+						list.add(file.getName()+"\t"+pid+"\t"+line);
 						System.out.println(line+"\t"+score);
-					}else if(score<0.2){
-						list1.add(score+"\t"+file.getName()+"\t"+pid+"\t"+line);
+						continue;
 					}
+						
+					if(score>2){
+						list.add(file.getName()+"\t"+pid+"\t"+line);
+						System.out.println(line+"\t"+score);
+						}
+//					}else if(score<0.2){
+//						list1.add(score+"\t"+file.getName()+"\t"+pid+"\t"+line);
+//					}
 				}catch(Exception e){
 					errorLine.add(file.getName()+"\t"+pid+"\t"+line);
 				}				

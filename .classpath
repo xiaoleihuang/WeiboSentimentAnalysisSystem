@@ -45,49 +45,15 @@
 	<classpathentry kind="lib" path="lib/webdriver/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.29-bin.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/bsh.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/grmm-deps.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/jdom-1.0.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/jgrapht-0.6.0.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/junit-4.5.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/jwnl-1.3.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/mallet-deps.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/mallet.jar" sourcepath="/home/xiaolei/jar/mallet-2.0.7/src/cc/mallet">
-		<attributes>
-			<attribute name="javadoc_location" value="http://mallet.cs.umass.edu/api/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="lib/mallet/mtj-0.9.9.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/openjgraph.jar"/>
-	<classpathentry kind="lib" path="lib/mallet/trove-2.0.2.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/ejml-0.23.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/joda-time.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/jollyday.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/topicModel.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/xom.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/parser/stanford-parser-3.3.1-models.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/parser/stanford-parser.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/home/xiaolei/jar/standford/stanford-parser-full-2014-01-04/stanford-parser-3.3.1-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="lib/stanford/classifier/stanford-classifier.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/home/xiaolei/jar/standford/stanford-classifier-2014-01-04/stanford-classifier-3.3.1-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="lib/stanford/core/stanford-corenlp-3.3.1-models.jar"/>
-	<classpathentry kind="lib" path="lib/stanford/core/stanford-corenlp-3.3.1.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/home/xiaolei/jar/standford/stanford-corenlp-full-2014-01-04/stanford-corenlp-3.3.1-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="lib/analyzer/tree_split-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/weka.jar"/>
 	<classpathentry kind="lib" path="lib/analyzer/ansj_seg-1.4.1.jar"/>
 	<classpathentry kind="lib" path="lib/analyzer/ansj_lucene4_plug-1.3.jar"/>
+	<classpathentry kind="lib" path="libsvm-master/java/libsvm.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/poi"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lucene"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mallet"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/stanford"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
