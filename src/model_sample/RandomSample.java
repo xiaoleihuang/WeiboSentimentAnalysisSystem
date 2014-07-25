@@ -15,7 +15,7 @@ import retrieval_writer.WeiboWriter;
  * @author xiaolei
  * @version 1.0
  */
-public class Sample {
+public class RandomSample {
 	/**
 	 * Sample posts from input data list
 	 * @param posts the data input: a list of posts

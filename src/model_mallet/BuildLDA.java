@@ -1,4 +1,4 @@
-package model_lda;
+package model_mallet;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -83,6 +83,7 @@ public class BuildLDA {
         
         FeatureSequence tokens = (FeatureSequence) model.getData().get(0).instance.getData();
         LabelSequence topics = model.getData().get(0).topicSequence;
+        
         
         Formatter out = new Formatter(new StringBuilder(), Locale.US);
         for (int position = 0; position < tokens.getLength(); position++) {
