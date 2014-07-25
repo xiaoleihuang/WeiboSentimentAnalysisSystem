@@ -168,6 +168,7 @@ public class BuildLDA {
         }
         System.out.print(instances.size());
         writer.flush();writer.close();
+        
         model.write(new File("./resource/lda/model.txt"));
 	}
 	
