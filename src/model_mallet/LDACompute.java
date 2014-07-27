@@ -1,6 +1,7 @@
 package model_mallet;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -106,6 +107,9 @@ public class LDACompute {
 		return writer;
 	}
 	
+	public void WriteModel2file(){
+		this.model.write(new File("./resource/lda/model.model"));
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

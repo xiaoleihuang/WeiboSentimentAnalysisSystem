@@ -1,0 +1,11 @@
+/retrieval_extractor/
+/retrieval_receiver/
+/retrieval_writer/
+/weibo4j/
+/model_buildIndex/
+/model_mallet/
+/model_sample/
+/model_segmentation/
+/model_svm/
+/model_word2vec/
+/retrieval_System/
