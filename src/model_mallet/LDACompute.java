@@ -27,9 +27,10 @@ public class LDACompute {
 			e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * 
-	 * @param info
+	 * @param info one entry information
 	 */
 	public LDACompute(String[] info){
 		String pid=info[0];
@@ -38,6 +39,10 @@ public class LDACompute {
 		String content=info[2];
 		
 	}
+	
+	/**
+	 * @param post one post entry
+	 */
 	public LDACompute(OneWeibo post){
 		String pid=post.getPid();
 		String label="0";
@@ -109,6 +114,10 @@ public class LDACompute {
 	
 	public void WriteModel2file(){
 		this.model.write(new File("./resource/lda/model.model"));
+	}
+	
+	public static void getFeaturesForWeka(){
+		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

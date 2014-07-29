@@ -10,10 +10,9 @@ public class NaiveBayesClassifer {
 		NaiveBayesTrainer trainer=new NaiveBayesTrainer();
 		return trainer.train(InstancesReader.getInstances("/home/xiaolei/Desktop/dataset/trainData/train.txt"));
 	}
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
-
 }
