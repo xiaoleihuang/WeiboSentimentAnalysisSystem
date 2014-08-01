@@ -1,6 +1,7 @@
 package model_weka;
 
 import java.io.File;
+
 import weka.classifiers.Evaluation;  
 import weka.classifiers.functions.LinearRegression;  
 import weka.core.Instances;  
@@ -30,7 +31,7 @@ public class LinearRegressionCpmpute {
 	
 	/**
 	 * Read data from file, and return double score results
-	 * @param testPath test data file path
+	 * @param testPath test data file path,the file must be <b style="color:red;">CSV file</b>
 	 * @param lr LinearRegression model
 	 * @return scores
 	 * @throws Exception
@@ -46,9 +47,25 @@ public class LinearRegressionCpmpute {
 		}
 		return score;
 	}
-	public LinearRegressionCpmpute(){
-		
+	
+	/**
+	 * return an evaluator for training data. <br/>
+	 * 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sample code is listed below:<br/>
+	 * 	&nbsp;&nbsp;&nbsp;eval.evaluateModel(LinearRegression, TestInstances);//evaluate the LinearRegression Model<br/>
+        &nbsp;&nbsp;&nbsp;System.out.println(eval.meanAbsoluteError());//Compute ＭＡＥ
+	 * @param testPath
+	 * @param trainPath
+	 * @return
+	 * @throws Exception
+	 */
+	public static Evaluation buildEvaluator(String trainPath) throws Exception{
+		CSVLoader loader=new CSVLoader();
+		loader.setSource(new File(trainPath));
+		Instances traindata=loader.getDataSet();
+		Evaluation ev=new Evaluation(traindata);
+		return ev;
 	}
+
     /** 
      * @param args 
      * @throws Exception  
