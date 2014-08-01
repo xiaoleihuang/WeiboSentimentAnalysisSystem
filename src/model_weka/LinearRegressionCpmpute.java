@@ -1,6 +1,7 @@
 package model_weka;
 
 import java.io.File;
+import java.io.IOException;
 
 import weka.classifiers.Evaluation;  
 import weka.classifiers.functions.LinearRegression;  
@@ -21,12 +22,25 @@ public class LinearRegressionCpmpute {
 	 */
 	public static LinearRegression trainModel(String trainPath) throws Exception{
 		CSVLoader loader=new CSVLoader();
+		loader.reset();
 		loader.setSource(new File(trainPath));
 		Instances traindata=loader.getDataSet();
 		traindata.setClassIndex(1);
 		
 		lr.buildClassifier(traindata);
 		return lr;
+	}
+	
+	/**
+	 * Read Instances data from <b style="color:red;">CSV file</b>
+	 * @return Instances
+	 * @throws IOException
+	 */
+	public static Instances readInstances() throws IOException{
+		CSVLoader loader=new CSVLoader();
+		loader.reset();
+		loader.setSource(new File(trainPath));
+		return loader.getDataSet();
 	}
 	
 	/**
