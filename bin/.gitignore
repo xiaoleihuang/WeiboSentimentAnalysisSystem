@@ -1,12 +1,1 @@
-/weibo4j/
-/model_buildIndex/
-/model_mallet/
-/model_sample/
-/model_segmentation/
-/model_svm/
-/model_weka/
-/model_word2vec/
-/retrieval_System/
-/retrieval_extractor/
-/retrieval_receiver/
-/retrieval_writer/
+/result_chart/
