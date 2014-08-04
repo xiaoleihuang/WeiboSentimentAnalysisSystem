@@ -60,6 +60,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mallet"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/stanford"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jcharts"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jfreechart"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

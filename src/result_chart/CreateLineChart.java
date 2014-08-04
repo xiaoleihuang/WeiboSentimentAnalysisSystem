@@ -55,7 +55,8 @@ public class CreateLineChart extends JFrame{
 		this.panel.setSize(500,500);
 		this.getContentPane().add(this.panel);
 		this.setVisible(true);
-		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		//set the title of the line graph
 		String title="Line Graph";
 		
