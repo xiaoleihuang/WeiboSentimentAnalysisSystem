@@ -1,1 +1,10 @@
+/model_buildIndex/
+/model_mallet/
+/model_sample/
+/model_segmentation/
+/model_svm/
+/model_weka/
+/model_word2vec/
 /result_chart/
+/retrieval_System/
+/retrieval_extractor/
