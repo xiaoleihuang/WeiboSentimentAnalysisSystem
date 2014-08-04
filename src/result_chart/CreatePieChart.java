@@ -45,6 +45,7 @@ public class CreatePieChart extends JFrame{
 		this.getContentPane().add(this.panel);
 		this.setVisible(true);
 		
+		//set the title of the pie graph
 		String title="Pie Graph";
 		PieChart2DProperties pieChart2DProperties=new PieChart2DProperties();
 		pieChart2DProperties.setPieLabelType(PieLabelType.VALUE_LABELS);
@@ -54,23 +55,23 @@ public class CreatePieChart extends JFrame{
 			)
 		);
 		
-		
+		//create the data set
 		PieChartDataSet pieChartDataSet=new PieChartDataSet( title, data, labels, paints, pieChart2DProperties );
+		//chart property
 		ChartProperties chartProper=new ChartProperties();
 		chartProper.setTitlePadding(20);
 		chartProper.setTitleFont(new ChartFont(new Font(null,Font.BOLD,20), Color.black));
+		//legend property
 		LegendProperties legendProper=new LegendProperties();
 		legendProper.setBackgroundPaint(Color.white);
 		legendProper.setChartPadding(30);
 		legendProper.setRowPadding(10);
 		legendProper.setColumnPadding(10);
 		
-		PieChart2D pieChart2D=new PieChart2D( pieChartDataSet,legendProper,chartProper, 450, 450 );
-		
-		
+		PieChart2D pieChart2D=new PieChart2D( pieChartDataSet,legendProper,chartProper, 450, 450 );		
 		pieChart2D.setGraphics2D( (Graphics2D) this.panel.getGraphics());
 		image=pieChart2D.getBufferedImage();
-		pieChart2D.render();	
+		pieChart2D.render();
 	}
 	
 	/**
@@ -84,6 +85,7 @@ public class CreatePieChart extends JFrame{
 			format="jpg";
 		ImageIO.write(image, format, new File(savePath));
 	}
+	
 	/**
 	 * Test 
 	 * @param args
