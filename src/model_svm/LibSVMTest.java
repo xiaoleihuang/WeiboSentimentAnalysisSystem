@@ -3,14 +3,12 @@ import java.io.IOException;
 
 import libsvm.*;
 
+/**JAVA test code for LibSVM
+ * @author xiaolei
+ * @throws IOException
+ */
+@SuppressWarnings("unused")
 public class LibSVMTest {
-
-	/**JAVA test code for LibSVM
-	 * @author yangliu
-	 * @throws IOException 
-	 * @blog http://blog.csdn.net/yangliuy
-	 * @mail yang.liu@pku.edu.cn
-	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		//Test for svm_train and svm_predict
@@ -32,5 +30,4 @@ public class LibSVMTest {
 		//modelFile = svm_train.main(crossValidationTrainArgs);
 		//System.out.print("Cross validation is done! The modelFile is " + modelFile);
 	}
-
 }

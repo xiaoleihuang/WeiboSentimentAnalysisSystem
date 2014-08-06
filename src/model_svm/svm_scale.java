@@ -1,8 +1,11 @@
 package model_svm;
-import libsvm.*;
-import java.io.*;
-import java.util.*;
-import java.text.DecimalFormat;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Formatter;
+import java.util.StringTokenizer;
 
 class svm_scale
 {
@@ -84,6 +87,7 @@ class svm_scale
 		return line;
 	}
 
+	@SuppressWarnings("unused")
 	private void run(String []argv) throws IOException
 	{
 		int i,index;
@@ -308,6 +312,7 @@ class svm_scale
 			}
 			fp_save.write(formatter.toString());
 			fp_save.close();
+			formatter.close();
 		}
 
 		/* pass 3: scale */
