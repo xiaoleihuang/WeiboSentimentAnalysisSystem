@@ -1,5 +1,10 @@
 package model_svm;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrieval_writer.WeiboWriter;
 
 /**
  * LibSvm tools
@@ -52,7 +57,7 @@ public class LibSvmUtils {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		String modelFile;
+		
 		// TODO Auto-generated method stub
 		//Test for svm_train and svm_predict
 		//svm_train: 
@@ -61,17 +66,32 @@ public class LibSvmUtils {
 		//svm_predect:
 		//	  param: String[], parse result of command line parameter of svm-predict, including the modelfile
 		//    return: Double, the accuracy of SVM classification
-		String[] trainArgs = {"UCI-breast-cancer-tra"};//directory of training file
-		modelFile = svm_train.main(trainArgs);
-		String[] testArgs = {"UCI-breast-cancer-test", modelFile, "UCI-breast-cancer-result"};//directory of test file, model file, result file
-		Double accuracy = svm_predict.main(testArgs);
-		
-		System.out.println("SVM Classification is done! The accuracy is " + accuracy);
+		//String modelFile;
+//		String[] trainArgs = {"UCI-breast-cancer-tra"};//directory of training file
+//		modelFile = svm_train.main(trainArgs);
+//		String[] testArgs = {"UCI-breast-cancer-test", modelFile, "UCI-breast-cancer-result"};//directory of test file, model file, result file
+//		Double accuracy = svm_predict.main(testArgs);
+//		
+//		System.out.println("SVM Classification is done! The accuracy is " + accuracy);
 
 //		Test for cross validation
 //		String[] crossValidationTrainArgs = {"-v", "10", "test.txt"};// 10 fold cross validation
 //		modelFile = svm_train.main(crossValidationTrainArgs);
 //		System.out.println(System.getProperty("CrossAcurracy"));
+//		
+		//Test for LDA data
+		File dir=new File("./resource/ldaSvm");
+		List<String> list=new ArrayList<String>();
+		System.out.println(dir.list().length);
+		for(File f:dir.listFiles()){
+			System.out.println(f.getName());
+			String[] crossValidationTrainArgs = {"-v", "10", f.getAbsolutePath()};// 10 fold cross validation
+			svm_train.main(crossValidationTrainArgs);
+			System.err.println(System.getProperty("CrossAcurracy"));
+			list.add(System.getProperty("CrossAcurracy"));
+		}
+		WeiboWriter.write2file(list, "accuracy.txt");
+//		
 //		
 //		System.out.print("Cross validation is done! The modelFile is " + modelFile);
 	}

@@ -169,12 +169,12 @@ public class BuildLDA {
         System.out.print(instances.size());
         writer.flush();writer.close();
         
-        model.write(new File("./resource/lda/model.txt"));
+//        model.write(new File("./resource/lda/model.txt"));
 	}
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		for(int i=700;i<=1000;i=i+100){
+		for(int i=50;i<=1000;i=i+50){
 			new BuildLDA(i,String.valueOf(i),String.valueOf(i));
 		}
 	}

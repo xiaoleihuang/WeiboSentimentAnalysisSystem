@@ -30,10 +30,29 @@ public class LDACompute {
 	}
 	
 	/**
+	 * Constructor,Create a model with given number of topics and the Default Datalist, alpha_t = 0.01, beta_w = 0.01
+	 * @param topics number of topics
+	 * @throws IOException
+	 */
+	public LDACompute(int topics) throws IOException{
+		if(topics!=0)this.numTopics=topics;
+        //  Note that the first parameter is passed as the sum over topics, while
+        //  the second is the parameter for a single dimension of the Dirichlet prior.
+		model=new ParallelTopicModel(numTopics, 1.0, 0.01);
+		model.addInstances(traininglist);
+        // Use four parallel samplers, which each look at one half the corpus and combine
+        //  statistics after every iteration.
+		model.setNumThreads(4);
+        //  for real applications, use 1000 to 2000 iterations)
+        model.setNumIterations(1500);
+        model.estimate();
+	}
+	
+	
+	/**
 	 * 
 	 * @param info one entry information
 	 */
-	
 	public LDACompute(String[] info){
 		String pid=info[0];
 		//note here the label could be random value, because this value will be predicted
@@ -70,7 +89,7 @@ public class LDACompute {
         //  statistics after every iteration.
 		model.setNumThreads(4);
         //  for real applications, use 1000 to 2000 iterations)
-        model.setNumIterations(1000);
+        model.setNumIterations(2000);
         model.estimate();
 	}
 	
@@ -83,12 +102,14 @@ public class LDACompute {
 	}
 	
 	/**
-	 * Write features to file, the default file type is csv
+	 * Write features to file, the default file type is csv, this file could be used as 
+	 * Training data and Testing data for Weka.
+	 * @param fileName the name of file
 	 * @return a writer contains all features
 	 * @throws IOException
 	 */
-	public BufferedWriter WriteFeatures2file() throws IOException{
-		BufferedWriter writer = new BufferedWriter(new FileWriter("./resource/lda/probIterations/prob.csv"));
+	public BufferedWriter WriteFeatures2file(String fileName) throws IOException{
+		BufferedWriter writer = new BufferedWriter(new FileWriter("./resource/ldaWeka/"+fileName+".csv"));
 		writer.append("class,"+"topic,");
         for(int a=0;a<numTopics;a++){
         	if(a!=(numTopics-1))
@@ -118,11 +139,35 @@ public class LDACompute {
 		this.model.write(new File("./resource/lda/model.model"));
 	}
 	
-	public static void getFeaturesForWeka(){
-		
+	/**
+	 * Save features to local file as LibSVM format, the default file format is .txt
+	 * @param fileName the name of file
+	 * @throws IOException
+	 */
+	public void SaveDataforSvm2File(String fileName) throws IOException{
+		BufferedWriter writer = new BufferedWriter(new FileWriter("./resource/ldaSvm/"+fileName+".txt"));
+        for(int topic =0;topic<model.getData().size();topic++){
+        	double[] probs = model.getTopicProbabilities(topic);
+        	String line = new String();
+        	for(int i=0;i<probs.length;i++)
+        		line += i+":"+String.valueOf(probs[i])+" ";
+//        		System.out.println(probs.length);
+//        	System.out.println(topic+"\t"+line);
+        	if(topic<500)
+        		writer.append("1 "+line+"\n");
+        	else
+        		writer.append("0 "+line+"\n");
+        }
+        writer.flush();
+        writer.close();
 	}
-	public static void main(String[] args) {
+	
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-
+		for(int i=50;i<=1000;i=i+50){
+			LDACompute lda=new LDACompute(i);
+			lda.SaveDataforSvm2File("prob"+i);
+			lda.WriteFeatures2file("prob"+i);
+		}
 	}
 }
