@@ -6,3 +6,8 @@
 /model_weka/
 /model_word2vec/
 /result_chart/
+/retrieval_System/
+/retrieval_extractor/
+/retrieval_receiver/
+/retrieval_writer/
+/weibo4j/

@@ -52,6 +52,11 @@ public class CreateXYLineChart extends JFrame {
 	 * @throws ChartDataException
 	 * @throws PropertyException
 	 * @throws IOException
+	 * @example <p>double[][] data={{0.09,0.1,0.2,0.3,0.4,0.5}};<br/>
+	 *  String[] xAxisLabels= { "100", "200", "300", "400", "500", "600"};<br/>
+	 *	String xAxisTitle= "Topics";<br/>
+	 *	String yAxisTitle= "coefficient";<br/>
+	 *	new CreateXYLineChart(xAxisLabels, xAxisTitle, yAxisTitle, data);</p>
 	 */
 	public CreateXYLineChart(String[] xAxisLabels,String xAxisTitle,String yAxisTitle,double[][] data) throws ChartDataException, PropertyException, IOException{
 		this.setSize(1000, 1000);
@@ -123,11 +128,18 @@ public class CreateXYLineChart extends JFrame {
 		JPEGEncoder.encode(axisChart, 1, new FileOutputStream(new File(name)));
 	}
 	
+	/**
+	 * Test
+	 * @param args
+	 * @throws ChartDataException
+	 * @throws PropertyException
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws ChartDataException, PropertyException, IOException{
 		double[][] data={{0.09,0.1,0.2,0.3,0.4,0.5}};
 		String[] xAxisLabels= { "100", "200", "300", "400", "500", "600"};
 		String xAxisTitle= "Topics";
-		String yAxisTitle= "Coefficience";
-		new CreateXYLineChart(xAxisLabels, yAxisTitle, yAxisTitle, data);
+		String yAxisTitle= "coefficient";
+		new CreateXYLineChart(xAxisLabels, xAxisTitle, yAxisTitle, data);
 	}
 }
