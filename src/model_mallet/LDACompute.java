@@ -13,6 +13,7 @@ import retrieval_extractor.OneWeibo;
  * Compute LDA distributions for each topic
  * @author xiaolei
  */
+@SuppressWarnings("unused")
 public class LDACompute {
 	public final static String trainingpath="/home/xiaolei/Desktop/dataset/trainData/train.txt";
 	public String testingpath="";
@@ -32,6 +33,7 @@ public class LDACompute {
 	 * 
 	 * @param info one entry information
 	 */
+	
 	public LDACompute(String[] info){
 		String pid=info[0];
 		//note here the label could be random value, because this value will be predicted
