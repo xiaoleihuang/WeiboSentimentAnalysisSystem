@@ -59,7 +59,7 @@ class svm_train {
 		double total_error = 0;
 		double sumv = 0, sumy = 0, sumvv = 0, sumyy = 0, sumvy = 0;
 		double[] target = new double[prob.l];
-
+		double accuracy = 0;
 		svm.svm_cross_validation(prob,param,nr_fold,target);
 		if(param.svm_type == svm_parameter.EPSILON_SVR ||
 		   param.svm_type == svm_parameter.NU_SVR)
@@ -86,7 +86,9 @@ class svm_train {
 			for(i=0;i<prob.l;i++)
 				if(target[i] == prob.y[i])
 					++total_correct;
-			System.out.print("Cross Validation Accuracy = "+100.0*total_correct/prob.l+"%\n");
+			accuracy=100.0*total_correct/prob.l;
+			System.out.print("Cross Validation Accuracy = "+accuracy+"%\n");
+			System.setProperty("CrossAcurracy", accuracy+"");
 		}
 	}
 	

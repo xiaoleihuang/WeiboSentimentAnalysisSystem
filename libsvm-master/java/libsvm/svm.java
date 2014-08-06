@@ -1,8 +1,3 @@
-
-
-
-
-
 package libsvm;
 import java.io.*;
 import java.util.*;
@@ -2531,7 +2526,6 @@ public class svm {
 					fp.writeBytes(p[j].index+":"+p[j].value+" ");
 			fp.writeBytes("\n");
 		}
-
 		fp.close();
 	}
 
