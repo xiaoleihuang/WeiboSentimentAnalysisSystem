@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Paint;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -42,11 +44,13 @@ public class CreatePieChart extends JFrame{
 		this.setSize(500, 500);
 		this.panel=new JPanel(true);
 		this.panel.setSize(500,500);
+		this.setTitle("Pie Graph");
 		this.getContentPane().add(this.panel);
 		this.setVisible(true);
+		this.addWindowListener(new CloseActionListener());
 		
 		//set the title of the pie graph
-		String title="Pie Graph";
+		String title="Tagged Data Example";
 		
 		//Set the property
 		PieChart2DProperties pieChart2DProperties=new PieChart2DProperties();
@@ -92,6 +96,15 @@ public class CreatePieChart extends JFrame{
 	}
 	
 	/**
+	 * Create a close action
+	 * @author xiaolei
+	 */
+	private class CloseActionListener extends WindowAdapter{
+		public void windowClosing(WindowEvent e){
+			CreatePieChart.this.dispose();
+		}
+	}
+	/**
 	 * Test 
 	 * @param args
 	 * @throws ChartDataException
@@ -100,9 +113,9 @@ public class CreatePieChart extends JFrame{
 	 */
 	public static void main(String[] args) throws ChartDataException, PropertyException, IOException {
 		// TODO Auto-generated method stub
-		String[] labels={"Suicide Posts", "Not Suicide Posts"};
+		String[] labels={"Not Tagged Suicider's Posts", "Tagged Suicider's Posts"};
 		Paint[] paints={Color.blue, Color.gray};
-		double[] data={500d, 5000d};
+		double[] data={500d, 24367d};
 		new CreatePieChart(labels, data, paints);
 	}
 }

@@ -92,13 +92,13 @@ public class LinearRegressionCpmpute {
 
         Instances insTrain = train_data.getDataSet();  
         Instances insTest = test_data.getDataSet();
-          
+
         insTrain.setClassIndex(insTrain.numAttributes()-1);//设置训练集中，target的index  
         insTest.setClassIndex(insTest.numAttributes()-1);//设置测试集中，target的index  
-          
-        LinearRegression lr = new LinearRegression();//定义分类器的类型  
+
+        LinearRegression lr = new LinearRegression();//定义分类器的类型
         lr.buildClassifier(insTrain);//训练分类器
-          
+
         Evaluation eval=new Evaluation(insTrain);
         eval.evaluateModel(lr, insTest);//评估效果
         System.out.println(eval.meanAbsoluteError());//计算ＭＡＥ

@@ -42,6 +42,10 @@ public class CreateXYLineChart extends JFrame {
 	public JPanel panel;
 	public AxisChart axisChart;
 	
+	/**
+	 * Create a close action
+	 * @author xiaolei
+	 */
 	private class CloseActionListener extends WindowAdapter{
 		public void windowClosing(WindowEvent e){
 			CreateXYLineChart.this.dispose();
@@ -136,10 +140,13 @@ public class CreateXYLineChart extends JFrame {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws ChartDataException, PropertyException, IOException{
-		double[][] data={{0.09,0.1,0.2,0.3,0.4,0.5}};
-		String[] xAxisLabels= { "100", "200", "300", "400", "500", "600"};
-		String xAxisTitle= "Topics";
-		String yAxisTitle= "coefficient";
-		new CreateXYLineChart(xAxisLabels, xAxisTitle, yAxisTitle, data);
+//		double[][] data={{0.0374,0.0765,0.0553,0.075,0.0961
+//			,0.1125,0.1217,0.1444,0.1425,0.1489,0.1563,
+//			0.1735,0.1924,0.2053,0.1675,0.1374}};
+//		String[] xAxisLabels= { "50","100","150", "200", "250","300","350", "400", "450","500", "550"
+//				,"600","650","700","750","800"};
+//		String xAxisTitle= "Topics";
+//		String yAxisTitle= "coefficient";
+//		new CreateXYLineChart(xAxisLabels, xAxisTitle, yAxisTitle, data);
 	}
 }
