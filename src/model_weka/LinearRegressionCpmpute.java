@@ -87,20 +87,25 @@ public class LinearRegressionCpmpute {
      */  
     public static void main(String[] args) throws Exception {  
         // TODO Auto-generated method stub  
-        DataSource train_data = new DataSource(trainPath);//读训练数据  
-        DataSource test_data = new DataSource(testPath);//读测试数据  
+        DataSource train_data = new DataSource(trainPath);//Read Train Data from path 
+        DataSource test_data = new DataSource(testPath);//Read Test Data from path  
 
         Instances insTrain = train_data.getDataSet();  
         Instances insTest = test_data.getDataSet();
 
         insTrain.setClassIndex(insTrain.numAttributes()-1);//设置训练集中，target的index  
         insTest.setClassIndex(insTest.numAttributes()-1);//设置测试集中，target的index  
-
-        LinearRegression lr = new LinearRegression();//定义分类器的类型
-        lr.buildClassifier(insTrain);//训练分类器
-
+        
+        LinearRegression lr = new LinearRegression();
+        //user define options
+//        lr.setOptions(null);
+//        lr.setDebug(false);
+//        lr.setRidge(0);
+        lr.buildClassifier(insTrain);//Train Model
+        
+        //Evaluation
         Evaluation eval=new Evaluation(insTrain);
-        eval.evaluateModel(lr, insTest);//评估效果
-        System.out.println(eval.meanAbsoluteError());//计算ＭＡＥ
+        eval.evaluateModel(lr, insTest);//Evaluation
+        System.out.println(eval.meanAbsoluteError());//ＭＡＥ
     }
 }
