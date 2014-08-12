@@ -60,5 +60,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mallet"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/stanford"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jcharts"/>
+	<classpathentry kind="lib" path="/home/xiaolei/jar/opencloud/opencloud.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

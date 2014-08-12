@@ -1,4 +1,4 @@
-package result_chart;
+package image_chart;
 
 import java.awt.Color;
 import java.awt.Font;

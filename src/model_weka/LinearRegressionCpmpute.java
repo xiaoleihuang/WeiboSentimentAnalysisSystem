@@ -16,8 +16,8 @@ public class LinearRegressionCpmpute {
 	
 	/**
 	 * Train LinearRegression model, <b style="color:red;">Label should be the 2nd place</b> in CSV file.
-	 * @param trainPath training file path
-	 * @return  LinearRegression model
+	 * @param trainPat
+	 * h training file path	 * @return  LinearRegression model
 	 * @throws Exception
 	 */
 	public static LinearRegression trainModel(String trainPath) throws Exception{
