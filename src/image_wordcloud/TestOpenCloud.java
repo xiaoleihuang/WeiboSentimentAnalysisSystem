@@ -3,6 +3,8 @@ import java.awt.Container;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -14,15 +16,19 @@ import javax.swing.SwingUtilities;
 import org.mcavallo.opencloud.Cloud;
 import org.mcavallo.opencloud.Tag;
 
+import retrieval_extractor.GetAllWeiboPosts;
+import retrieval_extractor.OneWeibo;
+
+/**
+ * Add visualization tools for word cloud
+ * @author xiaolei
+ */
 public class TestOpenCloud {
 	
-    public static String[] WORDS = { "art", "australia", "baby", "beach", "birthday", "blue", "bw", "california", "canada", "canon",
-            "cat", "chicago", "china", "christmas", "city", "dog", "england", "europe", "family", "festival", "flower", "flowers", "food",
-            "france", "friends", "fun", "germany", "holiday", "india", "italy", "japan", "london", "me", "mexico", "music", "nature",
-            "new", "newyork", "night", "nikon", "nyc", "paris", "park", "party", "people", "portrait", "sanfrancisco", "sky", "snow",
-            "spain", "summer", "sunset", "taiwan", "tokyo", "travel", "trip", "uk", "usa", "vacation", "water", "wedding","词元","词元","词元","词元" };
+    public String[] WORDS ;
     JFrame frame = new JFrame("Word Cloud");
-    protected void initUI() throws IOException {
+    protected void initUI(String[] temp) throws IOException {
+    	this.WORDS=temp;
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
         Cloud cloud = new Cloud();
@@ -46,7 +52,7 @@ public class TestOpenCloud {
         Container c = panel.getRootPane();
         BufferedImage im = new BufferedImage(c.getWidth(), c.getHeight(), BufferedImage.TYPE_INT_ARGB);
         c.paint(im.getGraphics());
-        ImageIO.write(im, "PNG", new File("shot.png"));
+//        ImageIO.write(im, "PNG", new File("shot.png"));
     }
     
     public static void saveImage(JPanel panel) throws IOException{
@@ -68,7 +74,26 @@ public class TestOpenCloud {
             @Override
             public void run() {
                 try {
-					new TestOpenCloud().initUI();
+                	GetAllWeiboPosts posts=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/Segmentedall.txt");
+                	List<OneWeibo> list=posts.getList();
+                	List<String> ws=new ArrayList<String>();
+                	for(OneWeibo entry:list){
+                		String[] words=entry.getContent().split(" ");
+                		for(String w:words){
+                			w=w.trim();
+                			
+                			if(w!=""&&w!=null&&!w.contains(" ")&&w!="\n"&&!w.contains("我")&&!w.contains("你")&&!w.contains("了")
+                					&&!w.contains("都")&&!w.contains("就")&&!w.contains("也")&&!w.contains("是")&&!w.contains("有")){
+                			System.out.print(w);
+                			ws.add(w);
+                			}
+                		}
+                		
+                		System.out.println();
+                	}
+                	System.out.println(ws.size());
+                	
+					new TestOpenCloud().initUI(ws.toArray(new String[ws.size()]));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
