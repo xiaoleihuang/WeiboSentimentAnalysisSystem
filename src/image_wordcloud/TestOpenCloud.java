@@ -25,9 +25,13 @@ import retrieval_extractor.OneWeibo;
  * @author xiaolei
  */
 public class TestOpenCloud {
-	
     public String[] WORDS ;
     JFrame frame = new JFrame("Word Cloud");
+    /**
+     * The Method to initiate the process
+     * @param temp the String array contains all of words and phrases
+     * @throws IOException
+     */
     protected void initUI(String[] temp) throws IOException {
     	this.WORDS=temp;
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,6 +62,11 @@ public class TestOpenCloud {
         ImageIO.write(im, "PNG", new File("word cloud.png"));
     }
     
+    /**
+     * Save JPanel component to local file
+     * @param panel
+     * @throws IOException
+     */
     public static void saveImage(JPanel panel) throws IOException{
     	Container c = panel.getRootPane();
         BufferedImage im = new BufferedImage(c.getWidth(), c.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -65,6 +74,11 @@ public class TestOpenCloud {
         ImageIO.write(im, "PNG", new File("./resource/Pic/WorldCloud.png"));
     }
     
+    /**
+     * Save JFrame component to local file
+     * @param frame JFrame
+     * @throws IOException
+     */
     public static void saveImage(JFrame frame) throws IOException{
     	Container c = frame.getContentPane();
         BufferedImage im = new BufferedImage(c.getWidth(), c.getHeight(), BufferedImage.TYPE_INT_ARGB);
