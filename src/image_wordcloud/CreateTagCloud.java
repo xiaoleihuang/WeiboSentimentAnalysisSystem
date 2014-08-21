@@ -24,7 +24,7 @@ import retrieval_extractor.OneWeibo;
  * Add visualization tools for word cloud
  * @author xiaolei
  */
-public class TestOpenCloud {
+public class CreateTagCloud {
     public String[] WORDS ;
     JFrame frame = new JFrame("Word Cloud");
     /**
@@ -112,7 +112,7 @@ public class TestOpenCloud {
                 	}
                 	System.out.println(ws.size());
                 	
-					new TestOpenCloud().initUI(ws.toArray(new String[ws.size()]));
+					new CreateTagCloud().initUI(ws.toArray(new String[ws.size()]));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
