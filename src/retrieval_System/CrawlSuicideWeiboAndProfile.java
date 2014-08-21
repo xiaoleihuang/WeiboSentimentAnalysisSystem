@@ -1,5 +1,8 @@
 package retrieval_System;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 import retrieval_extractor.ReadUidFile;
@@ -48,9 +51,13 @@ public class CrawlSuicideWeiboAndProfile {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub		
 		//args[0] is login account's name, args[1] is the password
-		new CrawlSuicideWeiboAndProfile("@","");
+		BufferedReader reader=new BufferedReader(new FileReader("./account.conf"));
+		String username=reader.readLine();
+		String password=reader.readLine();
+		reader.close();
+		new CrawlSuicideWeiboAndProfile(username,password);
 	}
 }

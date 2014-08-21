@@ -1,2 +1,10 @@
+/config.properties
 /image_chart/
 /image_wordcloud/
+/log4j.properties
+/model_buildIndex/
+/model_mallet/
+/model_sample/
+/model_segmentation/
+/retrieval_System/
+/retrieval_writer/
