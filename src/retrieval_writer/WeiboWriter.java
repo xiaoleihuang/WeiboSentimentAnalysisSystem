@@ -19,7 +19,8 @@ import weibo4j.model.Tag;
 import weibo4j.model.User;
 
 /**
- * Write posts to File with given path, and write user's profile to DataBase
+ * Write posts to File with given path, and write user's profile to DataBase<br/>
+ * <b>You could set the pid as you get from Sina,but here the pid is the System.currentTimeMillis()</b>
  * @author xiaolei
  */
 public class WeiboWriter {	
@@ -72,8 +73,13 @@ public class WeiboWriter {
 	 */
 	public static boolean Write2CSVFile(String uid,List<OneWeibo> weiboList,String path)throws IOException{
 		StringBuilder sb=new StringBuilder();
-		sb.append("");
+		sb.append(uid+"\t"+"pid"+"\t"+"content"+"\t"+"additionalContent"+"\t"+"date"+"\t"+"postChain"
+				+"\t"+"degree"+"\t"+"fromWho"+"\t"+"type");
 		
+		for(OneWeibo post:weiboList){
+			sb.append(System.currentTimeMillis()+"\t"+post.getContent()+"\t"+post.getForwardReason()+"\t"+post.getDate()
+					+"0"+"\t"+post.getFromWho()+"\t"+post.getType()+"\n");
+		}
 		try{
 			BufferedWriter writer=new BufferedWriter(new FileWriter(""));
 			writer.append(sb.toString());
@@ -102,7 +108,7 @@ public class WeiboWriter {
 		//Set Column Names
 		HSSFRow columnNames=sheet.createRow(0);
 		HSSFCell columnName=columnNames.createCell(0);
-		columnName.setCellValue("Pid");
+		columnName.setCellValue("pid");
 		columnName=columnNames.createCell(1);
 		columnName.setCellValue("content");
 		columnName=columnNames.createCell(2);
@@ -110,7 +116,7 @@ public class WeiboWriter {
 		columnName=columnNames.createCell(3);
 		columnName.setCellValue("date");
 		columnName=columnNames.createCell(4);
-		columnName.setCellValue("post chain");
+		columnName.setCellValue("postChain");
 		columnName=columnNames.createCell(5);
 		columnName.setCellValue("degree");
 		columnName=columnNames.createCell(6);
@@ -123,7 +129,7 @@ public class WeiboWriter {
 			//Set row cells
 			HSSFCell cell=row.createCell(0);
 			OneWeibo post=weiboList.get(rownum-1);
-			cell.setCellValue(uid+""+(rownum-1));
+			cell.setCellValue(System.currentTimeMillis());
 			cell=columnNames.createCell(1);
 			cell.setCellValue(post.getContent());
 			cell=columnNames.createCell(2);
