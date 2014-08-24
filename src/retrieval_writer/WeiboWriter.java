@@ -81,7 +81,7 @@ public class WeiboWriter {
 					+"0"+"\t"+post.getFromWho()+"\t"+post.getType()+"\n");
 		}
 		try{
-			BufferedWriter writer=new BufferedWriter(new FileWriter(""));
+			BufferedWriter writer=new BufferedWriter(new FileWriter(path+uid+".txt"));
 			writer.append(sb.toString());
 			writer.flush();
 			writer.close();
@@ -100,7 +100,7 @@ public class WeiboWriter {
 	 * @throws IOException
 	 */
 	public static void Write2ExcelFile(String uid,List<OneWeibo> weiboList,String path)throws IOException{
-		BufferedOutputStream stream=new BufferedOutputStream(new FileOutputStream(path));
+		BufferedOutputStream stream=new BufferedOutputStream(new FileOutputStream(path+uid));
 		HSSFWorkbook excel=new HSSFWorkbook();
 		
 		HSSFSheet sheet=excel.createSheet();

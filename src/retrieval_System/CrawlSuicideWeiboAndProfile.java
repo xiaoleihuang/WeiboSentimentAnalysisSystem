@@ -27,8 +27,9 @@ public class CrawlSuicideWeiboAndProfile {
 	/**
 	 * @param u name
 	 * @param p pwd
+	 * @throws IOException 
 	 */
-	public CrawlSuicideWeiboAndProfile(String u, String p){
+	public CrawlSuicideWeiboAndProfile(String u, String p) throws IOException{
 		name=u;
 		pwd=p;
 		int count=0;
@@ -36,7 +37,8 @@ public class CrawlSuicideWeiboAndProfile {
 			crawler=new WeiboCrawler(uids.get(i), name, pwd, 200);
 			count=+crawler.getPostsList().size();
 			crawler.close();
-			WeiboWriter.WritePosts2File(uids.get(i), crawler.getPostsList(), "");//write file under the project
+//			WeiboWriter.WritePosts2File(uids.get(i), crawler.getPostsList(), "");//write file under the project
+			WeiboWriter.Write2ExcelFile(uids.get(i), crawler.getPostsList(), "./resource/posts/");
 //			GetUserProfile profile=new GetUserProfile();
 //			GetUserTags getTags=new GetUserTags();
 //			WeiboWriter.WriteUserProfile2MySQL(profile.getUserById(uids.get(i)), getTags.getTags(uids.get(i)));
