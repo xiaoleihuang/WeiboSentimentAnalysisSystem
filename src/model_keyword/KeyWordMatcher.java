@@ -1,4 +1,4 @@
-package model_buildIndex;
+package model_keyword;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

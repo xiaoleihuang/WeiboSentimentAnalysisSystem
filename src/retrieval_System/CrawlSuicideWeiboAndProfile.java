@@ -38,7 +38,8 @@ public class CrawlSuicideWeiboAndProfile {
 			count=+crawler.getPostsList().size();
 			crawler.close();
 //			WeiboWriter.WritePosts2File(uids.get(i), crawler.getPostsList(), "");//write file under the project
-			WeiboWriter.Write2ExcelFile(uids.get(i), crawler.getPostsList(), "./resource/posts/");
+//			WeiboWriter.Write2ExcelFile(uids.get(i), crawler.getPostsList(), "./resource/posts/");
+			WeiboWriter.Write2CSVFile(uids.get(i), crawler.getPostsList(), "./resource/posts/");
 //			GetUserProfile profile=new GetUserProfile();
 //			GetUserTags getTags=new GetUserTags();
 //			WeiboWriter.WriteUserProfile2MySQL(profile.getUserById(uids.get(i)), getTags.getTags(uids.get(i)));

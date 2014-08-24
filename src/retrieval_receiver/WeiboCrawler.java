@@ -129,7 +129,7 @@ public class WeiboCrawler {
 	 * get all data
 	 * @return data
 	 */
-	public List<OneWeibo> getPostsList(){
+	public List<OneWeibo>getPostsList(){
 		return this.weiboList;
 	}
 }

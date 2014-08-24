@@ -74,14 +74,14 @@ public class WeiboWriter {
 	public static boolean Write2CSVFile(String uid,List<OneWeibo> weiboList,String path)throws IOException{
 		StringBuilder sb=new StringBuilder();
 		sb.append(uid+"\t"+"pid"+"\t"+"content"+"\t"+"additionalContent"+"\t"+"date"+"\t"+"postChain"
-				+"\t"+"degree"+"\t"+"fromWho"+"\t"+"type");
+				+"\t"+"degree"+"\t"+"fromWho"+"\t"+"type"+"\n");
 		
 		for(OneWeibo post:weiboList){
 			sb.append(System.currentTimeMillis()+"\t"+post.getContent()+"\t"+post.getForwardReason()+"\t"+post.getDate()
 					+"0"+"\t"+post.getFromWho()+"\t"+post.getType()+"\n");
 		}
 		try{
-			BufferedWriter writer=new BufferedWriter(new FileWriter(path+uid+".txt"));
+			BufferedWriter writer=new BufferedWriter(new FileWriter(path+uid+".csv"));
 			writer.append(sb.toString());
 			writer.flush();
 			writer.close();
@@ -100,8 +100,9 @@ public class WeiboWriter {
 	 * @throws IOException
 	 */
 	public static void Write2ExcelFile(String uid,List<OneWeibo> weiboList,String path)throws IOException{
-		BufferedOutputStream stream=new BufferedOutputStream(new FileOutputStream(path+uid));
+		BufferedOutputStream stream=new BufferedOutputStream(new FileOutputStream(path+uid+".xls"));
 		HSSFWorkbook excel=new HSSFWorkbook();
+
 		
 		HSSFSheet sheet=excel.createSheet();
 		excel.setSheetName(0, uid);//set sheet name
