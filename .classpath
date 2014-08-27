@@ -44,7 +44,7 @@
 	<classpathentry kind="lib" path="lib/webdriver/xercesImpl-2.10.0.jar"/>
 	<classpathentry kind="lib" path="lib/webdriver/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.29-bin.jar"/>
+	<classpathentry kind="lib" path="/home/xiaolei/jar/mysql-connector-java-5.1.29-bin.jar"/>
 	<classpathentry kind="lib" path="lib/analyzer/tree_split-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/weka.jar">
 		<attributes>
