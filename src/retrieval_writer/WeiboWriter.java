@@ -29,7 +29,7 @@ public class WeiboWriter {
 	 * @param file path and name to be written
 	 * @return true is successful, false is fail
 	 */
-	public static boolean WritePosts2File(String uid,List<OneWeibo> weiboList,String path){
+	public static boolean WritePosts2XML(String uid,List<OneWeibo> weiboList,String path){
 		StringBuilder buffer=new StringBuilder();
 		buffer.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"+"\n");
 		buffer.append("<posts "+"uid=\""+uid+"\" "+"count=\""+weiboList.size()+"\">"+"\n");
@@ -73,7 +73,7 @@ public class WeiboWriter {
 	 */
 	public static boolean Write2CSVFile(String uid,List<OneWeibo> weiboList,String path)throws IOException{
 		StringBuilder sb=new StringBuilder();
-		sb.append(uid+"\t"+"pid"+"\t"+"content"+"\t"+"additionalContent"+"\t"+"date"+"\t"+"postChain"
+		sb.append("pid"+"\t"+"content"+"\t"+"additionalContent"+"\t"+"date"+"\t"+"postChain"
 				+"\t"+"degree"+"\t"+"fromWho"+"\t"+"type"+"\n");
 		
 		for(OneWeibo post:weiboList){
@@ -102,51 +102,52 @@ public class WeiboWriter {
 	public static void Write2ExcelFile(String uid,List<OneWeibo> weiboList,String path)throws IOException{
 		BufferedOutputStream stream=new BufferedOutputStream(new FileOutputStream(path+uid+".xls"));
 		HSSFWorkbook excel=new HSSFWorkbook();
-
+		
 		
 		HSSFSheet sheet=excel.createSheet();
 		excel.setSheetName(0, uid);//set sheet name
 		//Set Column Names
 		HSSFRow columnNames=sheet.createRow(0);
-		HSSFCell columnName=columnNames.createCell(0);
-		columnName.setCellValue("pid");
-		columnName=columnNames.createCell(1);
-		columnName.setCellValue("content");
-		columnName=columnNames.createCell(2);
-		columnName.setCellValue("additionalContent");
-		columnName=columnNames.createCell(3);
-		columnName.setCellValue("date");
-		columnName=columnNames.createCell(4);
-		columnName.setCellValue("postChain");
-		columnName=columnNames.createCell(5);
-		columnName.setCellValue("degree");
-		columnName=columnNames.createCell(6);
-		columnName.setCellValue("from who");
-		columnName=columnNames.createCell(7);
-		columnName.setCellValue("type");
 		
+		columnNames.createCell(0).setCellValue("pid");
+		columnNames.createCell(1).setCellValue("content");
+		columnNames.createCell(2).setCellValue("additionalContent");
+		columnNames.createCell(3).setCellValue("date");
+		columnNames.createCell(4).setCellValue("postChain");
+		columnNames.createCell(5).setCellValue("degree");
+		columnNames.createCell(6).setCellValue("from who");
+		columnNames.createCell(7).setCellValue("type");
+		HSSFRow row;
+		HSSFCell cell;
 		for(int rownum=1;rownum<weiboList.size();rownum++){
-			HSSFRow row=sheet.createRow(rownum);
-			//Set row cells
-			HSSFCell cell=row.createCell(0);
+			row=sheet.createRow(rownum);
 			OneWeibo post=weiboList.get(rownum-1);
-			cell.setCellValue(System.currentTimeMillis());
-			cell=columnNames.createCell(1);
+			
+			String content=post.getContent();
+			boolean flag=true;
+			
+			
+			//Set row cells
+			cell=row.createCell(0);
+			cell.setCellValue(System.currentTimeMillis()+""+rownum);
+			cell=row.createCell(1);
 			cell.setCellValue(post.getContent());
-			cell=columnNames.createCell(2);
+			cell=row.createCell(2);
 			cell.setCellValue(post.getForwardReason());
-			cell=columnNames.createCell(3);
+			cell=row.createCell(3);
 			cell.setCellValue(post.getDate());
-			cell=columnNames.createCell(4);
+			cell=row.createCell(4);
 			cell.setCellValue(post.getForwardChain());
-			cell=columnNames.createCell(5);
+			cell=row.createCell(5);
 			cell.setCellValue("0");
-			cell=columnNames.createCell(6);
+			cell=row.createCell(6);
 			cell.setCellValue(post.getFromWho());
-			cell=columnNames.createCell(7);
+			cell=row.createCell(7);
 			cell.setCellValue(post.getType());
 		}
+		stream.flush();
 		excel.write(stream);
+		stream.close();
 	}
 	
 	/**

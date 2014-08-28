@@ -100,7 +100,7 @@ public class CreateTagCloud {
                 		for(String w:words){
                 			w=w.trim();
                 			
-                			if(w!=""&&w!=null&&!w.contains(" ")&&w!="\n"&&!w.contains("我")&&!w.contains("你")&&!w.contains("了")
+                			if(w!=""&&w!=null&&!w.contains(" ")&&w!="\n"&&!w.contains("我")&&!w.contains("了")
                 					&&!w.contains("都")&&!w.contains("就")&&!w.contains("也")&&!w.contains("是")&&!w.contains("有")
                 					&&!w.contains("啊")){
                 			System.out.print(w);

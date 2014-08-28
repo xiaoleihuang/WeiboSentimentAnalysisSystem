@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /**
- * Transform Traditional Chinese to Simplified Chinese, this could only be used as single word transformation<br/>
+ * Transform Traditional Chinese(繁) to Simplified Chinese(简), this could only be used as single word transformation<br/>
  * Extremely thanks both OpenCC and Ansj providing dictionary resources<br/>
  * {@link https://github.com/BYVoid/OpenCC/}<br/>
  * {@linkplain https://github.com/NLPchina/nlp-lang/}

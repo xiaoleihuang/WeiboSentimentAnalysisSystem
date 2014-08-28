@@ -33,13 +33,15 @@ public class CrawlSuicideWeiboAndProfile {
 		name=u;
 		pwd=p;
 		int count=0;
+		
 		for(int i=0;i<uids.size();i++){
+			try{
 			crawler=new WeiboCrawler(uids.get(i), name, pwd, 200);
 			count=+crawler.getPostsList().size();
 			crawler.close();
-//			WeiboWriter.WritePosts2File(uids.get(i), crawler.getPostsList(), "");//write file under the project
-//			WeiboWriter.Write2ExcelFile(uids.get(i), crawler.getPostsList(), "./resource/posts/");
-			WeiboWriter.Write2CSVFile(uids.get(i), crawler.getPostsList(), "./resource/posts/");
+//			WeiboWriter.WritePosts2XML(uids.get(i), crawler.getPostsList(), "./resource/posts/");//write file under the project
+			WeiboWriter.Write2ExcelFile(uids.get(i), crawler.getPostsList(), "./resource/posts/");
+//			WeiboWriter.Write2CSVFile(uids.get(i), crawler.getPostsList(), "./resource/posts/");
 //			GetUserProfile profile=new GetUserProfile();
 //			GetUserTags getTags=new GetUserTags();
 //			WeiboWriter.WriteUserProfile2MySQL(profile.getUserById(uids.get(i)), getTags.getTags(uids.get(i)));
@@ -51,7 +53,9 @@ public class CrawlSuicideWeiboAndProfile {
 					e.printStackTrace();
 				}
 			}
+			}catch(Exception e){e.printStackTrace();System.err.println();}
 		}
+		
 	}
 	
 	public static void main(String[] args) throws IOException {

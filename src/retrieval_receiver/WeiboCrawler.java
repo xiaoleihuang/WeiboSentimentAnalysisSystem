@@ -13,6 +13,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import retrieval_extractor.OneWeibo;
 import retrieval_extractor.WeiboExtractor;
+import retrieval_writer.ErrorLogger;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 
@@ -90,7 +91,14 @@ public class WeiboCrawler {
 			WeiboInOnePageNum=elements.size();
 			try{
 				for(int i=0;i<WeiboInOnePageNum-2;i++){//because last 2 options are not Weibo_Tweet
-					this.weiboList.add(WeiboExtractor.extract(elements.get(i)));
+					try{
+						OneWeibo post=WeiboExtractor.extract(elements.get(i));
+						if(post!=null)
+							this.weiboList.add(post);
+					}catch(Exception ee){
+						ErrorLogger.ErrorLog(this.getClass().getName(), ee.getMessage(), elements.get(i).getText());
+						continue;
+					}
 				}
 				driver.findElement(By.xpath("//*[@id='pagelist']/form/div/a[1]")).click();
 				page--;countPage++;
