@@ -125,7 +125,8 @@ public class WeiboWriter {
 			
 			String content=post.getContent();
 			boolean flag=true;
-			
+			if(content.contains("http://t.cn/zWSudZc"))
+				flag=false;
 			
 			//Set row cells
 			cell=row.createCell(0);
@@ -140,8 +141,13 @@ public class WeiboWriter {
 			cell.setCellValue(post.getForwardChain());
 			cell=row.createCell(5);
 			cell.setCellValue("0");
+			
 			cell=row.createCell(6);
-			cell.setCellValue(post.getFromWho());
+			if(flag==false)
+				cell.setCellValue("null");
+			else
+				cell.setCellValue(post.getFromWho());
+			
 			cell=row.createCell(7);
 			cell.setCellValue(post.getType());
 		}
