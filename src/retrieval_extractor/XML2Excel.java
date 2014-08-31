@@ -27,6 +27,7 @@ public class XML2Excel {
 				
 			}
 			stream.flush();
+			excel.write(stream);
 			stream.close();
 		}
 	}

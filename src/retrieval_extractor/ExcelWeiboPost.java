@@ -5,14 +5,15 @@ package retrieval_extractor;
  */
 public class ExcelWeiboPost {
 	private String id,content,date="null",keyword,uid;
-	private double degree=0;
-	public ExcelWeiboPost(String pid,String content,String date,String keyword,String uid,double degree){
+	private double degree=0,type=0;
+	public ExcelWeiboPost(String pid,String content,String date,String keyword,String uid,double degree,double type){
 		this.id=pid;
 		this.content=content;
 		this.date=date;
 		this.keyword=keyword;
 		this.uid=uid;
 		this.degree=degree;
+		this.type=type;
 	}
 	
 	public String getPostId(){
@@ -32,5 +33,8 @@ public class ExcelWeiboPost {
 	}
 	public double getDegree(){
 		return this.degree;
+	}
+	public double getType(){
+		return this.type;
 	}
 }

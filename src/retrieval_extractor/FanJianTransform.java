@@ -1,9 +1,14 @@
 package retrieval_extractor;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import retrieval_writer.WeiboWriter;
 
 /**
  * Transform Traditional Chinese(繁) to Simplified Chinese(简), this could only be used as single word transformation<br/>
@@ -69,12 +74,16 @@ public class FanJianTransform {
 	 * Test
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		String sentence="輸入簡體字,點下面繁體字按鈕進行在線轉換";
-		char[] words=sentence.toCharArray();
-		for(char c:words)
-			System.out.println(FanJianTransform.transformWord(c));
-		System.out.println(FanJianTransform.transformSentence(sentence));
+		File f=new File("/home/xiaolei/Desktop/dataset/suicide/NoneSuicidalpart.txt");
+		BufferedReader reader=new BufferedReader(new FileReader(f));
+		List<String> list=new ArrayList<String>();
+		String line;
+		while((line=reader.readLine())!=null){
+			list.add(FanJianTransform.transformSentence(line));
+		}
+		WeiboWriter.write2file(list, "allNoneSuicidal.txt");
+		reader.close();
 	}
 }

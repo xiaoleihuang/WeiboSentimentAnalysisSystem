@@ -125,7 +125,7 @@ public class WeiboWriter {
 			
 			String content=post.getContent();
 			boolean flag=true;
-			if(content.contains("http://t.cn/zWSudZc"))
+			if(content.contains("此微博已被删除"))
 				flag=false;
 			
 			//Set row cells
@@ -145,9 +145,10 @@ public class WeiboWriter {
 			cell=row.createCell(6);
 			if(flag==false)
 				cell.setCellValue("null");
-			else
-				cell.setCellValue(post.getFromWho());
-			
+			else{
+				if(post.getFromWho()!=null&&!post.getFromWho().contains("sinaurl"))
+					cell.setCellValue(post.getFromWho());
+			}
 			cell=row.createCell(7);
 			cell.setCellValue(post.getType());
 		}
@@ -159,7 +160,7 @@ public class WeiboWriter {
 	/**
 	 * Write data to database
 	 * @param u SinaWeibo User class
-	 * @param tags SinaWeibo Tag class
+	 * @param tags SinaWeibo users' Tag class
 	 */
 	public static void WriteUserProfile2MySQL(User u,List<Tag> tags){
 		ConnDB conn=new ConnDB("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306?DatabaseName=posts", "root", "root");

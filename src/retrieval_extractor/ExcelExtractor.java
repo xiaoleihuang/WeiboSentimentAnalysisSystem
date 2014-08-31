@@ -1,6 +1,7 @@
 package retrieval_extractor;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -54,7 +55,7 @@ public class ExcelExtractor {
 				int rows=sheet.getPhysicalNumberOfRows();
 				
 				//get each information's cell position
-				int content=1,date=3,keyword=4,degree=5;
+				int content=1,date=3,keyword=4,degree=5,type=7;
 				
 				//the first row of sheet is the names of those columns
 				for(int m=1;m<rows;m++){
@@ -73,20 +74,23 @@ public class ExcelExtractor {
 						}catch(Exception e){
 							continue;
 						}
-						if(!row.getCell(content+1).toString().contains("N/A")&&!row.getCell(content+1).toString().contains("此微博已被作者删除")){
+						if(row.getCell(content+1)!=null&&!row.getCell(content+1).toString().contains("N/A")&&!row.getCell(content+1).toString().contains("此微博已被作者删除")){
 							contents=contents+"。 "+row.getCell(content+1).toString()+" ";
 						}
 						if(contents.contains("转发微博"))
 							contents=contents.split("转发微博")[1];
-						if(contents.contains("转发微博"))
-							System.out.println(contents);
+//						if(contents.contains("转发微博"))
+//							System.out.println(contents);
 						contents.replace("Repost", " ");
 						
-						System.out.println(contents);
+//						System.out.println(contents);
 						if(row.getCell(keyword)==null){
-							list.add(new ExcelWeiboPost(String.format("%.0f",row.getCell(0).getNumericCellValue()), contents, row.getCell(date).toString(), "", uid,Double.parseDouble(row.getCell(degree).toString())));
-						}else
-							list.add(new ExcelWeiboPost(String.format("%.0f",row.getCell(0).getNumericCellValue()), contents, row.getCell(date).toString(), row.getCell(keyword).toString(), uid,Double.parseDouble(row.getCell(degree).toString())));
+							//list.add(new ExcelWeiboPost(String.format("%.0f",row.getCell(0).getNumericCellValue()).trim(), contents.trim(), row.getCell(date).toString().trim(), "", uid,Double.parseDouble(row.getCell(degree).toString()), Double.parseDouble(row.getCell(type).toString().trim())));
+							list.add(new ExcelWeiboPost(row.getCell(0).toString().trim(), contents.trim(), row.getCell(date).toString().trim(), "", uid,Double.parseDouble(row.getCell(degree).toString()), Double.parseDouble(row.getCell(type).toString().trim())));
+						}else{
+							//list.add(new ExcelWeiboPost(String.format("%.0f",row.getCell(0).getNumericCellValue()).trim(), contents.trim(), row.getCell(date).toString().trim(), row.getCell(keyword).toString(), uid,Double.parseDouble(row.getCell(degree).toString()), Double.parseDouble(row.getCell(type).toString().trim())));
+							list.add(new ExcelWeiboPost(row.getCell(0).toString().trim(), contents.trim(), row.getCell(date).toString().trim(), row.getCell(keyword).toString(), uid,Double.parseDouble(row.getCell(degree).toString()), Double.parseDouble(row.getCell(type).toString().trim())));
+							}
 					}
 				}
 			}
@@ -100,11 +104,12 @@ public class ExcelExtractor {
 		return this.list;
 	}
 	
-	public void Write2File(String name){
+	public static void Write2File(List<ExcelWeiboPost> list,String name){
 		try {
 			BufferedWriter writer=new BufferedWriter(new FileWriter("./resource/"+name+".txt"));
+			writer.append("id\tcontent\tdate\ttype\n");
 			for(ExcelWeiboPost post:list){
-				writer.append(post.getPostId()+"\t"+post.getContent()+"\t"+post.getDate()+"\n");
+				writer.append(post.getPostId()+"\t"+post.getContent()+"\t"+post.getDate()+"\t"+(int)post.getType()+"\n");
 			}
 			writer.flush();
 			writer.close();
@@ -114,11 +119,14 @@ public class ExcelExtractor {
 		}
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		for(int i=1;i<5;i++){
-			String p="/home/xiaolei/Documents/"+i+".xls";
-			System.err.println(i);
-			new ExcelExtractor(p).Write2File(""+i);
+		// TODO Auto-generated method stub\
+		ExcelExtractor e;
+		List<ExcelWeiboPost> list=new ArrayList<ExcelWeiboPost>();
+		File dir=new File("/home/xiaolei/Desktop/uid/uid tasks/Excel Data");
+		for(File f:dir.listFiles()){			
+			e=new ExcelExtractor(f.getAbsolutePath());
+			list.addAll(e.getList());
 		}
+		ExcelExtractor.Write2File(list, "AdditionalNoneSuicidalpart");
 	}
 }
