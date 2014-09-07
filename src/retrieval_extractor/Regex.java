@@ -30,10 +30,22 @@ public class Regex {
 			result+=matcher.group(1)+"\t";        
 		}
 		return result;
-		
 	}
 	
-	//抽取链接，多个链接以\t分隔。
+	/**
+	 * Remove @users in WeiBo post
+	 * @param str post
+	 * @return post
+	 */
+	public static String removeAtUsers(String str){
+		return str.replaceAll("@(.*)\\s", "");
+	}
+	
+	/**
+	 * 抽取链接，多个链接以\t分隔 Extract HTTP links
+	 * @param text post
+	 * @return post
+	 */
 	public static String extractHttp(String text){
 		String result="";
 		String regex="(http://.+)\\s+";
@@ -51,7 +63,11 @@ public class Regex {
 		return text.replaceAll("http://.*\\s+", "");
 		
 	}
-	//抽取转发名字，多个名字以\t分隔
+	/**
+	 * extract repost chain
+	 * @param text post
+	 * @return post
+	 */
 	public static String extractRetweetName(String text){
 		String result="";
 		String regex="//@([^//@]*):";
@@ -63,20 +79,24 @@ public class Regex {
 		return result;
 		
 	}
-	//去掉转发名字后的字符串
+
+	/**
+	 * 去掉转发名字后的字符串,Remove RetweetString like //@冷笑话精选:
+	 * @param text post
+	 * @return post
+	 */
 	public static String removeRetweetName(String text){
-		return text.replaceAll("//@([^//@]*):", "");
-		
+		return text.replaceAll("//@([^//@]*):", "");		
 	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		String motion=" 宵夜去了！！回来再说！！[哈哈]";
 		System.out.println(extractMotion(motion));
 		System.out.println(motion.replaceAll("\\[([^\\]]*)\\]", ""));
 		String atSomeOne="@lixie911  小Z拿回来了。去医院复诊，接着就回公司报道去。接近崩溃‍";
 		System.out.println(extractAtSomeOne(atSomeOne));
+		System.out.println(atSomeOne.replaceAll("@(.*)\\s", ""));
 		String  link="http://t.cn/heuvLe 《孤独》把镜头对准那些生活在精神病院里有各种心理残疾的儿童，抑郁，自闭，妄想等各种精神疾病折磨着他们，被隔离在铁丝网的围墙内，发病时不停地用头撞墙发出闷响，墙上铺着很厚的海棉，但那声音依然让你无法忍受。她们就在监狱般的医院里，孤独地“活”着。";
 		System.out.println(extractHttp(link));
 		System.out.println(removeHttp(link));

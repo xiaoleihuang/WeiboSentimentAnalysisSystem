@@ -4,14 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model_buildIndex.GetStopWords;
-
 import org.ansj.domain.Term;
 import org.ansj.recognition.NatureRecognition;
-import org.ansj.splitWord.analysis.NlpAnalysis;
+import org.ansj.splitWord.analysis.BaseAnalysis;
 import org.ansj.splitWord.analysis.ToAnalysis;
 import org.ansj.util.FilterModifWord;
 
+import model_buildIndex.GetStopWords;
 import retrieval_extractor.GetAllWeiboPosts;
 import retrieval_extractor.OneWeibo;
 import retrieval_extractor.Regex;
@@ -47,18 +46,19 @@ public class Segmentation {
 	}
 	
 	/**
+	 * static method to segment sentence into terms, this method with stop word filter
 	 * @param content the sentence needs to be segmented
 	 * @return list of terms, contains terms' nature and segmented terms with filtered by stop words.
 	 */
 	public List<Term> getSegmentationResults(String content){
-		terms=NlpAnalysis.parse(content);
+		terms=BaseAnalysis.parse(content);
 		new NatureRecognition(terms).recognition();
 		terms=FilterModifWord.modifResult(terms);
 		return this.terms;
 	}
 	
 	/**
-	 * static method to segment sentence into terms, this method with no stop word filter
+	 * static method to segment sentence into terms, this method with <b>no</b> stop word filter
 	 * @param str the sentence needs to be segmented
 	 * @return list of terms, contains terms' nature and segmented terms.
 	 */
@@ -69,24 +69,35 @@ public class Segmentation {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		GetStopWords getstop = new GetStopWords();
-		GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/all.txt");
+		GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/tempTrainData");
 		List<OneWeibo> list=alldata.getList();
 		Segmentation s=new Segmentation(getstop.getWords());
 		List<String> segmentedList=new ArrayList<String>();
-		
+		int count=0;
 		for(OneWeibo post:list){
 			String str=Regex.removeHttp(post.getContent());
-			List<Term> terms=s.getSegmentationResults(str);
-			StringBuffer buffer=new StringBuffer();
-			for(Term t:terms){
-				buffer.append(t.getName().trim()+" ");
-			}
-			String temp=buffer.toString().trim();
-			temp=post.getPid()+"\t"+"1"+"\t"+temp;
+			str=Regex.removeRetweetName(str);
+			str=Regex.removeAtUsers(str);
+			try{
+				List<Term> terms=s.getSegmentationResults(str);
 			
-			segmentedList.add(temp);
+				StringBuilder sb=new StringBuilder();
+				for(Term t:terms){
+					if(t.getName().trim()!=null&&t.getName().trim()!="")
+						sb.append(t.getName().trim()+" ");
+				}
+				String temp=sb.toString().trim();
+				temp=post.getPid()+"\t"+temp+"\t"+post.getDate()+"\t"+post.getType()+"\t"+post.getSuicide();
+				
+				segmentedList.add(temp);
+			}catch(Exception e){
+//				System.err.println(post.getPid()+"\t"+post.getContent()+"\t"+post.getDate()+"\t"+post.getType()+"\t"+post.getSuicide());
+				e.printStackTrace();
+				count++;
+				continue;
+			}
 		}
-		
+		System.out.println(count);
 		WeiboWriter.write2file(segmentedList, "Segmentedall.txt");
 	}
 }

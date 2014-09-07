@@ -45,14 +45,11 @@
 	<classpathentry kind="lib" path="lib/webdriver/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="lib" path="/home/xiaolei/jar/mysql-connector-java-5.1.29-bin.jar"/>
-	<classpathentry kind="lib" path="lib/analyzer/tree_split-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/weka.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="http://weka.sourceforge.net/doc.dev/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/analyzer/ansj_seg-1.4.1.jar"/>
-	<classpathentry kind="lib" path="lib/analyzer/ansj_lucene4_plug-1.3.jar"/>
 	<classpathentry kind="lib" path="libsvm-master/java/libsvm.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/poi"/>
@@ -61,5 +58,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/stanford"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jcharts"/>
 	<classpathentry kind="lib" path="/home/xiaolei/jar/opencloud/opencloud.jar"/>
+	<classpathentry kind="lib" path="/home/xiaolei/jar/ansj/ansj_seg-2.0.6.jar"/>
+	<classpathentry kind="lib" path="/home/xiaolei/jar/ansj/nlp-lang-0.2.jar"/>
+	<classpathentry kind="lib" path="/home/xiaolei/jar/ansj/ansj_lucene4_plug-1.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

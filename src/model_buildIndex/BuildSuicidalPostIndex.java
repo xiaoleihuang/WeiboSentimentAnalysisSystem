@@ -9,6 +9,8 @@ import java.util.Set;
 
 import org.ansj.lucene4.AnsjAnalysis;
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
+import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
@@ -35,7 +37,7 @@ public class BuildSuicidalPostIndex {
 	private IndexWriter writer;
 	GetStopWords gsw=new GetStopWords();
 	private final String index2bePlaced="./index/";
-	GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/all.txt");
+	GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/tempALL.txt");
 	private List<OneWeibo> list=new ArrayList<OneWeibo>();
 	
 	public BuildSuicidalPostIndex() throws CorruptIndexException, IOException{
@@ -45,16 +47,18 @@ public class BuildSuicidalPostIndex {
 		
 		//The place to put index data. Configuring Lucene4
 		File index=new File(this.index2bePlaced);
-		indexDir=FSDirectory.open(index);		
-		Analyzer luceneAnalyzer=new AnsjAnalysis(filter,false);
-//		Analyzer luceneAnalyzer=new SmartChineseAnalyzer(Version.LUCENE_4_9,new CharArraySet(Version.LUCENE_4_9,filter,false));
+		indexDir=FSDirectory.open(index);
+//		Analyzer luceneAnalyzer=new AnsjAnalysis(filter,false);
+		Analyzer luceneAnalyzer=new SmartChineseAnalyzer(Version.LUCENE_4_9,new CharArraySet(Version.LUCENE_4_9,filter,false));
 		writer=new IndexWriter(indexDir,new IndexWriterConfig(Version.LUCENE_4_9,luceneAnalyzer));
 
 		for(OneWeibo comment:list){
 			Document doc=new Document();
-			doc.add(new Field("content",comment.getContent(),TextField.TYPE_STORED));
+			doc.add(new Field("content",new String(comment.getContent().getBytes(),"UTF-8"),TextField.TYPE_STORED));
+			
 			doc.add(new StringField("pid",comment.getPid(), Field.Store.YES));
 			writer.addDocument(doc);
+			System.out.println(comment.getPid());
 		}
 		
 		writer.commit();

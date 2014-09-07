@@ -13,6 +13,8 @@ public class OneWeibo{
 	private String forwardReason;
 	private String forwardChain;
 	private String pid;
+	private String suicide;
+	
 	/**
 	 * Store one post's information, this post is original post
 	 * @param c the content of post
@@ -58,7 +60,7 @@ public class OneWeibo{
 	 * 
 	 * @param content
 	 * @param pid post id
-	 * @param type 1 for suicidal post, 0 for non-suicidal post
+	 * @param type 1 for original post, 0 for forward post
 	 * @param date
 	 */
 	public OneWeibo(String content,String pid,String type,String date){
@@ -66,6 +68,22 @@ public class OneWeibo{
 		this.pid=pid;
 		this.type=Integer.parseInt(type);
 		this.date=date;
+	}
+	
+	/**
+	 * Constructor
+	 * @param content
+	 * @param pid post id
+	 * @param type 1 for original post, 0 for forward post
+	 * @param date
+	 * @param suicide 1 for suicidal post, 0 for none;
+	 */
+	public OneWeibo(String content,String pid,String type,String date,String suicide){
+		this.content=content;
+		this.pid=pid;
+		this.type=Integer.parseInt(type);
+		this.date=date;
+		this.suicide=suicide;
 	}
 	
 	/**
@@ -115,5 +133,12 @@ public class OneWeibo{
 	 */
 	public String getForwardChain(){
 		return this.forwardChain;
+	}
+	
+	/**
+	 * @return post is suicidal or not
+	 */
+	public String getSuicide(){
+		return this.suicide;
 	}
 }

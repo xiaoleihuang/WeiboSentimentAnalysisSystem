@@ -25,30 +25,31 @@ public class DateFormatter {
 		return format.format(d);
 	}
 	public static void main(String[] args) throws IOException, ParseException{
-		File f=new File("/home/xiaolei/Desktop/dataset/suicide/allNoneSuicidal.txt");
+		File f=new File("/home/xiaolei/Desktop/dataset/suicide/tempTrainData");
 		BufferedReader reader=new BufferedReader(new FileReader(f));
 		String line;
 		List<String> list=new ArrayList<String>();
-		list.add(reader.readLine());
+//		list.add(reader.readLine());
+		int count=0;
 		while((line=reader.readLine())!=null){
 			String[] info=line.split("\t");
 			try{
 				info[2]=DateFormatter.parser(info[2]);
 			}catch(ParseException e){
-				if(Integer.parseInt(info[3])==1){
-					info[3]="0";
-				}else{
-					info[3]="1";
-				}
-				if(info[1].trim().length()>=1)
-					list.add(info[0].trim()+"\t"+info[1].trim()+"\t"+info[2].trim()+"\t"+info[3].trim());
-				if(info[1].trim().length()<1)
+				count++;
+				
+				if(info[1].trim().length()>=2)
+				list.add(info[0].trim()+"\t"+info[1].trim()+"\t"+info[2].trim()+"\t"+info[3].trim()+"\t"+info[4].trim());
+				else
 					System.out.println(line);
 				continue;
 			}
-			if(info[1].trim().length()>=1)
-				list.add(info[0].trim()+"\t"+info[1].trim()+"\t"+info[2].trim()+"\t"+info[3].trim());
+			if(info[1].trim().length()>=2)
+				list.add(info[0].trim()+"\t"+info[1].trim()+"\t"+info[2].trim()+"\t"+info[3].trim()+"\t"+info[4].trim());
+			else
+				System.out.println(line);
 		}
+		System.out.println(count);
 		reader.close();
 		WeiboWriter.write2file(list, "test.txt");
 	}

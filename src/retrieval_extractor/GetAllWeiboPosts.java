@@ -11,17 +11,21 @@ public class GetAllWeiboPosts {
 	public GetAllWeiboPosts(String p){
 		try {
 			BufferedReader reader=new BufferedReader(new FileReader(p));
+			reader.readLine();
 			String line;
+			
 			while((line=reader.readLine())!=null){
-				System.out.println(line);
+//				System.out.println(line);
 				String[] infos=line.split("\t");
-				String pid=infos[0];
-				String content=infos[2];
-				String date=infos[1];
+				String pid=infos[0].trim();
+				String content=infos[1].trim();
+				String date=infos[2].trim();
+				String PostType=infos[3].trim();
+				String suicide=infos[4].trim();
 				
-				list.add(new OneWeibo(content, date, pid));
+				list.add(new OneWeibo(content, pid,PostType, date,suicide));
 			}
-			System.out.println(list.size());
+			System.out.println("Post Size:"+list.size());
 			reader.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -36,6 +40,6 @@ public class GetAllWeiboPosts {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/all.txt");
+		new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/tempTrainData");
 	}
 }

@@ -90,9 +90,9 @@ public class BuildTrainDataSetIndex {
 //		indexer.close();
 		
 		DirectoryReader reader=DirectoryReader.open(FSDirectory.open(new File("./index")));
-		reader.getTermVector(0, "content").iterator(null).term();
+//		reader.getTermVector(0, "content").iterator(null).term();
 
-		Document doc=reader.document(0);
+		Document doc=reader.document(1);
 		System.out.println();
 		System.out.println(doc.get("content"));
 	}

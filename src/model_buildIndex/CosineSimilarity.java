@@ -1,18 +1,16 @@
 package model_buildIndex;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
+import org.apache.lucene.analysis.util.CharArraySet;
 import org.ansj.lucene4.AnsjAnalysis;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
@@ -29,6 +27,7 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
 import retrieval_extractor.Regex;
+import retrieval_writer.WeiboWriter;
 
 public class CosineSimilarity {
 	IndexReader reader=null;
@@ -58,8 +57,8 @@ public class CosineSimilarity {
 		
 		searcher=new IndexSearcher(reader);
 		Set<String> filter=new HashSet<String>(gsw.getWords());
-//		analyzer=new SmartChineseAnalyzer(Version.LUCENE_4_9,new CharArraySet(Version.LUCENE_4_9,filter,false));
-		analyzer=new AnsjAnalysis(filter,false);
+		analyzer=new SmartChineseAnalyzer(Version.LUCENE_4_9,new CharArraySet(Version.LUCENE_4_9,filter,false));
+//		analyzer=new AnsjAnalysis(filter,false);
 	}
 	
 	public double search(String query) throws ParseException{
@@ -135,65 +134,57 @@ public class CosineSimilarity {
 	public double getQueryScore(){
 		return this.queryScore;
 	}
+	
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		File dir=new File("/home/xiaolei/Documents/Web Mining/project补充数据/Weibo");
-		File[] files=dir.listFiles();
+		File file=new File("/home/xiaolei/Desktop/dataset/suicide/allNoneSuicidal.txt");
 		CosineSimilarity c=new CosineSimilarity();
-		List<String> errorLine=new ArrayList<String>();
 		
 		int count=0;
 		List<String> list=new ArrayList<String>();
-		List<String> list1=new ArrayList<String>();
-		for(File file:files){
+		
 			BufferedReader reader=new BufferedReader(new FileReader(file));
 			String line=new String();
-			System.err.println(file.getName());
 			
 			while((line=reader.readLine())!=null){
-				String pid;
+				String content;
 				try{
-					pid=line.split("\t")[0];
-					line=line.split("\t")[1];
-					count++;
+					content=line.split("\t")[1];
 				}catch(Exception e){
 					continue;
 				}
 //				System.out.println(line);
-				line=line.trim();
-				line=line.concat(" ");
-				line=line.replaceAll("\\[([^\\]]*)\\]", "");
-				line=line.replace("?", "");
+				content=content.trim();
+				content=content.concat(" ");
+				content=content.replaceAll("\\[([^\\]]*)\\]", "");
+				content=content.replace("?", "");
 				
-				line=line.replace("~", "");
-				line=line.replace(":", "");
-				line=line.replace("-", "");
-				line=line.replace("^", "");
-				line=line.replace("!", "");				
+				content=content.replace("~", "");
+				content=content.replace(":", "");
+				content=content.replace("-", "");
+				content=content.replace("^", "");
+				content=content.replace("!", "");				
 //				System.out.println(line);
 				
 				try{
-					double score=c.search(line);
-//					System.out.println(line+"\t"+score);
-					if(line.contains("死")){
-						list.add(file.getName()+"\t"+pid+"\t"+line);
-						System.out.println(line+"\t"+score);
-						continue;
+					double score=c.search(content);
+					if(score<0.1){
+						System.out.println(score+"\t"+content);
+						list.add(line+"\t0");
+						int t=Integer.parseInt(line.split("\t")[3]);
+						if(t==1)
+							count++;
 					}
-						
-					if(score>2){
-						list.add(file.getName()+"\t"+pid+"\t"+line);
-						System.out.println(line+"\t"+score);
-						}
+					
 //					}else if(score<0.2){
 //						list1.add(score+"\t"+file.getName()+"\t"+pid+"\t"+line);
 //					}
 				}catch(Exception e){
-					errorLine.add(file.getName()+"\t"+pid+"\t"+line);
+//					e.printStackTrace();
 				}				
 			}
 			reader.close();
-		}
+			System.out.println(count);
 		try {
 			c.close();
 		} catch (Exception e) {
@@ -201,28 +192,6 @@ public class CosineSimilarity {
 			e.printStackTrace();
 		}
 		System.out.println(list.size());
-		
-		BufferedWriter writer=new BufferedWriter(new FileWriter("./CosineSimilarity.txt"));
-		for(String s:list){
-			writer.append(s+"\n");
-		}
-		writer.flush();
-		writer.close();
-		
-		writer=new BufferedWriter(new FileWriter("./error.txt"));
-		for(String s:errorLine){
-			writer.append(s+"\n");
-		}
-		writer.flush();
-		writer.close();
-		
-		Collections.sort(list1,Collator.getInstance(java.util.Locale.CHINA));
-		writer=new BufferedWriter(new FileWriter("./a.txt"));
-		for(String s:list1){
-			writer.append(s+"\n");
-		}
-		writer.flush();
-		writer.close();
-		System.out.println(count);
+		WeiboWriter.write2file(list, "test.txt");
 	}
 }
