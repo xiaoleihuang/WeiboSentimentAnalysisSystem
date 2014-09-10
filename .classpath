@@ -51,6 +51,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="libsvm-master/java/libsvm.jar"/>
+	<classpathentry kind="lib" path="lib/IKAnalyzer2012_u6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/poi"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lucene"/>
@@ -61,5 +62,6 @@
 	<classpathentry kind="lib" path="/home/xiaolei/jar/ansj/ansj_seg-2.0.6.jar"/>
 	<classpathentry kind="lib" path="/home/xiaolei/jar/ansj/nlp-lang-0.2.jar"/>
 	<classpathentry kind="lib" path="/home/xiaolei/jar/ansj/ansj_lucene4_plug-1.3.jar"/>
+	<classpathentry kind="lib" path="/home/xiaolei/jar/IKAnalyzer3.2.8 bin/IKAnalyzer3.2.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

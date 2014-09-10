@@ -2,7 +2,9 @@ package model_segmentation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Properties;
 
+import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.Sentence;
 import edu.stanford.nlp.ling.TaggedWord;
@@ -13,7 +15,7 @@ import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
  * @author xiaolei
  * @version 1.0
  */
-class Parser {
+public class StanfordParser {
 	static LexicalizedParser lp;
 	Tree parse;
 	Collection<TypedDependency> tdl;
@@ -25,7 +27,7 @@ class Parser {
 	 * Constructor of Parser
 	 * @param sentence 
 	 */
-	public Parser(String[] sentence){
+	public StanfordParser(String[] sentence){
 		List<CoreLabel> rawWords = Sentence.toCoreLabelList(sentence);
 		parse= lp.apply(rawWords);
 		parse.pennPrint();
@@ -54,6 +56,8 @@ class Parser {
 	
 	public static void main(String[] args) {
 		String[] sent = { "他", "和", "我", "在", "学校", "里", "常", "打", "桌球", "。" };
-		new Parser(sent);
+		new StanfordParser(sent);
+		
+		
 	}
 }

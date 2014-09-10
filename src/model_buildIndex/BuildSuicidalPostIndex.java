@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.ansj.lucene4.AnsjAnalysis;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.analysis.util.CharArraySet;

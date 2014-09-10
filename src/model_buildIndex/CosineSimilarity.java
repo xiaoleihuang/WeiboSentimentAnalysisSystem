@@ -11,7 +11,6 @@ import java.util.Set;
 
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.analysis.util.CharArraySet;
-import org.ansj.lucene4.AnsjAnalysis;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;

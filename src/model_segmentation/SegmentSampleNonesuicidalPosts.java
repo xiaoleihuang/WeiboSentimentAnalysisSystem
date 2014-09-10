@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.ansj.domain.Term;
-
 import retrieval_writer.WeiboWriter;
 import model_buildIndex.GetStopWords;
 
@@ -37,10 +35,10 @@ public class SegmentSampleNonesuicidalPosts {
 			}
 			String pid=line.split("\t")[0];
 			
-			List<Term> terms=s.getSegmentationResults(content);
+			List<String> terms=s.getSegmentationResults(content);
 			StringBuffer buffer=new StringBuffer();
-			for(Term t:terms){
-				buffer.append(t.getName().trim()+" ");
+			for(String t:terms){
+				buffer.append(t.trim()+" ");
 			}
 			String temp=buffer.toString().trim();
 			if(temp==null||temp==""||temp==" "){
