@@ -15,7 +15,7 @@ import retrieval_extractor.OneWeibo;
  */
 @SuppressWarnings("unused")
 public class LDACompute {
-	public final static String trainingpath="/home/xiaolei/Desktop/dataset/trainData/train.txt";
+	public final static String trainingpath="./resource/LDATrain.csv";
 	public String testingpath="";
 	public ParallelTopicModel model;
 	public int numTopics=500;
@@ -38,7 +38,7 @@ public class LDACompute {
 		if(topics!=0)this.numTopics=topics;
         //  Note that the first parameter is passed as the sum over topics, while
         //  the second is the parameter for a single dimension of the Dirichlet prior.
-		model=new ParallelTopicModel(numTopics, 1.0, 0.01);
+		model=new ParallelTopicModel(numTopics, 1.0, 0.05);
 		model.addInstances(traininglist);
         // Use four parallel samplers, which each look at one half the corpus and combine
         //  statistics after every iteration.
@@ -83,7 +83,7 @@ public class LDACompute {
 		
         //  Note that the first parameter is passed as the sum over topics, while
         //  the second is the parameter for a single dimension of the Dirichlet prior.
-		model=new ParallelTopicModel(numTopics, 1.0, 0.01);
+		model=new ParallelTopicModel(numTopics, 1.0, 0.001);
 		model.addInstances(instances);
         // Use four parallel samplers, which each look at one half the corpus and combine
         //  statistics after every iteration.
@@ -109,26 +109,27 @@ public class LDACompute {
 	 * @throws IOException
 	 */
 	public BufferedWriter WriteFeatures2file(String fileName) throws IOException{
-		BufferedWriter writer = new BufferedWriter(new FileWriter("./resource/ldaWeka/"+fileName+".csv"));
-		writer.append("class,"+"topic,");
+		BufferedWriter writer = new BufferedWriter(new FileWriter("./resource/lda/"+fileName+".csv"));
+		writer.append("topic,");
         for(int a=0;a<numTopics;a++){
         	if(a!=(numTopics-1))
         		writer.append("topic"+a+",");
         	else
-        		writer.append("topic"+a+"\n");
+        		writer.append("topic"+a+",class"+"\n");
         }
         for(int topic =0;topic<model.getData().size();topic++){
         	double[] probs = model.getTopicProbabilities(topic);
-        	String line = new String();
+        	
+        	StringBuilder line = new StringBuilder();
         	for(int i=0;i<probs.length;i++)
-        		line += String.valueOf(probs[i])+",";
+        		line.append(String.valueOf(probs[i])+",");
 //        		System.out.println(probs.length);
-        	line=line.substring(0, line.length()-1);
+        	String content=line.substring(0, line.length()-1);
 //        	System.out.println(topic+"\t"+line);
-        	if(topic<500)
-        		writer.append("1,"+topic+","+line+"\n");
+        	if(topic<614)
+        		writer.append(topic+","+content+",1"+"\n");
         	else
-        		writer.append("0,"+topic+","+line+"\n");
+        		writer.append(topic+","+content+",0"+"\n");
         }
         writer.flush();
         writer.close();
