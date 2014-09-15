@@ -61,6 +61,16 @@ class svm_train {
 		double[] target = new double[prob.l];
 		double accuracy = 0;
 		svm.svm_cross_validation(prob,param,nr_fold,target);
+		
+		//compute recall
+		double recall=0;
+		int suicidalTargetcount=0;
+		
+		for(int a=0;a<target.length;a++){
+			if(target[a]>0)
+			System.err.println(target[a]+"\t"+prob.y[a]);
+		}
+		
 		if(param.svm_type == svm_parameter.EPSILON_SVR ||
 		   param.svm_type == svm_parameter.NU_SVR)
 		{
@@ -138,7 +148,7 @@ class svm_train {
 		return Integer.parseInt(s);
 	}
 
-	private void parse_command_line(String argv[])
+	public svm_parameter parse_command_line(String argv[])
 	{
 		int i;
 		svm_print_interface print_func = null;	// default printing to stdout
@@ -259,6 +269,7 @@ class svm_train {
 			++p;	// whew...
 			model_file_name = argv[i].substring(p)+".model";
 		}
+		return param;
 	}
 
 	// read in a problem (in svmlight format)

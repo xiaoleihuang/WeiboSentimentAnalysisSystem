@@ -20,9 +20,9 @@ public class KeyWordMatcher {
 	 * @return suicide keywords
 	 * @throws IOException
 	 */
-	public static HashSet<String> getKeyWords() throws IOException{
+	public static HashSet<String> getKeyWords(String path) throws IOException{
 		HashSet<String> keywords=new HashSet<String>();
-		BufferedReader reader=new BufferedReader(new FileReader("./keywords.txt"));
+		BufferedReader reader=new BufferedReader(new FileReader(path));
 		String line;
 		while((line=reader.readLine())!=null){
 			keywords.add(line);
@@ -54,7 +54,7 @@ public class KeyWordMatcher {
 		// TODO Auto-generated method stub
 		File dir=new File("/home/xiaolei/Documents/Web Mining/project补充数据/Weibo");
 		File[] files=dir.listFiles();
-		HashSet<String> keys=KeyWordMatcher.getKeyWords();
+		HashSet<String> keys=KeyWordMatcher.getKeyWords("./keywords.txt");
 		List<String> list=new ArrayList<String>();
 		for(File file:files){
 			BufferedReader reader=new BufferedReader(new FileReader(file));

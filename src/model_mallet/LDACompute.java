@@ -4,8 +4,15 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Formatter;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.TreeSet;
 
 import cc.mallet.topics.ParallelTopicModel;
+import cc.mallet.types.Alphabet;
+import cc.mallet.types.IDSorter;
 import cc.mallet.types.InstanceList;
 import retrieval_extractor.OneWeibo;
 
@@ -83,7 +90,7 @@ public class LDACompute {
 		
         //  Note that the first parameter is passed as the sum over topics, while
         //  the second is the parameter for a single dimension of the Dirichlet prior.
-		model=new ParallelTopicModel(numTopics, 1.0, 0.001);
+		model=new ParallelTopicModel(numTopics, 1.0, 0.05);
 		model.addInstances(instances);
         // Use four parallel samplers, which each look at one half the corpus and combine
         //  statistics after every iteration.
@@ -154,7 +161,7 @@ public class LDACompute {
         		line += i+":"+String.valueOf(probs[i])+" ";
 //        		System.out.println(probs.length);
 //        	System.out.println(topic+"\t"+line);
-        	if(topic<500)
+        	if(topic<614)
         		writer.append("1 "+line+"\n");
         	else
         		writer.append("0 "+line+"\n");
@@ -163,12 +170,38 @@ public class LDACompute {
         writer.close();
 	}
 	
+	public void WriteTopicWords2File() throws IOException{
+        ArrayList<TreeSet<IDSorter>> topicSortedWords = model.getSortedWords();
+        Formatter out;
+        double[] topicDistribution = model.getTopicProbabilities(0);
+        Alphabet dataAlphabet = this.model.getAlphabet();
+        // Show top 5 words in topics with proportions for the first document
+        BufferedWriter writer=new BufferedWriter(new FileWriter("./resource/lda/topicIterations/topics"+numTopics+".txt"));
+        for (int topic = 0; topic < numTopics; topic++) {
+            Iterator<IDSorter> iterator = topicSortedWords.get(topic).iterator();
+            
+            out = new Formatter(new StringBuilder(), Locale.US);
+            out.format("%d\t%.3f\t", topic, topicDistribution[topic]);
+            int rank = 0;
+            
+            while (iterator.hasNext()) {
+                IDSorter idCountPair = iterator.next();
+//                out.format("%s (%.0f) ", dataAlphabet.lookupObject(idCountPair.getID()), idCountPair.getWeight());
+                out.format("%s ", dataAlphabet.lookupObject(idCountPair.getID()), idCountPair.getWeight());
+                
+                rank++;
+            }
+            writer.write(out.toString()+"\n");
+        }
+        writer.flush();writer.close();
+	}
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		for(int i=50;i<=1000;i=i+50){
 			LDACompute lda=new LDACompute(i);
 			lda.SaveDataforSvm2File("prob"+i);
 			lda.WriteFeatures2file("prob"+i);
+			lda.WriteTopicWords2File();
 		}
 	}
 }
