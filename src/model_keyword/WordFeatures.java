@@ -8,22 +8,21 @@ import java.util.List;
 import java.util.Set;
 
 import retrieval_extractor.GetAllWeiboPosts;
-import retrieval_extractor.OneWeibo;
 import retrieval_writer.WeiboWriter;
 /**
  * Trying to use both unigram and bigram
  * @author xiaolei
  */
 public class WordFeatures {
+	public static List<HashSet<String>> dictionaries=new ArrayList<HashSet<String>>();
+	public static List<String> contents=new ArrayList<String>();
 	//load dictionaries from local files
 	static{
-		List<HashSet<String>> dictionaries=new ArrayList<HashSet<String>>();
-		
 		//load all posts' contents
 		GetAllWeiboPosts all=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/tempTrainData");
-		List<String> contents=new ArrayList<String>();
-		for(OneWeibo post:all.getList()){
-			contents.add(post.getContent());
+		
+		for(int i=0;i<all.getList().size();i++){
+			contents.add(all.getList().get(i).getContent());
 		}
 		
 		//load all dictionaries from ./resource/ folder
@@ -42,7 +41,19 @@ public class WordFeatures {
 	 */
 	public static HashMap<Integer,List<Integer>> GetFeatures(){
 		HashMap<Integer,List<Integer>> featureMap=new HashMap<Integer,List<Integer>>();
-		
+		for(int i=0;i<contents.size();i++){
+			List<Integer> list=new ArrayList<Integer>();
+			for(HashSet<String> dic:dictionaries){
+				for(String word:dic){
+					if(contents.get(i).contains(word))
+						list.add(1);
+					else
+						list.add(0);
+				}
+			}
+			
+			featureMap.put(i, list);
+		}
 		return featureMap;
 	}
 	
@@ -92,7 +103,20 @@ public class WordFeatures {
 		Set<Integer> keys=featureMap.keySet();
 		
 		for(int key:keys){
+			StringBuilder sb=new StringBuilder();
+			List<Integer> list=featureMap.get(key);
 			
+			sb.append(key);
+			
+			for(int m=0;m<list.size();m++){
+				sb.append(list.get(m)+",");
+			}
+			//set labels
+			if(key<614){
+				sb.append("1\n");
+			}else{
+				sb.append("0\n");
+			}
 		}
 		
 		if(Write2File){
