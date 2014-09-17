@@ -13,7 +13,7 @@ import java.util.Calendar;
 public class PostInstanceAdditionalFeatureStatistics {
 	public static void main(String[] args) throws IOException, ParseException{
 		// TODO Auto-generated method stub
-		BufferedReader reader=new BufferedReader(new FileReader("./Segmentedall.txt"));
+		BufferedReader reader=new BufferedReader(new FileReader("./resource/Segmentedall.txt"));
 		String line;
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy.MM.dd HH:mm");
 		Calendar ca;
@@ -91,15 +91,19 @@ public class PostInstanceAdditionalFeatureStatistics {
 		System.out.println("自杀统计：");
 		System.out.println("自杀微博时间统计：");
 		System.out.println(time1Count+"\t"+time2Count+"\t"+time3Count+"\t"+time4Count);
+		System.out.println(time1Count*100/suicide+"%\t"+time2Count*100/suicide+"%\t"+time3Count*100/suicide+"%\t"+time4Count*100/suicide+"%");
 		System.out.println("微博原创、转发统计：");
 		System.out.println(original+"\t"+forward);
+		System.out.println(original*100/suicide+"%\t"+forward*100/suicide+"%");
 		System.out.println("\n");
 		
 		System.out.println("非自杀统计：");
 		System.out.println("非自杀微博时间统计：");
 		System.out.println(ntime1Count+"\t"+ntime2Count+"\t"+ntime3Count+"\t"+ntime4Count);
+		System.out.println(ntime1Count*100/nonesuicide+"%\t"+ntime2Count*100/nonesuicide+"%\t"+ntime3Count*100/nonesuicide+"%\t"+ntime4Count*100/nonesuicide+"%");
 		System.out.println("微博原创、转发统计：");
 		System.out.println(noriginal+"\t"+nforward);
+		System.out.println(noriginal*100/nonesuicide+"%\t"+nforward*100/nonesuicide+"%");
 		
 		reader.close();
 	}
