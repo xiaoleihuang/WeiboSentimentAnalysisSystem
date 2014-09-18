@@ -1,7 +1,10 @@
 package model_svm;
 import libsvm.*;
+
 import java.io.*;
 import java.util.*;
+
+import retrieval_writer.WeiboWriter;
 
 class svm_train {
 	private svm_parameter param;		// set by parse_command_line
@@ -52,7 +55,7 @@ class svm_train {
 		System.exit(1);
 	}
 
-	private void do_cross_validation()
+	private void do_cross_validation() throws IOException
 	{
 		int i;
 		int total_correct = 0;
@@ -61,15 +64,6 @@ class svm_train {
 		double[] target = new double[prob.l];
 		double accuracy = 0;
 		svm.svm_cross_validation(prob,param,nr_fold,target);
-		
-		//compute recall
-		double recall=0;
-		int suicidalTargetcount=0;
-		
-		for(int a=0;a<target.length;a++){
-			if(target[a]>0)
-			System.err.println(target[a]+"\t"+prob.y[a]);
-		}
 		
 		if(param.svm_type == svm_parameter.EPSILON_SVR ||
 		   param.svm_type == svm_parameter.NU_SVR)
@@ -93,10 +87,25 @@ class svm_train {
 		}
 		else
 		{
-			for(i=0;i<prob.l;i++)
+			//compute recall
+			double recall=0;
+			int suicidalTargetcount=0;
+			
+//			for(int a=0;a<target.length;a++){
+//				if(target[a]>0)
+//				System.err.println(target[a]+"\t"+prob.y[a]);
+//			}
+			List<String> list=new ArrayList<String>();
+			for(i=0;i<prob.l;i++){
 				if(target[i] == prob.y[i])
 					++total_correct;
+				list.add(target[i]+":"+prob.y[i]);
+			}
+			WeiboWriter.write2file(list, "aaaa.text");
+			System.out.println(list.size());
 			accuracy=100.0*total_correct/prob.l;
+			System.out.println("Total Correct: "+total_correct);
+			
 			System.out.print("Cross Validation Accuracy = "+accuracy+"%\n");
 			System.setProperty("CrossAcurracy", accuracy+"");
 		}

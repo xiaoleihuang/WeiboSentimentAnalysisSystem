@@ -20,7 +20,7 @@ public class LoadSentimentDictionary {
 		BufferedReader reader=new BufferedReader(new FileReader(path));
 		HashSet<String> set=new HashSet<String>();
 		String line;
-		while((line=reader.readLine().trim())!=null){
+		while((line=reader.readLine())!=null){
 			if(line.trim().length()!=0)
 				set.add(line.trim());
 		}

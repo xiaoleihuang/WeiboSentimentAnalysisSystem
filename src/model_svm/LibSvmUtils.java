@@ -75,22 +75,23 @@ public class LibSvmUtils {
 //		System.out.println("SVM Classification is done! The accuracy is " + accuracy);
 
 //		Test for cross validation
-//		String[] crossValidationTrainArgs = {"-v", "10", "test.txt"};// 10 fold cross validation
-//		modelFile = svm_train.main(crossValidationTrainArgs);
-//		System.out.println(System.getProperty("CrossAcurracy"));
-//		
+		String[] crossValidationTrainArgs = {"-v", "10", "./resource/UnigramFeaturesSVM.txt"};// 10 fold cross validation
+		svm_train.main(crossValidationTrainArgs);
+		System.out.println(System.getProperty("CrossAcurracy"));
+
 		//Test for LDA data
-		File dir=new File("./resource/ldaSvm");
-		List<String> list=new ArrayList<String>();
-		System.out.println(dir.list().length);
-		for(File f:dir.listFiles()){
-			System.out.println(f.getName());
-			String[] crossValidationTrainArgs = {"-v", "10", f.getAbsolutePath()};// 10 fold cross validation
-			svm_train.main(crossValidationTrainArgs);
-			System.err.println(System.getProperty("CrossAcurracy"));
-			list.add(System.getProperty("CrossAcurracy"));
-		}
-		WeiboWriter.write2file(list, "accuracy.txt");
+//		File dir=new File("./resource/ldaSvm");
+//		List<String> list=new ArrayList<String>();
+//		System.out.println(dir.list().length);
+//		for(File f:dir.listFiles()){
+//			System.out.println(f.getName());
+//			String[] crossValidationTrainArgs = {"-v", "10", f.getAbsolutePath()};// 10 fold cross validation
+//			svm_train.main(crossValidationTrainArgs);
+//			System.err.println(System.getProperty("CrossAcurracy"));
+//			list.add(System.getProperty("CrossAcurracy"));
+//		}
+//		WeiboWriter.write2file(list, "accuracy.txt");
+		
 //		
 //		
 //		System.out.print("Cross validation is done! The modelFile is " + modelFile);

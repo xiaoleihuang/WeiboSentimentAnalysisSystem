@@ -19,7 +19,7 @@ public class WordFeatures {
 	//load dictionaries from local files
 	static{
 		//load all posts' contents
-		GetAllWeiboPosts all=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/tempTrainData");
+		GetAllWeiboPosts all=new GetAllWeiboPosts("./resource/Segmentedall.txt");
 		
 		for(int i=0;i<all.getList().size();i++){
 			contents.add(all.getList().get(i).getContent());
@@ -28,9 +28,9 @@ public class WordFeatures {
 		//load all dictionaries from ./resource/ folder
 		try {
 			dictionaries.add(LoadSentimentDictionary.getSuicideWords());
-			dictionaries.add(LoadSentimentDictionary.getUpsetWords());
-			dictionaries.add(LoadSentimentDictionary.getHowNetNegativeWords());
-			dictionaries.add(LoadSentimentDictionary.getHowNetPositiveWords());
+//			dictionaries.add(LoadSentimentDictionary.getUpsetWords());
+//			dictionaries.add(LoadSentimentDictionary.getHowNetNegativeWords());
+//			dictionaries.add(LoadSentimentDictionary.getHowNetPositiveWords());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,12 +51,51 @@ public class WordFeatures {
 						list.add(0);
 				}
 			}
-			
 			featureMap.put(i, list);
 		}
+		System.out.println(featureMap.get(0).size());
 		return featureMap;
 	}
 	
+	//delete all columns where contains all 0
+	private static HashMap<Integer, List<Integer>> FilterMap(
+			HashMap<Integer, List<Integer>> featureMap) {
+		// TODO Auto-generated method stub
+		Set<Integer> keys=featureMap.keySet();
+		List<List<Integer>>list=new ArrayList<List<Integer>>();
+		for(int i=0;i<featureMap.get(0).size();i++){
+			list.add(new ArrayList<Integer>(keys.size()));
+		}
+		
+		for(int key:keys){
+			List<Integer> row=featureMap.get(key);
+			for(int i=0;i<row.size();i++){
+				list.get(i).add(row.get(i));
+			}
+		}
+		
+		for(int i=0;i<list.size();i++){
+			List<Integer> column=list.get(i);
+			boolean flag=true;
+			for(int feature:column){
+				if(feature==1){
+					flag=false;
+					break;
+				}
+			}
+			
+			if(flag==false){
+				continue;
+			}else{
+				for(int key:keys){
+					featureMap.get(key).remove(i);
+				}
+			}
+		}
+		
+		return featureMap;
+	}
+
 	/**
 	 * Formatted features for SVM
 	 * @return
@@ -83,7 +122,7 @@ public class WordFeatures {
 				else
 					sb.append(m+":"+list.get(m)+" ");
 			}
-			sb.append("\n");
+			svmFeatures.add(sb.toString().trim());
 		}
 		
 		if(Write2File){
@@ -100,33 +139,43 @@ public class WordFeatures {
 	public static List<String> FormatFeaturesForWeka(boolean Write2File) throws IOException{
 		HashMap<Integer,List<Integer>> featureMap=GetFeatures();
 		List<String> wekaFeatures=new ArrayList<String>();
+		featureMap=FilterMap(featureMap);
 		Set<Integer> keys=featureMap.keySet();
+		StringBuilder sb=new StringBuilder();
+		sb.append("key,");
+		for(int i=0;i<featureMap.get(0).size();i++){
+			sb.append("feature"+i+",");
+		}
+		sb.append("class");
+		wekaFeatures.add(sb.toString());
 		
 		for(int key:keys){
-			StringBuilder sb=new StringBuilder();
+			sb=new StringBuilder();
 			List<Integer> list=featureMap.get(key);
 			
-			sb.append(key);
+			sb.append(key+",");
 			
 			for(int m=0;m<list.size();m++){
 				sb.append(list.get(m)+",");
 			}
 			//set labels
 			if(key<614){
-				sb.append("1\n");
+				sb.append("1");
 			}else{
-				sb.append("0\n");
+				sb.append("0");
 			}
+			
+			wekaFeatures.add(sb.toString());
 		}
-		
+		System.out.println(featureMap.get(0).size());
 		if(Write2File){
 			WeiboWriter.write2file(wekaFeatures, "UnigramFeaturesWeka.txt");
 		}
 		return wekaFeatures;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		
+		FormatFeaturesForSVM(true);
 	}
 }
