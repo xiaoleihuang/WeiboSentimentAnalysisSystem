@@ -100,6 +100,8 @@ class svm_train {
 				if(target[i] == prob.y[i])
 					++total_correct;
 				list.add(target[i]+":"+prob.y[i]);
+				if(target[i]==1)
+					recall++;
 			}
 			WeiboWriter.write2file(list, "aaaa.text");
 			System.out.println(list.size());
@@ -107,6 +109,10 @@ class svm_train {
 			System.out.println("Total Correct: "+total_correct);
 			
 			System.out.print("Cross Validation Accuracy = "+accuracy+"%\n");
+			System.out.print("Recall = "+recall*100/614+"%\n");
+			recall=recall/614;
+			double F=(2*recall*accuracy/100)/(recall+accuracy/100);
+			System.out.print("F-measure = "+F+"%\n");
 			System.setProperty("CrossAcurracy", accuracy+"");
 		}
 	}

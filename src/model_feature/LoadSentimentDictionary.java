@@ -53,10 +53,40 @@ public class LoadSentimentDictionary {
 	}
 	
 	/**
-	 * @return
+	 * @return suicide words
 	 * @throws IOException
 	 */
 	public static HashSet<String> getSuicideWords() throws IOException{
 		return loadDic("./resource/dic/suicide.txt");
+	}
+	
+	/**
+	 * @return suicide BigramWords
+	 * @throws IOException
+	 */
+	public static HashSet<String[]> getBigramWords() throws IOException{
+		HashSet<String> set=loadDic("./resource/dic/Bigram.txt");
+		HashSet<String[]> dic=new HashSet<String[]>();
+		for(String str:set){
+			str=str.split("\t")[1];
+			String[] info=str.split(",");
+			dic.add(info);
+		}
+		return null;
+	}
+	
+	/**
+	 * @return suicide TigramWords
+	 * @throws IOException
+	 */
+	public static HashSet<String[]> getTigramWords() throws IOException{
+		HashSet<String> set=loadDic("./resource/dic/Trigram.txt");
+		HashSet<String[]> dic=new HashSet<String[]>();
+		for(String str:set){
+			str=str.split("\t")[1];
+			String[] info=str.split(",");
+			dic.add(info);
+		}
+		return null;
 	}
 }

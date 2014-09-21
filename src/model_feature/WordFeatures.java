@@ -30,9 +30,10 @@ public class WordFeatures {
 		//load all dictionaries from ./resource/ folder
 		try {
 			dictionaries.add(LoadSentimentDictionary.getSuicideWords());
-//			dictionaries.add(LoadSentimentDictionary.getUpsetWords());
-//			dictionaries.add(LoadSentimentDictionary.getHowNetNegativeWords());
+			dictionaries.add(LoadSentimentDictionary.getUpsetWords());
+			dictionaries.add(LoadSentimentDictionary.getHowNetNegativeWords());
 			dictionaries.add(LoadSentimentDictionary.getHowNetPositiveWords());
+			
 			BufferedReader reader=new BufferedReader(new FileReader("./tempTrainData"));
 			String line;
 			List<String> list=new ArrayList<String>();
@@ -72,18 +73,41 @@ public class WordFeatures {
 		HashMap<Integer,List<Integer>> featureMap=new HashMap<Integer,List<Integer>>();
 		for(int i=0;i<contents.size();i++){
 			List<Integer> list=new ArrayList<Integer>();
-			for(HashSet<String> dic:dictionaries){
-				for(String word:dic){
-					if(contents.get(i).contains(word))
-						list.add(1);
-					else
-						list.add(0);
-				}
+			//Set value for each dictionary
+			for(int m=0;m<dictionaries.size();m++){
+				HashSet<String> dic=dictionaries.get(m);
+				if(m==0)
+					for(String word:dic){
+						if(contents.get(i).contains(word))
+							list.add(25);
+						else
+							list.add(0);
+					}
+				else if(m==1)
+					for(String word:dic){
+						if(contents.get(i).contains(word))
+							list.add(15);
+						else
+							list.add(0);
+					}
+				else if(m==2)
+					for(String word:dic){
+						if(contents.get(i).contains(word))
+							list.add(10);
+						else
+							list.add(0);
+					}
+				else if(m==3)
+					for(String word:dic){
+						if(contents.get(i).contains(word))
+							list.add(-5);
+						else
+							list.add(0);
+					}
 			}
 			featureMap.put(i, list);
 		}
-		System.out.println("Feature Sizes: "+featureMap.get(0).size());
-		
+		System.out.println("Feature Sizes: "+featureMap.get(0).size());		
 		return featureMap;
 	}
 	
@@ -219,6 +243,6 @@ public class WordFeatures {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		FormatFeaturesForWeka(true);
+		FormatFeaturesForSVM(true);
 	}
 }
