@@ -37,10 +37,21 @@ public class TimeFeature {
 	}
 	
 	/**
-	 * @return Time features
+	 * @return one Time feature
 	 * @throws ParseException 
 	 */
-	public static List<Integer> GetTimeFeature(List<String> timeData) throws ParseException{
+	public static int GetTimeFeature(String timeData) throws ParseException{
+		SimpleDateFormat formatter=new SimpleDateFormat("yyyy.MM.dd HH:mm");
+		Calendar ca=Calendar.getInstance();
+		ca.setTime(formatter.parse(timeData));
+		return AssignValue(ca.get(Calendar.HOUR_OF_DAY));
+	}
+	
+	/**
+	 * @return a list of Time features
+	 * @throws ParseException 
+	 */
+	public static List<Integer> GetTimeFeatureList(List<String> timeData) throws ParseException{
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy.MM.dd HH:mm");
 		Calendar ca=Calendar.getInstance();
 		List<Integer> timeFeatures=new ArrayList<Integer>();

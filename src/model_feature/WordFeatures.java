@@ -45,7 +45,10 @@ public class WordFeatures {
 			reader.close();
 			
 			//Remove all words that does not contains in Training corpus
-			for(HashSet<String> dic:dictionaries){
+			for(int i=0;i<dictionaries.size();i++){
+				if(i>3)
+					break;
+				HashSet<String> dic=dictionaries.get(i);
 				List<String> d=new ArrayList<String>(dic);
 				for(String word:d){
 					boolean flag=true;
