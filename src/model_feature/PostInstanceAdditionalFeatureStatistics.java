@@ -11,6 +11,7 @@ import java.util.Calendar;
  * @author xiaolei
  */
 public class PostInstanceAdditionalFeatureStatistics {
+	
 	public static void main(String[] args) throws IOException, ParseException{
 		// TODO Auto-generated method stub
 		BufferedReader reader=new BufferedReader(new FileReader("./resource/Segmentedall.txt"));
@@ -37,13 +38,13 @@ public class PostInstanceAdditionalFeatureStatistics {
 			int postSuicideType=Integer.parseInt(info[4]);
 			
 			//Time feature statistics
-			if(hour==23||hour<7){
+			if(hour==23||hour<6){
 				if(postSuicideType==1){
 					time1Count++;
 				}else{
 					ntime1Count++;
 				}
-			}else if(hour>6&&hour<14){
+			}else if(hour>=6&&hour<14){
 				if(postSuicideType==1){
 					time2Count++;
 				}else{

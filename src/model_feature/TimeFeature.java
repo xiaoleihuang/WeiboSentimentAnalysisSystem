@@ -13,18 +13,25 @@ import java.util.ArrayList;
 public class TimeFeature {
 	/**
 	 * According to hour value, we assign a value to the instances
-	 * @param hour the hour number of posting time, in 24-hour value
+	 * @param hour the hour number of posting time, in 24-hour value<br/>
+	 * Value=24*percentageOfTrain*weight
 	 * @return an assigned value
 	 */
 	public static int AssignValue(int hour){
-		if(hour==23||hour<7)
-			return 20;
+		if(hour==1)
+			return 10;
+		else if(hour>1&&hour<4)
+			return 14;
+		else if(hour>3&&hour<6)
+			return 16;
+		else if(hour==23||hour==6)
+			return 6;
 		else if(hour>6&&hour<12)
 			return 1;
 		else if(hour>12&&hour<18)
-			return 5;
+			return 4;
 		else if(hour>18&&hour<23)
-			return 15;
+			return 6;
 		else
 			return 0;
 	}
