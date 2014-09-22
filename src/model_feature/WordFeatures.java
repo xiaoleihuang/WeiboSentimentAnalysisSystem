@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Set;
 
 import retrieval_extractor.GetAllWeiboPosts;
-import retrieval_writer.WeiboWriter;
 /**
  * Trying to use both unigram and bigram
  * @author xiaolei
@@ -65,7 +64,6 @@ public class WordFeatures {
 				}
 				System.out.println(d.size());
 			}
-			System.out.println("Write Features");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -142,7 +140,7 @@ public class WordFeatures {
 			}
 			featureMap.put(i, list);
 		}
-		System.out.println("Feature Sizes: "+featureMap.get(0).size());		
+		System.out.println("Words Feature Sizes: "+featureMap.get(0).size());		
 		return featureMap;
 	}
 	
@@ -191,32 +189,7 @@ public class WordFeatures {
 	 */
 	public static List<String> FormatFeaturesForSVM(boolean Write2File) throws IOException{
 		HashMap<Integer,List<Integer>> featureMap=GetFeatures();
-		List<String> svmFeatures=new ArrayList<String>();
-		Set<Integer> keys=featureMap.keySet();
-		
-		for(int key:keys){
-			StringBuilder sb=new StringBuilder();
-			List<Integer> list=featureMap.get(key);
-			//set labels
-			if(key<614){
-				sb.append("1 ");
-			}else{
-				sb.append("0 ");
-			}
-			
-			for(int m=0;m<list.size();m++){
-				if(list.get(m)==0)
-					continue;
-				else
-					sb.append(m+":"+list.get(m)+" ");
-			}
-			svmFeatures.add(sb.toString().trim());
-		}
-		
-		if(Write2File){
-			WeiboWriter.write2file(svmFeatures, "UnigramFeaturesSVM.txt");
-		}
-		return svmFeatures;
+		return FeatureCombinerAndWriter.FormatFeaturesForSVM(featureMap, Write2File);
 	}
 	
 	/**
@@ -225,50 +198,8 @@ public class WordFeatures {
 	 * @throws IOException 
 	 */
 	public static List<String> FormatFeaturesForWeka(boolean Write2File) throws IOException{
-
 		HashMap<Integer,List<Integer>> featureMap=GetFeatures();
-		List<String> wekaFeatures=new ArrayList<String>();
-//		List<Integer> filter=FilterList(featureMap);
-		
-		Set<Integer> keys=featureMap.keySet();
-		StringBuilder sb=new StringBuilder();
-		sb.append("key,");
-		for(int i=0;i<featureMap.get(0).size();i++){
-//			if(filter.contains(i)){
-//				continue;
-//			}
-			sb.append("feature"+i+",");
-		}
-		sb.append("class");
-		wekaFeatures.add(sb.toString());
-		
-		for(int key:keys){
-			sb=new StringBuilder();
-			List<Integer> list=featureMap.get(key);
-			if(list.size()==0)
-				continue;
-			
-			sb.append(key+",");
-			
-			for(int m=0;m<list.size();m++){
-//				if(filter.contains(m))
-//					continue;
-				sb.append(list.get(m)+",");
-			}
-			//set labels
-			if(key<614){
-				sb.append("1");
-			}else{
-				sb.append("0");
-			}
-			if(sb.toString().contains(","))
-				wekaFeatures.add(sb.toString());
-		}
-//		System.out.println(filter.size());
-		if(Write2File){
-			WeiboWriter.write2file(wekaFeatures, "UnigramFeaturesWeka.csv");
-		}
-		return wekaFeatures;
+		return FeatureCombinerAndWriter.FormatFeaturesForWeka(featureMap, Write2File);
 	}
 	
 	/**

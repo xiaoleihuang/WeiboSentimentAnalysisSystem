@@ -28,7 +28,6 @@ public class FeatureCombinerAndWriter {
 		GetAllWeiboPosts all=new GetAllWeiboPosts("./resource/Segmentedall.txt");
 		List<Integer> timeFeature=TimeFeature.GetTimeFeatureList(all.getList());
 		List<Integer> typeFeature=PostingTypeFeature.getTypeFeatureList(all.getList());
-		
 		Set<Integer> set=featureMap.keySet();
 		for(int i:set){
 			List<Integer> list=featureMap.get(i);
@@ -126,9 +125,11 @@ public class FeatureCombinerAndWriter {
 	/**
 	 * Test
 	 * @param args
+	 * @throws ParseException 
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, ParseException {
 		// TODO Auto-generated method stub
-
+		FormatFeaturesForSVM(CombineAllFeatures(), true);
 	}
 }
