@@ -64,29 +64,15 @@ public class LoadSentimentDictionary {
 	 * @return suicide BigramWords
 	 * @throws IOException
 	 */
-	public static HashSet<String[]> getBigramWords() throws IOException{
-		HashSet<String> set=loadDic("./resource/dic/Bigram.txt");
-		HashSet<String[]> dic=new HashSet<String[]>();
-		for(String str:set){
-			str=str.split("\t")[1];
-			String[] info=str.split(",");
-			dic.add(info);
-		}
-		return null;
+	public static HashSet<String> getBigramWords() throws IOException{
+		return loadDic("./resource/dic/Ngram/Bigram.txt");
 	}
 	
 	/**
 	 * @return suicide TigramWords
 	 * @throws IOException
 	 */
-	public static HashSet<String[]> getTigramWords() throws IOException{
-		HashSet<String> set=loadDic("./resource/dic/Trigram.txt");
-		HashSet<String[]> dic=new HashSet<String[]>();
-		for(String str:set){
-			str=str.split("\t")[1];
-			String[] info=str.split(",");
-			dic.add(info);
-		}
-		return null;
+	public static HashSet<String> getTigramWords() throws IOException{
+		return loadDic("./resource/dic/Ngram/Trigram.txt");
 	}
 }

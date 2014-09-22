@@ -33,6 +33,8 @@ public class WordFeatures {
 			dictionaries.add(LoadSentimentDictionary.getUpsetWords());
 			dictionaries.add(LoadSentimentDictionary.getHowNetNegativeWords());
 			dictionaries.add(LoadSentimentDictionary.getHowNetPositiveWords());
+			dictionaries.add(LoadSentimentDictionary.getBigramWords());
+			dictionaries.add(LoadSentimentDictionary.getTigramWords());
 			
 			BufferedReader reader=new BufferedReader(new FileReader("./tempTrainData"));
 			String line;
@@ -101,6 +103,36 @@ public class WordFeatures {
 					for(String word:dic){
 						if(contents.get(i).contains(word))
 							list.add(-5);
+						else
+							list.add(0);
+					}
+				else if(m==4)//BiGram Dictionary
+					for(String str:dic){
+						String[] words=str.split(",");
+						boolean flag=true;
+						for(String word:words){
+							if(!contents.get(i).contains(word)){
+								flag=false;
+								break;
+							}
+						}
+						if(flag)
+							list.add(15);
+						else
+							list.add(0);
+					}
+				else if(m==5)//TriGram Dictionary
+					for(String str:dic){
+						String[] words=str.split(",");
+						boolean flag=true;
+						for(String word:words){
+							if(!contents.get(i).contains(word)){
+								flag=false;
+								break;
+							}
+						}
+						if(flag)
+							list.add(10);
 						else
 							list.add(0);
 					}
