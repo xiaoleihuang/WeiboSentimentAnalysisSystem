@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
 
+import retrieval_extractor.OneWeibo;
+
 /**
  * Calculate Time feature
  * @author xiaolei
@@ -51,12 +53,12 @@ public class TimeFeature {
 	 * @return a list of Time features
 	 * @throws ParseException 
 	 */
-	public static List<Integer> GetTimeFeatureList(List<String> timeData) throws ParseException{
+	public static List<Integer> GetTimeFeatureList(List<OneWeibo> posts) throws ParseException{
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy.MM.dd HH:mm");
 		Calendar ca=Calendar.getInstance();
 		List<Integer> timeFeatures=new ArrayList<Integer>();
-		for(String str:timeData){
-			ca.setTime(formatter.parse(str));
+		for(OneWeibo post:posts){
+			ca.setTime(formatter.parse(post.getDate()));
 			timeFeatures.add(AssignValue(ca.get(Calendar.HOUR_OF_DAY)));
 		}
 		return timeFeatures;

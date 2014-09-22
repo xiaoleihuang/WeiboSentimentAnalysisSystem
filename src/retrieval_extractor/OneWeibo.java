@@ -19,7 +19,7 @@ public class OneWeibo{
 	 * Store one post's information, this post is original post
 	 * @param c the content of post
 	 * @param d the date of post, like 2014-01-01:15:30,that would be 201401011530
-	 * @param t the type of post, original is 0, forward is 1; this one is 0
+	 * @param t the type of post, original is 1, forward is 0; this one is 0
 	 */
 	public OneWeibo(String c,String d, int t){
 		this.content=c;
@@ -108,7 +108,7 @@ public class OneWeibo{
 	}
 	
 	/**
-	 * @return the type of post, original is 0, forward is 1; original one is 0
+	 * @return the type of post, original is 1, forward is 0; original one is 1
 	 */
 	public int getType(){
 		return this.type;
