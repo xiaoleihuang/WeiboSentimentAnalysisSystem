@@ -19,7 +19,7 @@ public class TimeFeature {
 	 * Value=24*percentageOfTrain*weight
 	 * @return an assigned value
 	 */
-	public static int AssignValue(int hour){
+	public static double AssignValue(int hour){
 		if(hour==0)
 			return 10;
 		else if(hour>0&&hour<4)
@@ -40,7 +40,7 @@ public class TimeFeature {
 	 * @return one Time feature
 	 * @throws ParseException 
 	 */
-	public static int GetTimeFeature(String timeData) throws ParseException{
+	public static double GetTimeFeature(String timeData) throws ParseException{
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy.MM.dd HH:mm");
 		Calendar ca=Calendar.getInstance();
 		ca.setTime(formatter.parse(timeData));
@@ -51,10 +51,10 @@ public class TimeFeature {
 	 * @return a list of Time features
 	 * @throws ParseException 
 	 */
-	public static List<Integer> GetTimeFeatureList(List<OneWeibo> posts) throws ParseException{
+	public static List<Double> GetTimeFeatureList(List<OneWeibo> posts) throws ParseException{
 		SimpleDateFormat formatter=new SimpleDateFormat("yyyy.MM.dd HH:mm");
 		Calendar ca=Calendar.getInstance();
-		List<Integer> timeFeatures=new ArrayList<Integer>();
+		List<Double> timeFeatures=new ArrayList<Double>();
 		for(OneWeibo post:posts){
 			ca.setTime(formatter.parse(post.getDate()));
 			timeFeatures.add(AssignValue(ca.get(Calendar.HOUR_OF_DAY)));

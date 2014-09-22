@@ -75,4 +75,9 @@ public class LoadSentimentDictionary {
 	public static HashSet<String> getTigramWords() throws IOException{
 		return loadDic("./resource/dic/Ngram/Trigram.txt");
 	}
+
+	public static HashSet<String> getFourgramWords() throws IOException {
+		// TODO Auto-generated method stub
+		return loadDic("./resource/dic/Ngram/Fourgram.txt");
+	}
 }

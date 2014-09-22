@@ -16,7 +16,7 @@ public class PostingTypeFeature {
 	 * @param type the type of post, forward or original creation
 	 * @return feature value
 	 */
-	public static int AssignValue(int type){
+	public static double AssignValue(int type){
 		if(type==1)
 			return 10;
 		else
@@ -27,7 +27,7 @@ public class PostingTypeFeature {
 	 * @param str type of a post
 	 * @return a post type feature
 	 */
-	public static int getTypeFeature(int type){
+	public static double getTypeFeature(int type){
 		return AssignValue(type);
 	}
 	
@@ -35,8 +35,8 @@ public class PostingTypeFeature {
 	 * @param list a list of types
 	 * @return a list of features
 	 */
-	public static List<Integer> getTypeFeatureList(List<OneWeibo> list){
-		List<Integer> typeFeatures=new ArrayList<Integer>();
+	public static List<Double> getTypeFeatureList(List<OneWeibo> list){
+		List<Double> typeFeatures=new ArrayList<Double>();
 		for(OneWeibo post:list){
 			typeFeatures.add(getTypeFeature(post.getType()));
 		}

@@ -89,7 +89,6 @@ class svm_train {
 		{
 			//compute recall
 			double recall=0;
-			int suicidalTargetcount=0;
 			
 //			for(int a=0;a<target.length;a++){
 //				if(target[a]>0)
@@ -112,7 +111,7 @@ class svm_train {
 			System.out.print("Recall = "+recall*100/614+"%\n");
 			recall=recall/614;
 			double F=(2*recall*accuracy/100)/(recall+accuracy/100);
-			System.out.print("F-measure = "+F+"%\n");
+			System.out.print("F-measure = "+F*100+"%\n");
 			System.setProperty("CrossAcurracy", accuracy+"");
 		}
 	}

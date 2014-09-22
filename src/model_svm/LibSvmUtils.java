@@ -11,6 +11,7 @@ import retrieval_writer.WeiboWriter;
  * @author xiaolei
  * @throws IOException
  */
+@SuppressWarnings("unused")
 public class LibSvmUtils {
 	/**
 	 * Return n-folds cross validation Test

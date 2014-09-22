@@ -72,40 +72,51 @@ public class WordFeatures {
 	/**
 	 * Constructing feature matrix
 	 */
-	public static HashMap<Integer,List<Integer>> GetFeatures(){		
-		HashMap<Integer,List<Integer>> featureMap=new HashMap<Integer,List<Integer>>();
+	public static HashMap<Integer,List<Double>> GetFeatures(){		
+		HashMap<Integer,List<Double>> featureMap=new HashMap<Integer,List<Double>>();
 		for(int i=0;i<contents.size();i++){
-			List<Integer> list=new ArrayList<Integer>();
+			//negative VS. positive ratio, negativeCount is the one to count negative word number
+//			double ratio=0.0,positiveCount=0.0,negativeCount=0.0;
+			
+			List<Double> list=new ArrayList<Double>();
 			//Set value for each dictionary
 			for(int m=0;m<dictionaries.size();m++){
 				HashSet<String> dic=dictionaries.get(m);
 				if(m==0)
 					for(String word:dic){
-						if(contents.get(i).contains(word))
-							list.add(25);
+						if(contents.get(i).contains(word)){
+							list.add(25.0);
+//							negativeCount++;
+						}
 						else
-							list.add(0);
+							list.add(0.0);
 					}
 				else if(m==1)
 					for(String word:dic){
-						if(contents.get(i).contains(word))
-							list.add(15);
+						if(contents.get(i).contains(word)){
+							list.add(15.0);
+//							negativeCount++;
+						}
 						else
-							list.add(0);
+							list.add(0.0);
 					}
 				else if(m==2)
 					for(String word:dic){
-						if(contents.get(i).contains(word))
-							list.add(10);
+						if(contents.get(i).contains(word)){
+							list.add(10.0);
+//							negativeCount++;
+						}
 						else
-							list.add(0);
+							list.add(0.0);
 					}
 				else if(m==3)
 					for(String word:dic){
-						if(contents.get(i).contains(word))
-							list.add(-5);
+						if(contents.get(i).contains(word)){
+							list.add(-5.0);
+//							positiveCount++;
+						}
 						else
-							list.add(0);
+							list.add(0.0);
 					}
 				else if(m==4)//BiGram Dictionary
 					for(String str:dic){
@@ -117,10 +128,12 @@ public class WordFeatures {
 								break;
 							}
 						}
-						if(flag)
-							list.add(15);
+						if(flag){
+							list.add(15.0);
+//							negativeCount++;
+						}
 						else
-							list.add(0);
+							list.add(0.0);
 					}
 				else if(m==5)//TriGram Dictionary
 					for(String str:dic){
@@ -132,15 +145,24 @@ public class WordFeatures {
 								break;
 							}
 						}
-						if(flag)
-							list.add(10);
+						if(flag){
+							list.add(10.0);
+//							negativeCount++;
+						}
 						else
-							list.add(0);
+							list.add(0.0);
 					}
 			}
+//			if(positiveCount>negativeCount)
+//				ratio=-10;
+//			else
+//				ratio=10;
+			
+//			list.add(ratio);
 			featureMap.put(i, list);
 		}
 		System.out.println("Words Feature Sizes: "+featureMap.get(0).size());		
+		dictionaries.clear();
 		return featureMap;
 	}
 	
@@ -188,7 +210,7 @@ public class WordFeatures {
 	 * @throws IOException 
 	 */
 	public static List<String> FormatFeaturesForSVM(boolean Write2File) throws IOException{
-		HashMap<Integer,List<Integer>> featureMap=GetFeatures();
+		HashMap<Integer,List<Double>> featureMap=GetFeatures();
 		return FeatureCombinerAndWriter.FormatFeaturesForSVM(featureMap, Write2File);
 	}
 	
@@ -198,7 +220,7 @@ public class WordFeatures {
 	 * @throws IOException 
 	 */
 	public static List<String> FormatFeaturesForWeka(boolean Write2File) throws IOException{
-		HashMap<Integer,List<Integer>> featureMap=GetFeatures();
+		HashMap<Integer,List<Double>> featureMap=GetFeatures();
 		return FeatureCombinerAndWriter.FormatFeaturesForWeka(featureMap, Write2File);
 	}
 	

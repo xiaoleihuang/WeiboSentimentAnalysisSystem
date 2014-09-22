@@ -15,7 +15,7 @@ import retrieval_writer.WeiboWriter;
  * @author xiaolei
  */
 public class FeatureCombinerAndWriter {
-	public static HashMap<Integer,List<Integer>> featureMap=new HashMap<Integer,List<Integer>>();
+	public static HashMap<Integer,List<Double>> featureMap=new HashMap<Integer,List<Double>>();
 	
 	/**
 	 * Format all features as a list of features
@@ -23,14 +23,14 @@ public class FeatureCombinerAndWriter {
 	 * @throws IOException 
 	 * @throws ParseException 
 	 */
-	public static HashMap<Integer,List<Integer>> CombineAllFeatures() throws IOException, ParseException{
+	public static HashMap<Integer,List<Double>> CombineAllFeatures() throws IOException, ParseException{
 		featureMap.putAll(WordFeatures.GetFeatures());
 		GetAllWeiboPosts all=new GetAllWeiboPosts("./resource/Segmentedall.txt");
-		List<Integer> timeFeature=TimeFeature.GetTimeFeatureList(all.getList());
-		List<Integer> typeFeature=PostingTypeFeature.getTypeFeatureList(all.getList());
+		List<Double> timeFeature=TimeFeature.GetTimeFeatureList(all.getList());
+		List<Double> typeFeature=PostingTypeFeature.getTypeFeatureList(all.getList());
 		Set<Integer> set=featureMap.keySet();
 		for(int i:set){
-			List<Integer> list=featureMap.get(i);
+			List<Double> list=featureMap.get(i);
 			list.add(timeFeature.get(i));
 			list.add(typeFeature.get(i));
 			featureMap.put(i, list);
@@ -43,13 +43,13 @@ public class FeatureCombinerAndWriter {
 	 * @return
 	 * @throws IOException 
 	 */
-	public static List<String> FormatFeaturesForSVM(HashMap<Integer,List<Integer>> features,boolean Write2File) throws IOException{
+	public static List<String> FormatFeaturesForSVM(HashMap<Integer,List<Double>> features,boolean Write2File) throws IOException{
 		List<String> svmFeatures=new ArrayList<String>();
 		Set<Integer> keys=features.keySet();
 		
 		for(int key:keys){
 			StringBuilder sb=new StringBuilder();
-			List<Integer> list=features.get(key);
+			List<Double> list=features.get(key);
 			//set labels
 			if(key<614){
 				sb.append("1 ");
@@ -77,7 +77,7 @@ public class FeatureCombinerAndWriter {
 	 * @return
 	 * @throws IOException 
 	 */
-	public static List<String> FormatFeaturesForWeka(HashMap<Integer,List<Integer>> features,boolean Write2File) throws IOException{
+	public static List<String> FormatFeaturesForWeka(HashMap<Integer,List<Double>> features,boolean Write2File) throws IOException{
 		List<String> wekaFeatures=new ArrayList<String>();
 //		List<Integer> filter=FilterList(featureMap);
 		
@@ -95,7 +95,7 @@ public class FeatureCombinerAndWriter {
 		
 		for(int key:keys){
 			sb=new StringBuilder();
-			List<Integer> list=features.get(key);
+			List<Double> list=features.get(key);
 			if(list.size()==0)
 				continue;
 			
