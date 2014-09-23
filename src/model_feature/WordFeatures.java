@@ -112,7 +112,7 @@ public class WordFeatures {
 				else if(m==3)
 					for(String word:dic){
 						if(contents.get(i).contains(word)){
-							list.add(-5.0);
+							list.add(7.5);
 //							positiveCount++;
 						}
 						else
@@ -146,7 +146,7 @@ public class WordFeatures {
 							}
 						}
 						if(flag){
-							list.add(10.0);
+							list.add(18.0);
 //							negativeCount++;
 						}
 						else

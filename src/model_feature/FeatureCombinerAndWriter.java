@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import model_mallet.LDACompute;
 import retrieval_extractor.GetAllWeiboPosts;
 import retrieval_writer.WeiboWriter;
 
@@ -28,13 +29,18 @@ public class FeatureCombinerAndWriter {
 		GetAllWeiboPosts all=new GetAllWeiboPosts("./resource/Segmentedall.txt");
 		List<Double> timeFeature=TimeFeature.GetTimeFeatureList(all.getList());
 		List<Double> typeFeature=PostingTypeFeature.getTypeFeatureList(all.getList());
+//		LDACompute lda=new LDACompute(500);
+//		HashMap<Integer,List<Double>> ldaFeatures=lda.getFeatures();
+		
 		Set<Integer> set=featureMap.keySet();
 		for(int i:set){
 			List<Double> list=featureMap.get(i);
 			list.add(timeFeature.get(i));
 			list.add(typeFeature.get(i));
+//			list.addAll(ldaFeatures.get(i));
 			featureMap.put(i, list);
 		}
+		System.out.println("Feature Size"+featureMap.get(0).size());
 		return featureMap;
 	}
 	
@@ -51,7 +57,7 @@ public class FeatureCombinerAndWriter {
 			StringBuilder sb=new StringBuilder();
 			List<Double> list=features.get(key);
 			//set labels
-			if(key<614){
+			if(key<615){
 				sb.append("1 ");
 			}else{
 				sb.append("0 ");
@@ -107,7 +113,7 @@ public class FeatureCombinerAndWriter {
 				sb.append(list.get(m)+",");
 			}
 			//set labels
-			if(key<614){
+			if(key<615){
 				sb.append("1");
 			}else{
 				sb.append("0");

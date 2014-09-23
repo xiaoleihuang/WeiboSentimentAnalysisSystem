@@ -6,9 +6,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.TreeSet;
+
+import javax.swing.JOptionPane;
 
 import cc.mallet.topics.ParallelTopicModel;
 import cc.mallet.types.Alphabet;
@@ -100,13 +104,42 @@ public class LDACompute {
         model.estimate();
 	}
 	
+	/**
+	 * @return LDA model
+	 */
 	public ParallelTopicModel getModel(){
 		return this.model;
 	}
 	
+	/**
+	 * @return training data
+	 */
 	public InstanceList getTrainingList(){
 		return LDACompute.traininglist;
 	}
+	
+	/**
+	 * @return features
+	 */
+	public HashMap<Integer,List<Double>> getFeatures(){
+		HashMap<Integer,List<Double>> features=new HashMap<Integer,List<Double>>();
+		double max=0.0,min=1.0;
+        for(int topic =0;topic<model.getData().size();topic++){
+        	double[] probs = model.getTopicProbabilities(topic);
+        	List<Double> list=new ArrayList<Double>();
+        	for(int i=0;i<probs.length;i++){
+        		list.add(probs[i]*-20);
+        		if(probs[i]>max)
+        			max=probs[i];
+        		if(probs[i]<min)
+        			min=probs[i];
+        	}
+        	features.put(topic, list);
+        }
+        JOptionPane.showMessageDialog(null, max+"\n"+min);
+        return features;
+	}
+	
 	
 	/**
 	 * Write features to file, the default file type is csv, this file could be used as 
@@ -154,11 +187,18 @@ public class LDACompute {
 	 */
 	public void SaveDataforSvm2File(String fileName) throws IOException{
 		BufferedWriter writer = new BufferedWriter(new FileWriter("./resource/ldaSvm/"+fileName+".txt"));
+		double max=0.0,min=1.0;
         for(int topic =0;topic<model.getData().size();topic++){
         	double[] probs = model.getTopicProbabilities(topic);
+        	
         	String line = new String();
-        	for(int i=0;i<probs.length;i++)
-        		line += i+":"+String.valueOf(probs[i])+" ";
+        	for(int i=0;i<probs.length;i++){
+        		line += i+":"+String.valueOf(probs[i]*15)+" ";
+        		if(probs[i]>max)
+        			max=probs[i];
+        		if(probs[i]<min)
+        			min=probs[i];
+        	}
 //        		System.out.println(probs.length);
 //        	System.out.println(topic+"\t"+line);
         	if(topic<614)
@@ -182,6 +222,7 @@ public class LDACompute {
             
             out = new Formatter(new StringBuilder(), Locale.US);
             out.format("%d\t%.3f\t", topic, topicDistribution[topic]);
+            
             int rank = 0;
             
             while (iterator.hasNext()) {
@@ -200,8 +241,8 @@ public class LDACompute {
 		for(int i=50;i<=1000;i=i+50){
 			LDACompute lda=new LDACompute(i);
 			lda.SaveDataforSvm2File("prob"+i);
-			lda.WriteFeatures2file("prob"+i);
-			lda.WriteTopicWords2File();
+//			lda.WriteFeatures2file("prob"+i);
+//			lda.WriteTopicWords2File();
 		}
 	}
 }
