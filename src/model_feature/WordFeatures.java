@@ -85,7 +85,7 @@ public class WordFeatures {
 				if(m==0)
 					for(String word:dic){
 						if(contents.get(i).contains(word)){
-							list.add(25.0);
+							list.add(28.0);
 //							negativeCount++;
 						}
 						else
@@ -94,7 +94,7 @@ public class WordFeatures {
 				else if(m==1)
 					for(String word:dic){
 						if(contents.get(i).contains(word)){
-							list.add(15.0);
+							list.add(13.0);
 //							negativeCount++;
 						}
 						else
@@ -129,7 +129,7 @@ public class WordFeatures {
 							}
 						}
 						if(flag){
-							list.add(15.0);
+							list.add(50.0);
 //							negativeCount++;
 						}
 						else
@@ -202,6 +202,18 @@ public class WordFeatures {
 		}
 		
 		return filter;
+	}
+	
+	/**
+	 * compute weight for each dictionary
+	 * @return
+	 */
+	public static double DicWeightComputation(HashSet<String> dic){
+		//initial weight
+		double weight=10.0;
+
+		
+		return weight;
 	}
 	
 	/**

@@ -40,7 +40,7 @@ public class FeatureCombinerAndWriter {
 //			list.addAll(ldaFeatures.get(i));
 			featureMap.put(i, list);
 		}
-		System.out.println("Feature Size"+featureMap.get(0).size());
+		System.out.println("Feature Size: "+featureMap.get(0).size());
 		return featureMap;
 	}
 	
@@ -57,7 +57,7 @@ public class FeatureCombinerAndWriter {
 			StringBuilder sb=new StringBuilder();
 			List<Double> list=features.get(key);
 			//set labels
-			if(key<615){
+			if(key<616){
 				sb.append("1 ");
 			}else{
 				sb.append("0 ");
@@ -113,7 +113,7 @@ public class FeatureCombinerAndWriter {
 				sb.append(list.get(m)+",");
 			}
 			//set labels
-			if(key<615){
+			if(key<616){
 				sb.append("1");
 			}else{
 				sb.append("0");
