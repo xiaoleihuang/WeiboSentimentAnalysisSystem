@@ -128,7 +128,8 @@ public class LDACompute {
         	double[] probs = model.getTopicProbabilities(topic);
         	List<Double> list=new ArrayList<Double>();
         	for(int i=0;i<probs.length;i++){
-        		list.add(probs[i]*-20);
+        		list.add(Math.pow(probs[i]*10,1.5));
+        		
         		if(probs[i]>max)
         			max=probs[i];
         		if(probs[i]<min)
@@ -136,7 +137,7 @@ public class LDACompute {
         	}
         	features.put(topic, list);
         }
-        JOptionPane.showMessageDialog(null, max+"\n"+min);
+//        JOptionPane.showMessageDialog(null, max+"\n"+min);
         return features;
 	}
 	

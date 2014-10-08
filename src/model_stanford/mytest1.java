@@ -1,4 +1,4 @@
-package model_segmentation;
+package model_stanford;
 
 import java.util.*;
 import java.io.*;

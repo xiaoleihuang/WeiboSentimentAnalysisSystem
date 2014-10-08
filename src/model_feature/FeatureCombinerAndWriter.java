@@ -29,18 +29,18 @@ public class FeatureCombinerAndWriter {
 		GetAllWeiboPosts all=new GetAllWeiboPosts("./resource/Segmentedall.txt");
 		List<Double> timeFeature=TimeFeature.GetTimeFeatureList(all.getList());
 		List<Double> typeFeature=PostingTypeFeature.getTypeFeatureList(all.getList());
-//		LDACompute lda=new LDACompute(500);
-//		HashMap<Integer,List<Double>> ldaFeatures=lda.getFeatures();
+		LDACompute lda=new LDACompute(500);
+		HashMap<Integer,List<Double>> ldaFeatures=lda.getFeatures();
 		
 		Set<Integer> set=featureMap.keySet();
 		for(int i:set){
 			List<Double> list=featureMap.get(i);
 			list.add(timeFeature.get(i));
 			list.add(typeFeature.get(i));
-//			list.addAll(ldaFeatures.get(i));
+			list.addAll(ldaFeatures.get(i));
 			featureMap.put(i, list);
 		}
-		System.out.println("Feature Size: "+featureMap.get(0).size());
+		System.out.println("Feature Size: "+ldaFeatures.get(0).size());
 		return featureMap;
 	}
 	

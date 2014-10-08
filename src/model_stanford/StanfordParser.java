@@ -1,4 +1,4 @@
-package model_segmentation;
+package model_stanford;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
