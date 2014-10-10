@@ -89,41 +89,48 @@ public class FeatureCombinerAndWriter {
 		
 		Set<Integer> keys=features.keySet();
 		StringBuilder sb=new StringBuilder();
-		sb.append("key,");
+		sb.append("@relation 'FeaturesForWeka'\n");
+
 		for(int i=0;i<features.get(0).size();i++){
 //			if(filter.contains(i)){
 //				continue;
 //			}
-			sb.append("feature"+i+",");
+			sb.append("@attribute "+i+" numberic\n");
 		}
-		sb.append("class");
+		sb.append("@attribute class {0,1}\n");
+		sb.append("\n");
+		sb.append("@data\n");
+		
 		wekaFeatures.add(sb.toString());
 		
 		for(int key:keys){
 			sb=new StringBuilder();
+			sb.append("{");
 			List<Double> list=features.get(key);
 			if(list.size()==0)
 				continue;
 			
-			sb.append(key+",");
-			
 			for(int m=0;m<list.size();m++){
 //				if(filter.contains(m))
 //					continue;
-				sb.append(list.get(m)+",");
+				if(list.get(m)==0)
+					continue;
+				sb.append(m+" "+list.get(m)+",");
 			}
 			//set labels
 			if(key<616){
-				sb.append("1");
+				sb.append(list.size()+" 1}");
+				if(sb.toString().contains(","))
+					wekaFeatures.add(sb.toString());
 			}else{
-				sb.append("0");
+				sb.append(list.size()+" 0}");
+				if(sb.toString().contains(","))
+					wekaFeatures.add(sb.toString());
 			}
-			if(sb.toString().contains(","))
-				wekaFeatures.add(sb.toString());
 		}
 //		System.out.println(filter.size());
 		if(Write2File){
-			WeiboWriter.write2file(wekaFeatures, "UnigramFeaturesWeka.csv");
+			WeiboWriter.write2file(wekaFeatures, "UnigramFeaturesWeka.arff");
 		}
 		return wekaFeatures;
 	}
@@ -136,6 +143,7 @@ public class FeatureCombinerAndWriter {
 	 */
 	public static void main(String[] args) throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		FormatFeaturesForSVM(CombineAllFeatures(), true);
+//		FormatFeaturesForSVM(CombineAllFeatures(), true);
+		FormatFeaturesForWeka(CombineAllFeatures(), true);
 	}
 }

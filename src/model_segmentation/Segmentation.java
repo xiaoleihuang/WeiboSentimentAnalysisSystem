@@ -20,7 +20,6 @@ import retrieval_extractor.OneWeibo;
 import retrieval_extractor.Regex;
 import retrieval_writer.WeiboWriter;
 
-
 /**
  * Segment sentence into different terms, the terms could be either single word or phrase
  * @author xiaolei
