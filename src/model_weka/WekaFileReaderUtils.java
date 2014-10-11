@@ -9,7 +9,7 @@ import weka.core.converters.ConverterUtils.DataSource;
  */
 public class WekaFileReaderUtils {
 	/**
-	 * Read CSV or ARFF file
+	 * Read CSV or ARFF file, the default class index is the last one as weka's default
 	 * @param path file path
 	 * @return Instances
 	 * @throws Exception
@@ -17,7 +17,10 @@ public class WekaFileReaderUtils {
 	public static Instances getInstances(String path) throws Exception{
 		if(path.contains(".arff")||path.contains(".csv")){
 			DataSource data=new DataSource(path);
-			return data.getDataSet();
+			Instances instances=data.getDataSet();
+			
+			instances.setClassIndex(instances.get(0).numAttributes()-1);
+			return instances;
 		}else
 			return null;
 	}
