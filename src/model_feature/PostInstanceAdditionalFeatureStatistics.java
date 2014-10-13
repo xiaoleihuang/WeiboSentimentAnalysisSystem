@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashSet;
 
 /**
  * Statistics about post instance, include time, forward,suicide and none suicide
@@ -28,6 +29,10 @@ public class PostInstanceAdditionalFeatureStatistics {
 		//ntime1Count:23:00-7:00,ntime2Count:7:00-13:00,ntime3Count:13:00-18:00,ntime4Count:18:00-23:00;
 		int ntime1Count=0,ntime2Count=0,ntime3Count=0,ntime4Count=0;
 		
+		//Reference Count:
+		HashSet<String> SelfReferenceDictionary=LoadSentimentDictionary.loadDic("./resource/dic/selfReference.txt");
+		HashSet<String> ReferenceDictionary=LoadSentimentDictionary.loadDic("./resource/dic/selfReference.txt");
+		int reference=0,selfReference=0,NoneSuicideselfReference=0,NoneSuicideReference=0;
 		while((line=reader.readLine())!=null){
 			String info[]=line.split("\t");
 			ca=Calendar.getInstance();
@@ -36,6 +41,19 @@ public class PostInstanceAdditionalFeatureStatistics {
 			
 			int postForwardType=Integer.parseInt(info[3]);
 			int postSuicideType=Integer.parseInt(info[4]);
+			
+			for(String word:SelfReferenceDictionary){
+				if(info[1].contains(word)&&postSuicideType==1)
+					selfReference++;
+				else
+					NoneSuicideselfReference++;
+			}
+			for(String word:ReferenceDictionary){
+				if(info[1].contains(word)&&postSuicideType==1)
+					reference++;
+				else
+					NoneSuicideReference++;
+			}
 			
 			//Time feature statistics
 			if(hour==23||hour<6){
@@ -106,6 +124,10 @@ public class PostInstanceAdditionalFeatureStatistics {
 		System.out.println(noriginal+"\t"+nforward);
 		System.out.println(noriginal*100/nonesuicide+"%\t"+nforward*100/nonesuicide+"%");
 		
+		System.out.println("Self-Reference:");
+		System.out.println(selfReference*100/suicide+"%"+"\t"+NoneSuicideselfReference*100/nonesuicide+"%");
+		System.out.println("All-Reference:");
+		System.out.println(reference*100/suicide+"%"+"\t"+NoneSuicideReference*100/nonesuicide+"%");
 		reader.close();
 	}
 }
