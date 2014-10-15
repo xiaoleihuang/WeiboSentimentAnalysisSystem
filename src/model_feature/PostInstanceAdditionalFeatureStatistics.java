@@ -31,7 +31,7 @@ public class PostInstanceAdditionalFeatureStatistics {
 		
 		//Reference Count:
 		HashSet<String> SelfReferenceDictionary=LoadSentimentDictionary.loadDic("./resource/dic/selfReference.txt");
-		HashSet<String> ReferenceDictionary=LoadSentimentDictionary.loadDic("./resource/dic/selfReference.txt");
+		HashSet<String> ReferenceDictionary=LoadSentimentDictionary.loadDic("./resource/dic/Reference.txt");
 		int reference=0,selfReference=0,NoneSuicideselfReference=0,NoneSuicideReference=0;
 		while((line=reader.readLine())!=null){
 			String info[]=line.split("\t");
@@ -42,17 +42,24 @@ public class PostInstanceAdditionalFeatureStatistics {
 			int postForwardType=Integer.parseInt(info[3]);
 			int postSuicideType=Integer.parseInt(info[4]);
 			
+			//Statistics of Self-reference and references
 			for(String word:SelfReferenceDictionary){
-				if(info[1].contains(word)&&postSuicideType==1)
+				if(info[1].contains(word)&&postSuicideType==1){
 					selfReference++;
-				else
+					break;
+				}else if(info[1].contains(word)&&postSuicideType==0){
 					NoneSuicideselfReference++;
+					break;
+				}
 			}
 			for(String word:ReferenceDictionary){
-				if(info[1].contains(word)&&postSuicideType==1)
+				if(info[1].contains(word)&&postSuicideType==1){
 					reference++;
-				else
+					break;
+				}else if(info[1].contains(word)&&postSuicideType==0){
 					NoneSuicideReference++;
+					break;
+				}
 			}
 			
 			//Time feature statistics
