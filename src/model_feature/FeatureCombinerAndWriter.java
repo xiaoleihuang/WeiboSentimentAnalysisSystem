@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import model_mallet.LDACompute;
+import model_mallet.topicmodel.LDACompute;
 import retrieval_extractor.GetAllWeiboPosts;
 import retrieval_writer.WeiboWriter;
 

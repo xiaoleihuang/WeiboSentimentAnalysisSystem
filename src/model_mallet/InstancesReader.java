@@ -32,7 +32,7 @@ public class InstancesReader {
 		ArrayList<Pipe> pipeList=new ArrayList<Pipe>();
 		pipeList.add( new CharSequenceLowercase() );
         pipeList.add( new CharSequence2TokenSequence(Pattern.compile("\\p{L}[\\p{L}\\p{P}]+\\p{L}")) );
-        pipeList.add( new TokenSequenceRemoveStopwords(new File("/home/xiaolei/jar/mallet-2.0.7/stoplists/en.txt"), "UTF-8", false, false, false) );
+        pipeList.add( new TokenSequenceRemoveStopwords(new File("./resource/stopwords.txt"), "UTF-8", false, false, false) );
         pipeList.add( new TokenSequence2FeatureSequence() );
         
         InstanceList instances=new InstanceList(new SerialPipes(pipeList));

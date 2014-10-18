@@ -1,4 +1,4 @@
-package model_mallet;
+package model_mallet.topicmodel;
 
 import java.io.BufferedWriter;
 import java.io.File;
