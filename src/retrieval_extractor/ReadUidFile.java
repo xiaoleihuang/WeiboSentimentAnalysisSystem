@@ -26,6 +26,7 @@ public class ReadUidFile {
 		JOptionPane.showMessageDialog(null, "Choose txt file contains user id");
 		chooser.setFileFilter(new FileNameExtensionFilter("Choose txt format file", "txt"));
 		chooser.showOpenDialog(chooser);
+		
 		path=chooser.getSelectedFile().getAbsolutePath();
 		try {
 			reader=new BufferedReader(new FileReader(path));
