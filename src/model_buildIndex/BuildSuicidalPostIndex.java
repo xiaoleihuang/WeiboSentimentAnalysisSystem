@@ -36,7 +36,7 @@ public class BuildSuicidalPostIndex {
 	private IndexWriter writer;
 	GetStopWords gsw=new GetStopWords();
 	private final String index2bePlaced="./index/";
-	GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/tempALL.txt");
+	GetAllWeiboPosts alldata=new GetAllWeiboPosts("C:\\Users\\Administrator\\Desktop\\tempSuicide.txt");
 	private List<OneWeibo> list=new ArrayList<OneWeibo>();
 	
 	public BuildSuicidalPostIndex() throws CorruptIndexException, IOException{

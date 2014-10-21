@@ -40,7 +40,7 @@ public class BuildTrainDataSetIndex {
 	private IndexWriter writer;
 	GetStopWords gsw=new GetStopWords();
 	private final String index2bePlaced="./index/";
-	GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/trainData/train.txt");
+	GetAllWeiboPosts alldata=new GetAllWeiboPosts("C:\\Users\\Administrator\\Desktop\\tempSuicide.txt");
 	private List<OneWeibo> list=new ArrayList<OneWeibo>();
 	
 	public BuildTrainDataSetIndex() throws CorruptIndexException, IOException{

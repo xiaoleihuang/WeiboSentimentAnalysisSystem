@@ -25,6 +25,8 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
+import retrieval_extractor.GetAllWeiboPosts;
+import retrieval_extractor.OneWeibo;
 import retrieval_extractor.Regex;
 import retrieval_writer.WeiboWriter;
 
@@ -136,38 +138,46 @@ public class CosineSimilarity {
 	
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		File file=new File("/home/xiaolei/Desktop/dataset/suicide/allNoneSuicidal.txt");
+		File file=new File("C:\\Users\\Administrator\\Desktop\\tempNoneALL.txt");
 		CosineSimilarity c=new CosineSimilarity();
-		
+		GetAllWeiboPosts all=new GetAllWeiboPosts("C:\\Users\\Administrator\\Desktop\\tempTrainData.txt");
+		List<Double> pids=new ArrayList<Double>();
+		for(OneWeibo post:all.getList()){
+			pids.add(Double.parseDouble(post.getPid()));
+		}
 		int count=0;
 		List<String> list=new ArrayList<String>();
 		
 			BufferedReader reader=new BufferedReader(new FileReader(file));
 			String line=new String();
-			
+			line=reader.readLine();
 			while((line=reader.readLine())!=null){
 				String content;
+				double pid;
 				try{
-					content=line.split("\t")[1];
+					content=line.split("\t")[1].trim();
+					if(content.length()<2)
+						continue;
+					pid=Double.parseDouble(line.split("\t")[0]);
 				}catch(Exception e){
 					continue;
 				}
 //				System.out.println(line);
-				content=content.trim();
-				content=content.concat(" ");
-				content=content.replaceAll("\\[([^\\]]*)\\]", "");
-				content=content.replace("?", "");
-				
-				content=content.replace("~", "");
-				content=content.replace(":", "");
-				content=content.replace("-", "");
-				content=content.replace("^", "");
-				content=content.replace("!", "");				
+//				content=content.trim();
+//				content=content.concat(" ");
+//				content=content.replaceAll("\\[([^\\]]*)\\]", "");
+//				content=content.replace("?", "");
+//				
+//				content=content.replace("~", "");
+//				content=content.replace(":", "");
+//				content=content.replace("-", "");
+//				content=content.replace("^", "");
+//				content=content.replace("!", "");			
 //				System.out.println(line);
 				
 				try{
 					double score=c.search(content);
-					if(score<0.1){
+					if(score<=0.3&&score>0.25&&!pids.contains(pid)){
 						System.out.println(score+"\t"+content);
 						list.add(line+"\t0");
 						int t=Integer.parseInt(line.split("\t")[3]);
