@@ -28,11 +28,12 @@ public class StanfordParser {
 		List<CoreLabel> rawWords = Sentence.toCoreLabelList(sentence);
 		parse= lp.apply(rawWords);
 		parse.pennPrint();
-
+		
+		
 		TreebankLanguagePack tlp = lp.getOp().langpack();
 		GrammaticalStructureFactory gsf = tlp.grammaticalStructureFactory();
 		GrammaticalStructure gs = gsf.newGrammaticalStructure(parse);
-
+		
 		tdl=gs.allTypedDependencies();
 	}
 	

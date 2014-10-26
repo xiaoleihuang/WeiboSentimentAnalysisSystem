@@ -69,7 +69,6 @@ public class CrawlSuicideWeiboAndProfile {
 				JOptionPane.showMessageDialog(null, e.getMessage(), "", JOptionPane.ERROR_MESSAGE, null);
 			}
 		}
-
 	}
 
 	public static void main(String[] args) throws IOException {

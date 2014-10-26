@@ -122,7 +122,7 @@ public class ExcelExtractor {
 		// TODO Auto-generated method stub\
 		ExcelExtractor e;
 		List<ExcelWeiboPost> list=new ArrayList<ExcelWeiboPost>();
-		File dir=new File("/home/xiaolei/Desktop/uid/uid tasks/Excel Data");
+		File dir=new File("./resource/posts");
 		for(File f:dir.listFiles()){			
 			e=new ExcelExtractor(f.getAbsolutePath());
 			list.addAll(e.getList());

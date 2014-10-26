@@ -15,11 +15,13 @@ import java.util.TreeSet;
 import javax.swing.JOptionPane;
 
 import model_mallet.InstancesReader;
+import model_svm.LibSvmUtils;
 import cc.mallet.topics.ParallelTopicModel;
 import cc.mallet.types.Alphabet;
 import cc.mallet.types.IDSorter;
 import cc.mallet.types.InstanceList;
 import retrieval_extractor.OneWeibo;
+import retrieval_writer.WeiboWriter;
 
 /**
  * Compute LDA distributions for each topic
@@ -28,7 +30,7 @@ import retrieval_extractor.OneWeibo;
  */
 @SuppressWarnings("unused")
 public class LDACompute {
-	public final static String trainingpath = "./resource/LDATrain.csv";
+	public final static String trainingpath = "./resource/LDATrainData.csv";
 	public String testingpath = "";
 	public ParallelTopicModel model;
 	public int numTopics = 500;
@@ -93,15 +95,29 @@ public class LDACompute {
 
 	/**
 	 * Constructor,Create a model with given number of topics, alpha_t = 0.01,
+	 * beta_w = 0.05
+	 * 
+	 * @param testFilePath
+	 *            input testing data file path
+	 * @param topics
+	 *            number of topics, default is 500
+	 * @throws IOException
+	 */
+	public LDACompute(String testFilePath, int topics) throws IOException {
+		new LDACompute(testFilePath, topics, 1, 0.05);
+	}
+	
+	/**
+	 * Constructor,Create a model with given number of topics, alpha_t = 0.01,
 	 * beta_w = 0.01
 	 * 
 	 * @param testFilePath
 	 *            input testing data file path
 	 * @param topics
-	 *            number of topics
+	 *            number of topics, default is 500
 	 * @throws IOException
 	 */
-	public LDACompute(String testFilePath, int topics) throws IOException {
+	public LDACompute(String testFilePath, int topics, double alpha, double beta) throws IOException {
 		InstanceList instances = InstancesReader.getInstances(testFilePath);
 		instances.addAll(traininglist);
 		if (topics != 0)
@@ -110,7 +126,7 @@ public class LDACompute {
 		// Note that the first parameter is passed as the sum over topics, while
 		// the second is the parameter for a single dimension of the Dirichlet
 		// prior.
-		model = new ParallelTopicModel(numTopics, 1.0, 0.05);
+		model = new ParallelTopicModel(numTopics, alpha, beta);
 		model.addInstances(instances);
 		// Use four parallel samplers, which each look at one half the corpus
 		// and combine
@@ -120,7 +136,8 @@ public class LDACompute {
 		model.setNumIterations(2000);
 		model.estimate();
 	}
-
+	
+	
 	/**
 	 * @return LDA model
 	 */
@@ -187,7 +204,7 @@ public class LDACompute {
 			// System.out.println(probs.length);
 			String content = line.substring(0, line.length() - 1);
 			// System.out.println(topic+"\t"+line);
-			if (topic < 614)
+			if (topic < 663)
 				writer.append(topic + "," + content + ",1" + "\n");
 			else
 				writer.append(topic + "," + content + ",0" + "\n");
@@ -216,9 +233,9 @@ public class LDACompute {
 		for (int topic = 0; topic < model.getData().size(); topic++) {
 			double[] probs = model.getTopicProbabilities(topic);
 
-			String line = new String();
+			StringBuilder line = new StringBuilder();
 			for (int i = 0; i < probs.length; i++) {
-				line += i + ":" + String.valueOf(probs[i] * 15) + " ";
+				line.append(i + ":" + String.valueOf(probs[i] * 20) + " ");
 				if (probs[i] > max)
 					max = probs[i];
 				if (probs[i] < min)
@@ -226,10 +243,12 @@ public class LDACompute {
 			}
 			// System.out.println(probs.length);
 			// System.out.println(topic+"\t"+line);
-			if (topic < 614)
-				writer.append("1 " + line + "\n");
+			if (topic < 663)
+				writer.append("1 " + line.toString() + "\n");
 			else
-				writer.append("0 " + line + "\n");
+				writer.append("0 " + line.toString() + "\n");
+			if(topic%500==0)
+				writer.flush();
 		}
 		writer.flush();
 		writer.close();
@@ -271,11 +290,20 @@ public class LDACompute {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		for (int i = 50; i <= 1000; i = i + 50) {
-			LDACompute lda = new LDACompute(i);
-			lda.SaveDataforSvm2File("prob" + i);
-			// lda.WriteFeatures2file("prob"+i);
-			// lda.WriteTopicWords2File();
+		for(double alpha=0.0001;alpha<0.1;alpha+=0.0001){
+			System.err.println(alpha+"");
+			List<String> result=new ArrayList<String>();
+			for (int i = 50; i <= 1000; i = i + 50) {
+				LDACompute lda = new LDACompute(i);
+				lda.SaveDataforSvm2File("prob" + i);
+				// lda.WriteFeatures2file("prob"+i);
+//				 lda.WriteTopicWords2File();
+			}
+			File dir=new File("./resource/ldaSvm/");
+			for(File f:dir.listFiles())
+				result.add("Topic"+f.getName()+"\n"+"Alpha"+alpha+"\n"+LibSvmUtils.CrossValidattion(10, f.getAbsolutePath())+"\n");
+			
+			WeiboWriter.write2file(result, "Alpha"+alpha+".txt");
 		}
 	}
 }

@@ -177,7 +177,7 @@ public class CosineSimilarity {
 				
 				try{
 					double score=c.search(content);
-					if(score<=0.3&&score>0.25&&!pids.contains(pid)){
+					if(score<=0.25&&score>0.1&&!pids.contains(pid)){
 						System.out.println(score+"\t"+content);
 						list.add(line+"\t0");
 						int t=Integer.parseInt(line.split("\t")[3]);

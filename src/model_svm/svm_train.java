@@ -119,6 +119,10 @@ class svm_train {
 			double F=(2*p*r)/(p+r);
 			System.out.print("F-measure = "+F*100+"%\n");
 			System.setProperty("CrossAcurracy", accuracy+"");
+			System.setProperty("F",String.valueOf(F));
+			System.setProperty("P",String.valueOf(p));
+			System.setProperty("R",String.valueOf(r));
+			System.setProperty("Total",String.valueOf(total_correct));
 		}
 	}
 	

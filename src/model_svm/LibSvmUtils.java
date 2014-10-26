@@ -22,10 +22,14 @@ public class LibSvmUtils {
 	 */
 	public static String CrossValidattion(int foldsNum,String filePath) throws IOException{
 		String[] TrainArgs={"-v",foldsNum+"",filePath};
-		String accuracy=null;
+		StringBuilder result=new StringBuilder();
 		svm_train.main(TrainArgs);
-		accuracy=System.getProperty("CrossAcurracy");
-		return accuracy;
+		result.append("CrossAcurracy"+"\t"+System.getProperty("CrossAcurracy")+"\n");
+		result.append("F-measure"+"\t"+System.getProperty("F")+"\n");
+		result.append("Precision"+"\t"+System.getProperty("P")+"\n");
+		result.append("Recall"+"\t"+System.getProperty("R"));
+		result.append("Total Correct"+"\t"+System.getProperty("Total"));
+		return result.toString();
 	}
 	
 	/**
@@ -39,7 +43,7 @@ public class LibSvmUtils {
 	public static String Predict(String TrainFile,String TestFile,String ResultFile) throws IOException{
 		String[] trainArgs = {TrainFile};//directory of training file
 		String modelFile = svm_train.main(trainArgs);
-		String[] testArgs = {TestFile, modelFile, "UCI-breast-cancer-result"};//directory of test file, model file, result file
+		String[] testArgs = {TestFile, modelFile, ResultFile};//directory of test file, model file, result file
 		Double accuracy = svm_predict.main(testArgs);
 		
 		System.out.println("SVM Classification is done! The accuracy is " + accuracy);
@@ -68,12 +72,6 @@ public class LibSvmUtils {
 		//	  param: String[], parse result of command line parameter of svm-predict, including the modelfile
 		//    return: Double, the accuracy of SVM classification
 		//String modelFile;
-//		String[] trainArgs = {"UCI-breast-cancer-tra"};//directory of training file
-//		modelFile = svm_train.main(trainArgs);
-//		String[] testArgs = {"UCI-breast-cancer-test", modelFile, "UCI-breast-cancer-result"};//directory of test file, model file, result file
-//		Double accuracy = svm_predict.main(testArgs);
-//		
-//		System.out.println("SVM Classification is done! The accuracy is " + accuracy);
 
 //		Test for cross validation
 		String[] crossValidationTrainArgs = {"-v", "10", "./resource/UnigramFeaturesSVM.txt"};// 10 fold cross validation

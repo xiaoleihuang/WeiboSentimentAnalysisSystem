@@ -98,18 +98,16 @@ public class Segmentation {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		GetStopWords getstop = new GetStopWords();
-		GetAllWeiboPosts alldata=new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/tempTrainData");
+		GetAllWeiboPosts alldata=new GetAllWeiboPosts("./resource/tempTrainData.txt");
 		List<OneWeibo> list=alldata.getList();
 		Segmentation s=new Segmentation(getstop.getWords());
 		List<String> segmentedList=new ArrayList<String>();
 		for(OneWeibo post:list){
 			String str=post.getContent();
 //			if(str.contains("http")||str.contains("//@")||str.contains("@")){
-			System.out.println(str);
 				str=Regex.removeHttp(post.getContent());
 				str=Regex.removeRetweetName(str);
 				str=Regex.removeAtUsers(str);
-				System.out.println(str);
 //			}else{
 //				str=post.getContent();
 //			}
