@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -213,7 +214,10 @@ public class LDACompute {
 		writer.close();
 		return writer;
 	}
-
+	
+	/**
+	 * Write model to local file
+	 */
 	public void WriteModel2file() {
 		this.model.write(new File("./resource/lda/model.model"));
 	}
@@ -253,7 +257,34 @@ public class LDACompute {
 		writer.flush();
 		writer.close();
 	}
-
+	
+	/**
+	 * Return topic words for each topic
+	 * @return topic words
+	 */
+	public List<HashSet<String>> getTopicWords(){
+		List<HashSet<String>> topicWords = new ArrayList<HashSet<String>>();
+		
+		ArrayList<TreeSet<IDSorter>> topicSortedWords = model.getSortedWords();
+		Alphabet dataAlphabet = this.model.getAlphabet();
+		
+		for (int topic = 0; topic < numTopics; topic++) {
+			Iterator<IDSorter> iterator = topicSortedWords.get(topic).iterator();
+			HashSet<String> words=new HashSet<String>();
+			while (iterator.hasNext()) {
+				IDSorter idCountPair = iterator.next();
+				words.add(dataAlphabet.lookupObject(idCountPair.getID()).toString().trim());
+			}
+			topicWords.add(words);
+		}
+		
+		return topicWords;
+	}
+	
+	/**
+	 * Write topic words to file
+	 * @throws IOException
+	 */
 	public void WriteTopicWords2File() throws IOException {
 		ArrayList<TreeSet<IDSorter>> topicSortedWords = model.getSortedWords();
 		Formatter out;
@@ -297,7 +328,7 @@ public class LDACompute {
 				LDACompute lda = new LDACompute(i);
 				lda.SaveDataforSvm2File("prob" + i);
 				// lda.WriteFeatures2file("prob"+i);
-//				 lda.WriteTopicWords2File();
+				 lda.WriteTopicWords2File();
 			}
 			File dir=new File("./resource/ldaSvm/");
 			for(File f:dir.listFiles())
