@@ -117,7 +117,7 @@ public class LDACompute {
 	 *            number of topics, default is 500
 	 * @throws IOException
 	 */
-	public LDACompute(String testFilePath, int topics, double alpha, double beta) throws IOException {
+	public LDACompute(String testFilePath, int topics, double alphaSum, double beta) throws IOException {
 		InstanceList instances = InstancesReader.getInstances(testFilePath);
 		instances.addAll(traininglist);
 		if (topics != 0)
@@ -126,14 +126,14 @@ public class LDACompute {
 		// Note that the first parameter is passed as the sum over topics, while
 		// the second is the parameter for a single dimension of the Dirichlet
 		// prior.
-		model = new ParallelTopicModel(numTopics, alpha, beta);
+		model = new ParallelTopicModel(numTopics, alphaSum, beta);
 		model.addInstances(instances);
 		// Use four parallel samplers, which each look at one half the corpus
 		// and combine
 		// statistics after every iteration.
 		model.setNumThreads(4);
 		// for real applications, use 1000 to 2000 iterations)
-		model.setNumIterations(2000);
+		model.setNumIterations(1500);
 		model.estimate();
 	}
 	

@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import model_feature.Dictionary.LoadSentimentDictionary;
 import retrieval_extractor.GetAllWeiboPosts;
 /**
  * Trying to use both unigram and bigram

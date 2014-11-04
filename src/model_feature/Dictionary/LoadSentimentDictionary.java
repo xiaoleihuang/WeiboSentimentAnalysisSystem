@@ -1,4 +1,4 @@
-package model_feature;
+package model_feature.Dictionary;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

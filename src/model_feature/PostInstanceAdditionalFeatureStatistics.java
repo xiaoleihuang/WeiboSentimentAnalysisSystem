@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashSet;
 
+import model_feature.Dictionary.LoadSentimentDictionary;
+
 /**
  * Statistics about post instance, include time, forward,suicide and none suicide
  * @author xiaolei
