@@ -51,7 +51,7 @@ public class JointSentimentPropagationTopicModel {
 		
 		//iterate each topic to 
 		for(int topic=0;topic<numTopic;topic++){
-			System.out.println(topicWords.get(topic).size());
+			
 		}
 //		for(int topic=0;topic<topicWords.size();topic++){
 //			

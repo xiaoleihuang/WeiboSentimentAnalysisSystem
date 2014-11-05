@@ -6,11 +6,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * retrieve all WeiBo posts<br/>
+ * The document's first line must be "id	content	date	type	suicide"
+ * @author xiaolei
+ */
 public class GetAllWeiboPosts {
 	List<OneWeibo> list=new ArrayList<OneWeibo>();
 	public GetAllWeiboPosts(String p){
 		try {
 			BufferedReader reader=new BufferedReader(new FileReader(p));
+			
 			reader.readLine();
 			String line;
 			
@@ -32,12 +38,19 @@ public class GetAllWeiboPosts {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * @return posts list
+	 */
 	public List<OneWeibo> getList() {
 		// TODO Auto-generated method stub
 		return this.list;
 	}
 	
+	/**
+	 * Test
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new GetAllWeiboPosts("/home/xiaolei/Desktop/dataset/suicide/tempTrainData");
