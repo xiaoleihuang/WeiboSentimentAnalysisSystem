@@ -88,7 +88,7 @@ class svm_train {
 		else
 		{
 			//compute recall
-			double recall=0,precision=0;
+			double TT=0,TF=0,FT=0,FF=0;
 			
 //			for(int a=0;a<target.length;a++){
 //				if(target[a]>0)
@@ -99,25 +99,29 @@ class svm_train {
 				if(target[i] == prob.y[i])
 					++total_correct;
 				list.add(target[i]+":"+prob.y[i]);
-				if(target[i]==1)
-					recall++;
+				
 				if(target[i]==1&&target[i] == prob.y[i])
-					precision++;
+					TT++;
+				if(target[i]==0&&target[i] != prob.y[i])
+					TF++;
+				if(target[i]==1&&target[i] != prob.y[i])
+					FT++;
+				if(target[i]==0&&target[i] == prob.y[i])
+					FF++;
 			}
 			WeiboWriter.write2file(list, "aaaa.text");
 			System.out.println(list.size());
 			accuracy=100.0*total_correct/prob.l;
 			System.out.println("Total Correct: "+total_correct);
 			
-			double p=precision*100/recall;
-			double r=recall*100/614;
+			double p=TT/(TT+FT);
+			double r=TT/(TT+TF);
 			
-			System.out.print("Cross Validation Accuracy = "+accuracy+"%\n");
-			System.out.print("Precision = "+p+"%\n");
-			System.out.print("Recall = "+r+"%\n");
+			System.err.println(TT+"\t"+FT);
+			System.err.println(TF+"\t"+FF);
 			
 			double F=(2*p*r)/(p+r);
-			System.out.print("F-measure = "+F*100+"%\n");
+			System.out.print("F-measure = "+F+"%\n");
 			System.setProperty("CrossAcurracy", accuracy+"");
 			System.setProperty("F",String.valueOf(F));
 			System.setProperty("P",String.valueOf(p));
