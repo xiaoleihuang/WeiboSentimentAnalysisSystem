@@ -7,8 +7,8 @@ import retrieval_extractor.GetAllWeiboPosts;
 import retrieval_extractor.OneWeibo;
 
 /**
- * give a weight to the feature to solve imbalanced problems
- * @author Xiaolei Huang
+ * give a weight to the feature to solve imbalance problems
+ * @author xiaolei
  */
 public class WeightComputation {
 	public static List<String> contents=new ArrayList<String>();

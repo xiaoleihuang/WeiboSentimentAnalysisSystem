@@ -1,9 +1,12 @@
 package model_svm;
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import model_feature.FeatureCombinerAndWriter;
 import retrieval_writer.WeiboWriter;
 
 /**
@@ -27,8 +30,9 @@ public class LibSvmUtils {
 		result.append("CrossAcurracy"+"\t"+System.getProperty("CrossAcurracy")+"\n");
 		result.append("F-measure"+"\t"+System.getProperty("F")+"\n");
 		result.append("Precision"+"\t"+System.getProperty("P")+"\n");
-		result.append("Recall"+"\t"+System.getProperty("R"));
-		result.append("Total Correct"+"\t"+System.getProperty("Total"));
+		result.append("Recall"+"\t"+System.getProperty("R")+"\n");
+		result.append("Total Correct"+"\t"+System.getProperty("Total")+"\n");
+		result.append("Matrix"+"\t"+System.getProperty("Matrix")+"\n");
 		return result.toString();
 	}
 	
@@ -60,8 +64,9 @@ public class LibSvmUtils {
 	 * Test
 	 * @param args
 	 * @throws IOException
+	 * @throws ParseException 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ParseException {
 		
 		// TODO Auto-generated method stub
 		//Test for svm_train and svm_predict

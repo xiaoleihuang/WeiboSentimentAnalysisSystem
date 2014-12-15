@@ -17,7 +17,6 @@ public class GetAllWeiboPosts {
 		try {
 			BufferedReader reader=new BufferedReader(new FileReader(p));
 			
-			reader.readLine();
 			String line;
 			
 			while((line=reader.readLine())!=null){

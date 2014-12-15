@@ -17,7 +17,9 @@ import javax.swing.JOptionPane;
 
 import model_mallet.InstancesReader;
 import model_svm.LibSvmUtils;
+import cc.mallet.grmm.inference.Inferencer;
 import cc.mallet.topics.ParallelTopicModel;
+import cc.mallet.topics.TopicInferencer;
 import cc.mallet.types.Alphabet;
 import cc.mallet.types.IDSorter;
 import cc.mallet.types.InstanceList;
@@ -39,6 +41,7 @@ public class LDACompute {
 	static {
 		try {
 			traininglist = InstancesReader.getInstances(trainingpath);
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,7 +67,7 @@ public class LDACompute {
 		// Use four parallel samplers, which each look at one half the corpus
 		// and combine
 		// statistics after every iteration.
-		model.setNumThreads(4);
+		model.setNumThreads(1);
 		// for real applications, use 1000 to 2000 iterations)
 		model.setNumIterations(1500);
 		model.estimate();
@@ -152,30 +155,43 @@ public class LDACompute {
 	public InstanceList getTrainingList() {
 		return LDACompute.traininglist;
 	}
-
+	
+	/**
+	 * @return TopicInferencer
+	 */
+	public TopicInferencer getInterferencer(){
+		return this.model.getInferencer();
+	}
+	
 	/**
 	 * @return features
 	 */
 	public HashMap<Integer, List<Double>> getFeatures() {
 		HashMap<Integer, List<Double>> features = new HashMap<Integer, List<Double>>();
-		double max = 0.0, min = 1.0;
 		for (int topic = 0; topic < model.getData().size(); topic++) {
 			double[] probs = model.getTopicProbabilities(topic);
 			List<Double> list = new ArrayList<Double>();
 			for (int i = 0; i < probs.length; i++) {
-				list.add(Math.pow(probs[i] * 10, 1.5));
-
-				if (probs[i] > max)
-					max = probs[i];
-				if (probs[i] < min)
-					min = probs[i];
+				list.add(Math.pow(probs[i] * 100, 1));
 			}
 			features.put(topic, list);
 		}
 		// JOptionPane.showMessageDialog(null, max+"\n"+min);
 		return features;
 	}
-
+	
+	/**
+	 * @return features as matrix format
+	 */
+	public double[][] getFeaturesAsMatrix(){
+		int size=model.getData().size();
+		double[][] matrix=new double[size][model.getTopicProbabilities(0).length];
+		
+		for(int i=0;i<size;i++){
+			matrix[i]=model.getTopicProbabilities(i);
+		}
+		return matrix;
+	}
 	/**
 	 * Write features to file, the default file type is csv, this file could be
 	 * used as Training data and Testing data for Weka.
@@ -321,10 +337,8 @@ public class LDACompute {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		for(double alpha=0.0001;alpha<0.1;alpha+=0.0001){
-			System.err.println(alpha+"");
 			List<String> result=new ArrayList<String>();
-			for (int i = 50; i <= 1000; i = i + 50) {
+			for (int i = 10; i <= 100; i = i + 10) {
 				LDACompute lda = new LDACompute(i);
 				lda.SaveDataforSvm2File("prob" + i);
 				// lda.WriteFeatures2file("prob"+i);
@@ -332,9 +346,8 @@ public class LDACompute {
 			}
 			File dir=new File("./resource/ldaSvm/");
 			for(File f:dir.listFiles())
-				result.add("Topic"+f.getName()+"\n"+"Alpha"+alpha+"\n"+LibSvmUtils.CrossValidattion(10, f.getAbsolutePath())+"\n");
+				result.add("Topic"+f.getName()+"\n"+LibSvmUtils.CrossValidattion(10, f.getAbsolutePath())+"\n");
 			
-			WeiboWriter.write2file(result, "Alpha"+alpha+".txt");
+			WeiboWriter.write2file(result, "Result.txt");
 		}
-	}
 }

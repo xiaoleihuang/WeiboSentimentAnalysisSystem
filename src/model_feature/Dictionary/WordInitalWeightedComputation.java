@@ -77,7 +77,7 @@ public class WordInitalWeightedComputation {
 			if(positiveWordMap.containsKey(word)){
 				this.wordMap.put(word, suicideWordMap.get(word)/positiveWordMap.get(word));
 			}else{
-				this.wordMap.put(word, 1+suicideWordMap.get(word));//which is equal to (1+suicideWordMap.get(word))/1
+				this.wordMap.put(word, suicideWordMap.get(word));//which is equal to (1+suicideWordMap.get(word))/1
 			}
 		}
 		/**

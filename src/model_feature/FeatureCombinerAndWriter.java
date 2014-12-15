@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import model_mallet.topicmodel.JointSentimentPropagationTopicModelCopy;
 import model_mallet.topicmodel.LDACompute;
+import model_svm.LibSvmUtils;
 import retrieval_extractor.GetAllWeiboPosts;
 import retrieval_writer.WeiboWriter;
 
@@ -49,7 +51,7 @@ public class FeatureCombinerAndWriter {
 	 * @return
 	 * @throws IOException 
 	 */
-	public static List<String> FormatFeaturesForSVM(HashMap<Integer,List<Double>> features,boolean Write2File) throws IOException{
+	public static List<String> FormatFeaturesForSVM(HashMap<Integer,List<Double>> features,boolean Write2File,int label) throws IOException{
 		List<String> svmFeatures=new ArrayList<String>();
 		Set<Integer> keys=features.keySet();
 		
@@ -57,7 +59,7 @@ public class FeatureCombinerAndWriter {
 			StringBuilder sb=new StringBuilder();
 			List<Double> list=features.get(key);
 			//set labels
-			if(key<616){
+			if(key<label){
 				sb.append("1 ");
 			}else{
 				sb.append("0 ");
@@ -73,7 +75,7 @@ public class FeatureCombinerAndWriter {
 		}
 		
 		if(Write2File){
-			WeiboWriter.write2file(svmFeatures, "UnigramFeaturesSVM.txt");
+			WeiboWriter.write2file(svmFeatures, "FeaturesForSVM.txt");
 		}
 		return svmFeatures;
 	}
@@ -83,7 +85,7 @@ public class FeatureCombinerAndWriter {
 	 * @return
 	 * @throws IOException 
 	 */
-	public static List<String> FormatFeaturesForWeka(HashMap<Integer,List<Double>> features,boolean Write2File) throws IOException{
+	public static List<String> FormatFeaturesForWeka(HashMap<Integer,List<Double>> features,boolean Write2File,int label) throws IOException{
 		List<String> wekaFeatures=new ArrayList<String>();
 //		List<Integer> filter=FilterList(featureMap);
 		
@@ -118,7 +120,7 @@ public class FeatureCombinerAndWriter {
 				sb.append(m+" "+list.get(m)+",");
 			}
 			//set labels
-			if(key<616){
+			if(key<label){
 				sb.append(list.size()+" 1}");
 				if(sb.toString().contains(","))
 					wekaFeatures.add(sb.toString());
@@ -130,9 +132,46 @@ public class FeatureCombinerAndWriter {
 		}
 //		System.out.println(filter.size());
 		if(Write2File){
-			WeiboWriter.write2file(wekaFeatures, "UnigramFeaturesWeka.arff");
+			WeiboWriter.write2file(wekaFeatures, "FeaturesForWeka.arff");
 		}
 		return wekaFeatures;
+	}
+	
+	public static void SaveFeaturesAsCSV(HashMap<Integer,List<Double>> features,int label) throws IOException{
+		List<String> csvFeatures=new ArrayList<String>();
+		Set<Integer> keys=features.keySet();
+		StringBuilder sb=new StringBuilder();
+		
+		for(int i=0;i<features.get(0).size();i++){
+			sb.append("Feature"+i+",");
+		}
+		sb.append("class");
+		csvFeatures.add(sb.toString());
+		for(int key:keys){
+			sb=new StringBuilder();
+			List<Double> list=features.get(key);
+			if(list.size()==0)
+				continue;
+			
+			for(int m=0;m<list.size();m++){
+//				if(filter.contains(m))
+//					continue;
+				if(list.get(m)==0)
+					continue;
+				sb.append(list.get(m)+",");
+			}
+			//set labels
+			if(key<label){
+				sb.append("1");
+				if(sb.length()>1)
+					csvFeatures.add(sb.toString());
+			}else{
+				sb.append("0");
+				if(sb.length()>1)
+					csvFeatures.add(sb.toString());
+			}
+		}
+		WeiboWriter.write2file(csvFeatures, "FeaturesForWeka.csv");
 	}
 	
 	/**
@@ -144,6 +183,23 @@ public class FeatureCombinerAndWriter {
 	public static void main(String[] args) throws IOException, ParseException {
 		// TODO Auto-generated method stub
 //		FormatFeaturesForSVM(CombineAllFeatures(), true);
-		FormatFeaturesForWeka(CombineAllFeatures(), true);
+//		FormatFeaturesForWeka(CombineAllFeatures(),true,664);
+		JointSentimentPropagationTopicModelCopy test=new JointSentimentPropagationTopicModelCopy(500);
+		featureMap.putAll(test.getFeatures());
+		GetAllWeiboPosts all=new GetAllWeiboPosts("./resource/Segmentedall.txt");
+		List<Double> timeFeature=TimeFeature.GetTimeFeatureList(all.getList());
+		List<Double> typeFeature=PostingTypeFeature.getTypeFeatureList(all.getList());
+		Set<Integer> set=featureMap.keySet();
+		for(int i:set){
+			List<Double> list=featureMap.get(i);
+			list.add(timeFeature.get(i));
+			list.add(typeFeature.get(i));
+			featureMap.put(i, list);
+		}
+		
+//		FormatFeaturesForSVM(featureMap,true, 664);
+//		FormatFeaturesForWeka(featureMap,true,664);
+		SaveFeaturesAsCSV(featureMap,664);
+//		System.out.println(LibSvmUtils.CrossValidattion(10, "./resource/FeaturesForSVM.txt"));
 	}
 }

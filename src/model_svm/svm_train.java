@@ -117,8 +117,11 @@ class svm_train {
 			double p=TT/(TT+FT);
 			double r=TT/(TT+TF);
 			
+			StringBuilder matrix=new StringBuilder();
 			System.err.println(TT+"\t"+FT);
 			System.err.println(TF+"\t"+FF);
+			matrix.append(TT+"\t"+FT+"\n");
+			matrix.append(TF+"\t"+FF);
 			
 			double F=(2*p*r)/(p+r);
 			System.out.print("F-measure = "+F+"%\n");
@@ -127,6 +130,7 @@ class svm_train {
 			System.setProperty("P",String.valueOf(p));
 			System.setProperty("R",String.valueOf(r));
 			System.setProperty("Total",String.valueOf(total_correct));
+			System.setProperty("Matrix",matrix.toString());
 		}
 	}
 	
@@ -302,6 +306,58 @@ class svm_train {
 
 	// read in a problem (in svmlight format)
 
+//	private void read_problem(HashMap<Integer,List<Double>> features) throws IOException
+//	{
+//		Vector<Double> vy = new Vector<Double>();
+//		Vector<svm_node[]> vx = new Vector<svm_node[]>();
+//		int max_index = 0;
+//		Iterator<Integer> iterator=features.keySet().iterator();
+//		int m=features.get(0).size();
+//		while(iterator.hasNext())
+//		{
+//			int num=iterator.next();
+//			vy.addElement((double)num);
+//			List<Double> list=features.get(num);
+//			
+//			svm_node[] x = new svm_node[m];
+//			for(int j=0;j<m;j++)
+//			{
+//				x[j] = new svm_node();
+//				x[j].index = j;
+//				x[j].value = list.get(j);
+//			}
+//			if(m>0) max_index = Math.max(max_index, x[m-1].index);
+//			vx.addElement(x);
+//		}
+//		
+//		
+//		prob = new svm_problem();
+//		prob.l = vy.size();
+//		prob.x = new svm_node[prob.l][];
+//		for(int i=0;i<prob.l;i++)
+//			prob.x[i] = vx.elementAt(i);
+//		prob.y = new double[prob.l];
+//		for(int i=0;i<prob.l;i++)
+//			prob.y[i] = vy.elementAt(i);
+//
+//		if(param.gamma == 0 && max_index > 0)
+//			param.gamma = 1.0/max_index;
+//
+//		if(param.kernel_type == svm_parameter.PRECOMPUTED)
+//			for(int i=0;i<prob.l;i++)
+//			{
+//				if (prob.x[i][0].index != 0)
+//				{
+//					System.err.print("Wrong kernel matrix: first column must be 0:sample_serial_number\n");
+//					System.exit(1);
+//				}
+//				if ((int)prob.x[i][0].value <= 0 || (int)prob.x[i][0].value > max_index)
+//				{
+//					System.err.print("Wrong input format: sample_serial_number out of range\n");
+//					System.exit(1);
+//				}
+//			}
+//	}
 	private void read_problem() throws IOException
 	{
 		BufferedReader fp = new BufferedReader(new FileReader(input_file_name));

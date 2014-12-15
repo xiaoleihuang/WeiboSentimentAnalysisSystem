@@ -27,11 +27,11 @@ public class TimeFeature {
 		else if(hour>3&&hour<6)
 			return 16;
 		else if(hour>6&&hour<12)
-			return 1;
+			return -5;
 		else if(hour>=12&&hour<18)
-			return 4;
+			return 1;
 		else if(hour>=18&&hour<=23||hour==6)
-			return 6;
+			return 2;
 		else
 			return 0;
 	}

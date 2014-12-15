@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 import model_feature.Dictionary.LoadSentimentDictionary;
+import model_svm.LibSvmUtils;
 import retrieval_extractor.GetAllWeiboPosts;
 /**
  * Trying to use both unigram and bigram
@@ -36,9 +37,10 @@ public class WordFeatures {
 			dictionaries.add(LoadSentimentDictionary.getBigramWords());
 			dictionaries.add(LoadSentimentDictionary.getTigramWords());
 			
-			BufferedReader reader=new BufferedReader(new FileReader("./tempTrainData"));
+			BufferedReader reader=new BufferedReader(new FileReader("./resource/tempTrainData.txt"));
 			String line;
 			List<String> list=new ArrayList<String>();
+			reader.readLine();//to escape the first line
 			while((line=reader.readLine())!=null){
 				list.add(line.split("\t")[1].trim());
 			}
@@ -75,6 +77,8 @@ public class WordFeatures {
 	 */
 	public static HashMap<Integer,List<Double>> GetFeatures(){		
 		HashMap<Integer,List<Double>> featureMap=new HashMap<Integer,List<Double>>();
+		double ratio=10;
+		double suicidePolarity=2,upsetPolarity=1.0;
 		for(int i=0;i<contents.size();i++){
 			//negative VS. positive ratio, negativeCount is the one to count negative word number
 //			double ratio=0.0,positiveCount=0.0,negativeCount=0.0;
@@ -86,7 +90,8 @@ public class WordFeatures {
 				if(m==0)
 					for(String word:dic){
 						if(contents.get(i).contains(word)){
-							list.add(28.0);
+//							list.add(28.0);
+							list.add(ratio*suicidePolarity);
 //							negativeCount++;
 						}
 						else
@@ -95,7 +100,7 @@ public class WordFeatures {
 				else if(m==1)
 					for(String word:dic){
 						if(contents.get(i).contains(word)){
-							list.add(13.0);
+							list.add(ratio*upsetPolarity);
 //							negativeCount++;
 						}
 						else
@@ -104,7 +109,7 @@ public class WordFeatures {
 				else if(m==2)
 					for(String word:dic){
 						if(contents.get(i).contains(word)){
-							list.add(10.0);
+							list.add(ratio);
 //							negativeCount++;
 						}
 						else
@@ -113,7 +118,7 @@ public class WordFeatures {
 				else if(m==3)
 					for(String word:dic){
 						if(contents.get(i).contains(word)){
-							list.add(7.5);
+							list.add(ratio/2);
 //							positiveCount++;
 						}
 						else
@@ -130,7 +135,7 @@ public class WordFeatures {
 							}
 						}
 						if(flag){
-							list.add(50.0);
+							list.add(ratio*suicidePolarity);
 //							negativeCount++;
 						}
 						else
@@ -147,7 +152,7 @@ public class WordFeatures {
 							}
 						}
 						if(flag){
-							list.add(18.0);
+							list.add(ratio*suicidePolarity);
 //							negativeCount++;
 						}
 						else
@@ -222,9 +227,9 @@ public class WordFeatures {
 	 * @return
 	 * @throws IOException 
 	 */
-	public static List<String> FormatFeaturesForSVM(boolean Write2File) throws IOException{
+	public static List<String> FormatFeaturesForSVM(boolean Write2File,int label) throws IOException{
 		HashMap<Integer,List<Double>> featureMap=GetFeatures();
-		return FeatureCombinerAndWriter.FormatFeaturesForSVM(featureMap, Write2File);
+		return FeatureCombinerAndWriter.FormatFeaturesForSVM(featureMap, Write2File,label);
 	}
 	
 	/**
@@ -232,9 +237,9 @@ public class WordFeatures {
 	 * @return
 	 * @throws IOException 
 	 */
-	public static List<String> FormatFeaturesForWeka(boolean Write2File) throws IOException{
+	public static List<String> FormatFeaturesForWeka(boolean Write2File,int label) throws IOException{
 		HashMap<Integer,List<Double>> featureMap=GetFeatures();
-		return FeatureCombinerAndWriter.FormatFeaturesForWeka(featureMap, Write2File);
+		return FeatureCombinerAndWriter.FormatFeaturesForWeka(featureMap, Write2File,label);
 	}
 	
 	/**
@@ -244,6 +249,7 @@ public class WordFeatures {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		FormatFeaturesForSVM(true);
+//		FormatFeaturesForSVM(true,664);
+		System.out.println(LibSvmUtils.CrossValidattion(10, "./resource/UnigramFeaturesSVM.txt"));
 	}
 }

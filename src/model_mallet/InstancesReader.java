@@ -15,7 +15,9 @@ import cc.mallet.pipe.SerialPipes;
 import cc.mallet.pipe.TokenSequence2FeatureSequence;
 import cc.mallet.pipe.TokenSequenceRemoveStopwords;
 import cc.mallet.pipe.iterator.CsvIterator;
+import cc.mallet.types.Instance;
 import cc.mallet.types.InstanceList;
+import cc.mallet.util.CharSequenceLexer;
 
 /**
  * Read file data from given file, return data as Instances list to trainer
@@ -23,7 +25,8 @@ import cc.mallet.types.InstanceList;
  */
 public class InstancesReader {
 	/**
-	 * 
+	 * Read instances from CSV file. The delimiter is whitespace.
+	 * Thus we use CharSequenceLexer.LEX_NONWHITESPACE_TOGETHER.
 	 * @param filepath
 	 * @return
 	 * @throws IOException
@@ -31,7 +34,8 @@ public class InstancesReader {
 	public static InstanceList getInstances(String filepath) throws IOException{
 		ArrayList<Pipe> pipeList=new ArrayList<Pipe>();
 		pipeList.add( new CharSequenceLowercase() );
-        pipeList.add( new CharSequence2TokenSequence(Pattern.compile("\\p{L}[\\p{L}\\p{P}]+\\p{L}")) );
+//        pipeList.add( new CharSequence2TokenSequence(Pattern.compile("\\p{L}[\\p{L}\\p{P}]+\\p{L}")) );
+		pipeList.add( new CharSequence2TokenSequence(CharSequenceLexer.LEX_NONWHITESPACE_TOGETHER) );
         pipeList.add( new TokenSequenceRemoveStopwords(new File("./resource/stopwords.txt"), "UTF-8", false, false, false) );
         pipeList.add( new TokenSequence2FeatureSequence() );
         
@@ -41,8 +45,17 @@ public class InstancesReader {
         
         return instances;
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		
+		InstanceList list=InstancesReader.getInstances("./resource/LDATrainData.csv");
+		int count=0;
+		for(Instance i:list){
+			if(Integer.parseInt(i.getTarget().toString())==1){
+				count++;
+				System.out.println(i.getData());
+			}
+			
+		}
+		System.out.println(count);
 	}
 }
