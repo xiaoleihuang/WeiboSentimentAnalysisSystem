@@ -1,0 +1,9 @@
+package crawler.system;
+
+public class GetFansFollowersCrawler {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+}
