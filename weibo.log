@@ -1,7 +1,0 @@
-6487 DEBUG [2014-12-25 21:14:32]  Transfer-Encoding:chunked
-6487 DEBUG [2014-12-25 21:14:32]  Connection:keep-alive
-6487 DEBUG [2014-12-25 21:14:32]  Api-Server-IP:10.77.108.43
-6487 DEBUG [2014-12-25 21:14:32]  Vary:Accept-Encoding
-6503 WARN  [2014-12-25 21:14:32]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
-6503 DEBUG [2014-12-25 21:14:32]  [{"221011170001462995":"屌丝","weight":20309,"flag":0},{"25774":"搞笑图片","weight":2231,"flag":0},{"949":"段子","weight":8801,"flag":0},{"650":"笑话","weight":118524,"flag":0},{"289":"动漫","weight":3253886,"flag":0},{"1944":"宅腐","weight":5845,"flag":0},{"1235":"幽默","weight":976518,"flag":0},{"320":"搞笑","weight":791108,"flag":0},{"3":"宅女","weight":906079,"flag":0},{"1714":"冷笑话","weight":115311,"flag":0}]
-
