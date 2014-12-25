@@ -1,5 +1,10 @@
 package database;
 
+/**
+ * Connect to MySQL database
+ * @author xiaolei
+ *
+ */
 public class MysqlConnector {
 	
 	public static void main(String[] args) {
