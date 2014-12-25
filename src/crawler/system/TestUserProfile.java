@@ -15,43 +15,10 @@ import weibo4j.model.User;
 public class TestUserProfile {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		BufferedReader reader;
-		String line;
-		User u = null;
-		List<String> list=new ArrayList<String>();
-		List<String> uids=new ArrayList<String>();
-		reader=new BufferedReader(new FileReader("/home/xiaolei/Desktop/uids.txt"));
-		while((line=reader.readLine())!=null){
-			uids.add(line);
-		}
-		reader.close();
-		
-		reader=new BufferedReader(new FileReader("/home/xiaolei/Desktop/test.txt"));
-		while((line=reader.readLine())!=null){
-			GetUserProfile userprofile=new GetUserProfile();
-//			System.err.println(line);
-			u=userprofile.getUserByName(line);
-//			System.err.println(u.getId());
-			list.add(u.getId());
-//			if(!uids.contains(u.getId())){
-//				System.err.println(u.getId());
-//				System.err.println(line);
-//			}
-			
-			
-		}
-		
-//		for(String id:uids){
-//			if(!list.contains(id)){
-//				System.err.println(id);
-//			}
-//		}
-		
-		for(String i:list){
-			System.err.println(i);
-		}
-		reader.close();
-//		System.err.println(u.toString());
+		GetUserProfile userprofile=new GetUserProfile();
+//		User u = userprofile.getUserByDomainName("whr759887970");
+		User u = userprofile.getUserById("1836203000");
+		System.err.println(u.toString());
 //		
 //		System.err.println(u.getFollowersCount());
 //		System.err.println(u.getGender());
