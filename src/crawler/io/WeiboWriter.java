@@ -1,7 +1,7 @@
 package crawler.io;
 
 import io.XMLParser;
-import io.database.ConnDB;
+import database.ConnDB;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;

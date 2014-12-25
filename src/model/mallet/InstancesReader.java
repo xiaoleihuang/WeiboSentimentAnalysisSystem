@@ -45,6 +45,7 @@ public class InstancesReader {
         
         return instances;
 	}
+	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		InstanceList list=InstancesReader.getInstances("./resource/LDATrainData.csv");
@@ -54,10 +55,6 @@ public class InstancesReader {
 //			System.out.println(i.getData());
 			System.out.println(i.getTarget());
 			System.out.println(i.getTargetAlphabet());
-//			System.out.println(i.getAlphabet());
-//			System.out.println(i.getProperties());
-//			System.out.println(i.getLabeling());
-//			System.out.println(i.getAlphabet());
 			if(Integer.parseInt(i.getTarget().toString())==1){
 				count++;
 //				System.out.println(i.getData());

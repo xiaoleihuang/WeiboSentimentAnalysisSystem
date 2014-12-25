@@ -179,15 +179,6 @@ public class LibSvmUtils {
 	 * @throws ParseException 
 	 */
 	public static void main(String[] args) throws IOException, ParseException {
-		
-		// TODO Auto-generated method stub
-		//Test for svm_train and svm_predict
-		//svm_train: 
-		//	  param: String[], parse result of command line parameter of svm-train
-		//    return: String, the directory of modelFile
-		//svm_predect:
-		//	  param: String[], parse result of command line parameter of svm-predict, including the modelfile
-		//    return: Double, the accuracy of SVM classification
 		//String modelFile;
 
 //		Test for cross validation
@@ -207,9 +198,6 @@ public class LibSvmUtils {
 //			list.add(System.getProperty("CrossAcurracy"));
 //		}
 //		WeiboWriter.write2file(list, "accuracy.txt");
-		
-//		
-//		
 //		System.out.print("Cross validation is done! The modelFile is " + modelFile);
 	}
 }

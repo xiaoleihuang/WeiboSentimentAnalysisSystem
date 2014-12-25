@@ -1,11 +1,6 @@
 package crawler.system;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import crawler.crawler.GetUserProfile;
 import weibo4j.model.User;
 /**
