@@ -74,7 +74,7 @@ public class CrawlSuicideWeiboAndProfile {
 		// TODO Auto-generated method stub
 		// args[0] is login account's name, args[1] is the password
 		BufferedReader reader = new BufferedReader(new FileReader(
-				"./resource/account.conf"));
+				"./resource/config/account.conf"));
 		String username = reader.readLine();
 		String password = reader.readLine();
 		reader.close();
