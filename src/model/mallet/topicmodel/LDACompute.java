@@ -285,7 +285,7 @@ public class LDACompute {
 			// System.out.println(probs.length);
 			// System.out.println(topic+"\t"+line);
 
-			writer.append(labellist.get(topic) + line.toString() + "\n");
+			writer.append(labellist.get(topic) + "\t" + line.toString() + "\n");
 			if(topic%500==0)
 				writer.flush();
 		}
