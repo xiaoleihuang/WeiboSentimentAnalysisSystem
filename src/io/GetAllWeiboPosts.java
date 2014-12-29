@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entity.OneWeibo;
+import entity.OneWeibo;
 
 /**
  * retrieve all WeiBo posts<br/>

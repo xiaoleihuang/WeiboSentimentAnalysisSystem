@@ -16,13 +16,12 @@ import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 import weibo4j.util.WeiboConfig;
 
-public class Oauth extends Weibo{
+public class Oauth extends Weibo {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7003420545330439247L;
 	// ----------------------------针对站内应用处理SignedRequest获取accesstoken----------------------------------------
-	public String access_token;
 	public String user_id;
 
 	public String getToken() {
@@ -87,22 +86,30 @@ public class Oauth extends Weibo{
 						new PostParameter("grant_type", "authorization_code"),
 						new PostParameter("code", code),
 						new PostParameter("redirect_uri", WeiboConfig
-								.getValue("redirect_URI")) }, false));
+								.getValue("redirect_URI")) }, false, null));
 	}
 
-	public String authorize(String response_type,String state) throws WeiboException {
+	public String authorize(String response_type) throws WeiboException {
 		return WeiboConfig.getValue("authorizeURL").trim() + "?client_id="
 				+ WeiboConfig.getValue("client_ID").trim() + "&redirect_uri="
 				+ WeiboConfig.getValue("redirect_URI").trim()
-				+ "&response_type=" + response_type
-				+ "&state="+state;
+				+ "&response_type=" + response_type;
 	}
-	public String authorize(String response_type,String state,String scope) throws WeiboException {
+
+	public String authorize(String response_type, String state)
+			throws WeiboException {
 		return WeiboConfig.getValue("authorizeURL").trim() + "?client_id="
 				+ WeiboConfig.getValue("client_ID").trim() + "&redirect_uri="
 				+ WeiboConfig.getValue("redirect_URI").trim()
-				+ "&response_type=" + response_type
-				+ "&state="+state
-				+ "&scope="+scope;
+				+ "&response_type=" + response_type + "&state=" + state;
+	}
+
+	public String authorize(String response_type, String state, String scope)
+			throws WeiboException {
+		return WeiboConfig.getValue("authorizeURL").trim() + "?client_id="
+				+ WeiboConfig.getValue("client_ID").trim() + "&redirect_uri="
+				+ WeiboConfig.getValue("redirect_URI").trim()
+				+ "&response_type=" + response_type + "&state=" + state
+				+ "&scope=" + scope;
 	}
 }

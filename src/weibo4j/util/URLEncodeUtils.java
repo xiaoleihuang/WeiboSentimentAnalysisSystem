@@ -4,7 +4,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.BitSet;
 /**
- * @author sinaWeibo,xiaolei
+ * @author sinaWeibo
  * 
  */
 public class URLEncodeUtils {

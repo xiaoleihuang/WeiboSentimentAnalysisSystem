@@ -9,7 +9,7 @@ import weibo4j.org.json.JSONArray;
 import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 
-public class Favorites extends WeiboResponse implements java.io.Serializable{
+public class Favorites extends WeiboResponse {
 
 	private static final long serialVersionUID = 3355536191107298448L;
 	private Date favoritedTime;                        //添加收藏的时间
@@ -28,9 +28,9 @@ public class Favorites extends WeiboResponse implements java.io.Serializable{
 			if(!json.isNull("tags")){
 				JSONArray list = json.getJSONArray("tags");
 				int size = list.length();
-				List<FavoritesTag> tag = new ArrayList<FavoritesTag>(size);
-				for (int i = 0;i< size;i++){
-					tag.add(new FavoritesTag(list.getJSONObject(i)));
+				tags = new ArrayList<FavoritesTag>(size);
+				for (int i = 0; i < size; i++){
+					tags.add(new FavoritesTag(list.getJSONObject(i)));
 				}
 			}
 		} catch (JSONException je) {
@@ -46,7 +46,7 @@ public class Favorites extends WeiboResponse implements java.io.Serializable{
 			JSONArray list = json.getJSONArray("tags");
 			int size = list.length();
 			tags = new ArrayList<FavoritesTag>(size);
-			for (int i = 0;i< size;i++){
+			for (int i = 0; i < size; i++){
 				tags.add(new FavoritesTag(list.getJSONObject(i)));
 			}
 		}

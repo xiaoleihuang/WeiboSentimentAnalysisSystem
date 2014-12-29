@@ -5,7 +5,7 @@ import io.GetAllWeiboPosts;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entity.OneWeibo;
+import entity.OneWeibo;
 
 /**
  * give a weight to the feature to solve imbalance problems

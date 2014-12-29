@@ -16,8 +16,7 @@ public class GetUserTags {
 	private Tags tags;
 	public GetUserTags(){
 		String access_token=AccountConfig.accesstoken1;
-		tags=new Tags();
-		tags.client.setToken(access_token);
+		tags=new Tags(access_token);	
 	}
 	
 	/**

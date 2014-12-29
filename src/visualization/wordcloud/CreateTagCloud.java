@@ -16,10 +16,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import model.entity.OneWeibo;
-
 import org.mcavallo.opencloud.Cloud;
 import org.mcavallo.opencloud.Tag;
+
+import entity.OneWeibo;
 
 /**
  * Add visualization tools for word cloud

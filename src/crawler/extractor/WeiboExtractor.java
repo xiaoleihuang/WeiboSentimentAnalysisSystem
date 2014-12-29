@@ -2,12 +2,11 @@ package crawler.extractor;
 
 import java.util.List;
 
-import model.entity.OneWeibo;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import crawler.config.ErrorLogger;
+import entity.OneWeibo;
 /**
  * using static method to extract weibo information from one post
  * @author xiaolei
@@ -25,6 +24,7 @@ public class WeiboExtractor {
 	 */
 	public static OneWeibo extract(WebElement element) {
 		// TODO Auto-generated method stub
+		String id=element.getAttribute("id");
 		String all=element.getText();
 		try{
 			if(all.contains("转发了")||all.contains("Repost")){

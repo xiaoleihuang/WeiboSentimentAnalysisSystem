@@ -15,11 +15,10 @@ import weibo4j.model.WeiboException;
  */
 public class GetPublicLatestWeibo {
 	String access_token=AccountConfig.accesstoken1;
-	Timeline tm = new Timeline();
+	Timeline tm = new Timeline(access_token);
 	StatusWapper status;
 	
 	public GetPublicLatestWeibo(){
-		tm.client.setToken(access_token);
 		try {
 			status=tm.getPublicTimeline();
 		} catch (WeiboException e) {

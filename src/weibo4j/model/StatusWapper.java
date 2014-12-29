@@ -62,5 +62,20 @@ public class StatusWapper {
 	public void setHasvisible(String hasvisible) {
 		this.hasvisible = hasvisible;
 	}
+	
+	@Override
+	public String toString() {
+		String str = "";
+		str += "StatusWapper [statuses=[";
+		for (Status s : statuses) {
+			str += s.toString() + " ";
+		}
+		str += "], ";
+		str += "previousCursor=" + previousCursor + ", ";
+		str += "nextCursor=" + nextCursor + ", ";
+		str += "totalNumber=" + totalNumber + ", ";
+		str += "hasvisible=" + hasvisible + "]";
+		return str;
+	}
 
 }

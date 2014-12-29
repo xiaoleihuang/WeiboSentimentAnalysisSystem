@@ -23,7 +23,6 @@ public class Login {
 	
 	/**
 	 * Constructor
-	 * @param uid user id or name for user account
 	 * @param name account's name
 	 * @param pwd account's password
 	 * @throws IOException
@@ -60,6 +59,7 @@ public class Login {
 				this.errorLogger.append(System.currentTimeMillis()+"\n"+e);
 			}
 		}
+		System.err.println(driver.getCurrentUrl());
 	}
 	
 	/**

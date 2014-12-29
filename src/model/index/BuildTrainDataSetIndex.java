@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entity.OneWeibo;
-
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
@@ -27,6 +25,8 @@ import org.apache.lucene.index.Terms;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
+
+import entity.OneWeibo;
 /**
  * Using Lucene4 to build index of data set, by reading index we can get statistical data of term, term occurrence, term position
  * @author xiaolei

@@ -2,6 +2,7 @@ package crawler.io;
 
 import io.XMLParser;
 import database.ConnDB;
+import entity.OneWeibo;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
@@ -9,8 +10,6 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-
-import model.entity.OneWeibo;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;

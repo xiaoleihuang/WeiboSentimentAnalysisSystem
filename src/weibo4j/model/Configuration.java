@@ -42,8 +42,7 @@ public class Configuration {
         init();
     }
 
-    /*package*/ @SuppressWarnings("unused")
-	static void init() {
+    /*package*/ static void init() {
         defaultProperty = new Properties();
         defaultProperty.setProperty("weibo4j.debug", "true");
 //        defaultProperty.setProperty("weibo4j.source", Weibo.CONSUMER_KEY);

@@ -47,6 +47,11 @@ public class PostParameter implements java.io.Serializable{
         this.name = name;
         this.value = value;
     }
+    
+    public PostParameter(String name, long value) {
+        this.name = name;
+        this.value = String.valueOf(value);
+    }
 
     public PostParameter(String name, double value) {
         this.name = name;
@@ -172,8 +177,9 @@ public class PostParameter implements java.io.Serializable{
         return result;
     }
 
-    @Override public boolean equals(Object obj) {
-        if (null == obj) {
+	@Override
+	public boolean equals(Object obj) {
+		if (null == obj) {
             return false;
         }
         if (this == obj) {

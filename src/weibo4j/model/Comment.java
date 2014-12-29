@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Comment extends WeiboResponse implements java.io.Serializable {
+public class Comment extends WeiboResponse {
 
-	private static final long serialVersionUID = 1272011191310628589L;
+	private static final long serialVersionUID = -6981150504900709672L;
 	private Date createdAt;                    //评论时间
 	private long id;                           //评论id
 	private String mid;						   //评论id
@@ -94,6 +94,23 @@ public class Comment extends WeiboResponse implements java.io.Serializable {
 			throw new WeiboException(jsone);
 		}
 	}
+	
+	public static List<Comment> constructComment(Response res)
+			throws WeiboException {
+
+		try {
+			JSONArray array = res.asJSONArray();
+			int size = array.length();
+			List<Comment> comment = new ArrayList<Comment>(size);
+			for (int i = 0; i < size; i++) {
+				comment.add(new Comment(array.getJSONObject(i)));
+			}
+			return comment;
+		} catch (JSONException jsone) {
+			throw new WeiboException(jsone);
+		}
+	}
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}

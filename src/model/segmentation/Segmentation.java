@@ -8,7 +8,6 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entity.OneWeibo;
 import model.index.GetStopWords;
 import model.utils.Regex;
 
@@ -19,6 +18,8 @@ import org.ansj.splitWord.analysis.ToAnalysis;
 import org.ansj.util.FilterModifWord;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
+
+import entity.OneWeibo;
 
 /**
  * Segment sentence into different terms, the terms could be either single word or phrase

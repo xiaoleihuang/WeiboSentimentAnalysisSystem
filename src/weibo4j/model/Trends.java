@@ -63,7 +63,6 @@ public class Trends extends WeiboResponse implements Comparable<Trends> {
 	}
 
 	/* package */
-	@SuppressWarnings("rawtypes")
 	public static List<Trends> constructTrendsList(Response res)
 			throws WeiboException {
 		JSONObject json = res.asJSONObject();

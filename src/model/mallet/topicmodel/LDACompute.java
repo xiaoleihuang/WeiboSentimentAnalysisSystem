@@ -17,7 +17,6 @@ import java.util.TreeSet;
 
 import javax.swing.JOptionPane;
 
-import model.entity.OneWeibo;
 import model.mallet.InstancesReader;
 import model.svm.LibSvmUtils;
 import cc.mallet.grmm.inference.Inferencer;
@@ -27,6 +26,7 @@ import cc.mallet.types.Alphabet;
 import cc.mallet.types.IDSorter;
 import cc.mallet.types.Instance;
 import cc.mallet.types.InstanceList;
+import entity.OneWeibo;
 
 /**
  * Compute LDA distributions for each topic

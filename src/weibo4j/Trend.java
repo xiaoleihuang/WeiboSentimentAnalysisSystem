@@ -11,12 +11,13 @@ import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 import weibo4j.util.WeiboConfig;
 
-public class Trend extends Weibo{
+public class Trend extends Weibo {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 903299515334415487L;
+
+	public Trend(String access_token) {
+		this.access_token = access_token;
+	}
 
 	/*----------------------------话题接口----------------------------------------*/
 	/**
@@ -28,14 +29,14 @@ public class Trend extends Weibo{
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
-	 * @see <a href="http://open.weibo.com/wiki/2/trends">trends</a>
+	 * @see http://open.weibo.com/wiki/2/trends
 	 * @since JDK 1.5
 	 */
 	public List<UserTrend> getTrends(String uid) throws WeiboException {
-		return UserTrend
-				.constructTrendList(client.get(
-						WeiboConfig.getValue("baseURL") + "trends.json",
-						new PostParameter[] { new PostParameter("uid", uid) }));
+		return UserTrend.constructTrendList(client.get(
+				WeiboConfig.getValue("baseURL") + "trends.json",
+				new PostParameter[] { new PostParameter("uid", uid) },
+				access_token));
 	}
 
 	/**
@@ -49,15 +50,15 @@ public class Trend extends Weibo{
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
-	 * @see <a href="http://open.weibo.com/wiki/2/trends">trends</a>
+	 * @see http://open.weibo.com/wiki/2/trends
 	 * @since JDK 1.5
 	 */
 	public List<UserTrend> getTrends(String uid, Paging page)
 			throws WeiboException {
-		return UserTrend
-				.constructTrendList(client.get(
-						WeiboConfig.getValue("baseURL") + "trends.json",
-						new PostParameter[] { new PostParameter("uid", uid) }, page));
+		return UserTrend.constructTrendList(client.get(
+				WeiboConfig.getValue("baseURL") + "trends.json",
+				new PostParameter[] { new PostParameter("uid", uid) }, page,
+				access_token));
 	}
 
 	/**
@@ -70,14 +71,14 @@ public class Trend extends Weibo{
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @throws JSONException
-	 * @see <a
-	 *      href="http://open.weibo.com/wiki/2/trends/is_follow">trends/is_follow</a>
+	 * @see http://open.weibo.com/wiki/2/trends/is_follow
 	 * @since JDK 1.5
 	 */
 	public JSONObject isFollow(String trend_name) throws WeiboException {
-			return client.get(WeiboConfig.getValue("baseURL")+ "trends/is_follow.json",
-							new PostParameter[] { 
-				new PostParameter("trend_name", trend_name) }).asJSONObject();
+		return client.get(
+				WeiboConfig.getValue("baseURL") + "trends/is_follow.json",
+				new PostParameter[] { new PostParameter("trend_name",
+						trend_name) }, access_token).asJSONObject();
 	}
 
 	/**
@@ -90,19 +91,20 @@ public class Trend extends Weibo{
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @throws JSONException
-	 * @see <a
-	 *      href="http://open.weibo.com/wiki/2/trends/hourly">trends/hourly</a>
+	 * @see http://open.weibo.com/wiki/2/trends/hourly
 	 * @since JDK 1.5
 	 */
 	public List<Trends> getTrendsHourly() throws WeiboException {
 		return Trends.constructTrendsList(client.get(
-				WeiboConfig.getValue("baseURL") + "trends/hourly.json"));
+				WeiboConfig.getValue("baseURL") + "trends/hourly.json",
+				access_token));
 	}
-	
+
 	public List<Trends> getTrendsHourly(Integer base_app) throws WeiboException {
 		return Trends.constructTrendsList(client.get(
 				WeiboConfig.getValue("baseURL") + "trends/hourly.json",
-				new PostParameter[] { new PostParameter("base_app", base_app.toString()) }));
+				new PostParameter[] { new PostParameter("base_app", base_app
+						.toString()) }, access_token));
 	}
 
 	/**
@@ -115,19 +117,20 @@ public class Trend extends Weibo{
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @throws JSONException
-	 * @see <a href="http://open.weibo.com/wiki/2/trends/daily">trends/daily</a>
+	 * @see http://open.weibo.com/wiki/2/trends/daily
 	 * @since JDK 1.5
 	 */
 	public List<Trends> getTrendsDaily() throws WeiboException {
 		return Trends.constructTrendsList(client.get(
-				WeiboConfig.getValue("baseURL") + "trends/daily.json"));
+				WeiboConfig.getValue("baseURL") + "trends/daily.json",
+				access_token));
 	}
-	
+
 	public List<Trends> getTrendsDaily(Integer base_app) throws WeiboException {
 		return Trends.constructTrendsList(client.get(
 				WeiboConfig.getValue("baseURL") + "trends/daily.json",
 				new PostParameter[] { new PostParameter("base_app", base_app
-						.toString()) }));
+						.toString()) }, access_token));
 	}
 
 	/**
@@ -140,19 +143,20 @@ public class Trend extends Weibo{
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @throws JSONException
-	 * @see <a
-	 *      href="http://open.weibo.com/wiki/2/trends/weekly">trends/weekly</a>
+	 * @see http://open.weibo.com/wiki/2/trends/weekly
 	 * @since JDK 1.5
 	 */
 	public List<Trends> getTrendsWeekly() throws WeiboException {
 		return Trends.constructTrendsList(client.get(
-				WeiboConfig.getValue("baseURL") + "trends/weekly.json"));
+				WeiboConfig.getValue("baseURL") + "trends/weekly.json",
+				access_token));
 	}
-	
+
 	public List<Trends> getTrendsWeekly(Integer base_app) throws WeiboException {
 		return Trends.constructTrendsList(client.get(
 				WeiboConfig.getValue("baseURL") + "trends/weekly.json",
-				new PostParameter[] { new PostParameter("base_app", base_app.toString()) }));
+				new PostParameter[] { new PostParameter("base_app", base_app
+						.toString()) }, access_token));
 	}
 
 	/**
@@ -165,15 +169,14 @@ public class Trend extends Weibo{
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @throws JSONException
-	 * @see <a
-	 *      href="http://open.weibo.com/wiki/2/trends/follow">trends/follow</a>
+	 * @see http://open.weibo.com/wiki/2/trends/follow
 	 * @since JDK 1.5
 	 */
 	public UserTrend trendsFollow(String trend_name) throws WeiboException {
 		return new UserTrend(client.post(WeiboConfig.getValue("baseURL")
 				+ "trends/follow.json",
 				new PostParameter[] { new PostParameter("trend_name",
-						trend_name) }));
+						trend_name) }, access_token));
 	}
 
 	/**
@@ -186,14 +189,14 @@ public class Trend extends Weibo{
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @throws JSONException
-	 * @see <a
-	 *      href="http://open.weibo.com/wiki/2/trends/destroy">trends/destroy</a>
+	 * @see http://open.weibo.com/wiki/2/trends/destroy
 	 * @since JDK 1.5
 	 */
 	public JSONObject trendsDestroy(Integer trend_id) throws WeiboException {
-			return client.post(WeiboConfig.getValue("baseURL")
-							+ "trends/destroy.json",
-							new PostParameter[] { new PostParameter("trend_id",trend_id.toString()) }).asJSONObject();
+		return client.post(
+				WeiboConfig.getValue("baseURL") + "trends/destroy.json",
+				new PostParameter[] { new PostParameter("trend_id", trend_id
+						.toString()) }, access_token).asJSONObject();
 	}
 
 }

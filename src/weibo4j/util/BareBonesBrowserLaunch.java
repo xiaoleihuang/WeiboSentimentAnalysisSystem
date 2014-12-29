@@ -18,13 +18,8 @@ package weibo4j.util;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 import javax.swing.JOptionPane;
 
-/**
- * 
- * @author xiaolei
- */
 public class BareBonesBrowserLaunch {
 
     public static void openURL(String url) {
@@ -34,15 +29,14 @@ public class BareBonesBrowserLaunch {
             JOptionPane.showMessageDialog(null, "Error attempting to launch web browser:\n" + e.getLocalizedMessage());
         }
     }
-    @SuppressWarnings("unchecked")
+
     private static void browse(String url) throws ClassNotFoundException, IllegalAccessException,
             IllegalArgumentException, InterruptedException, InvocationTargetException, IOException,
             NoSuchMethodException {
         String osName = System.getProperty("os.name", "");
         if (osName.startsWith("Mac OS")) {
-            @SuppressWarnings("rawtypes")
-			Class fileMgr = Class.forName("com.apple.eio.FileManager");   
-			Method openURL = fileMgr.getDeclaredMethod("openURL", new Class[] { String.class });
+            Class fileMgr = Class.forName("com.apple.eio.FileManager");
+            Method openURL = fileMgr.getDeclaredMethod("openURL", new Class[] { String.class });
             openURL.invoke(null, new Object[] { url });
         } else if (osName.startsWith("Windows")) {
             Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);

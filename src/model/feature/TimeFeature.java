@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
 
-import model.entity.OneWeibo;
+import entity.OneWeibo;
 
 /**
  * Calculate Time feature

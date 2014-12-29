@@ -3,7 +3,6 @@ package weibo4j.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import weibo4j.Weibo;
 import weibo4j.http.Response;
 import weibo4j.org.json.JSONArray;
@@ -14,7 +13,7 @@ import weibo4j.org.json.JSONObject;
  * @author sinaWeibo
  * 
  */
-public class Tag extends WeiboResponse implements java.io.Serializable {
+public class Tag extends WeiboResponse {
 
 	private static final long serialVersionUID = 2177657076940291492L;
 
@@ -24,7 +23,6 @@ public class Tag extends WeiboResponse implements java.io.Serializable {
 	
 	private String weight;
 
-	@SuppressWarnings("unchecked")
 	public Tag(JSONObject json) throws WeiboException, JSONException {			
 			if (!json.getString("id").isEmpty()) {
 				id = json.getString("id"); 

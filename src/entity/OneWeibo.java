@@ -1,4 +1,4 @@
-package model.entity;
+package entity;
 
 /**
  * store one WeiBo post information, using different constructor to store two types of post, 

@@ -22,9 +22,17 @@ public class TagWapper {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
 	@Override
 	public String toString() {
-		return "TagWapper [tags=" + tags + ", id=" + id + "]";
+		String str = "";
+		str += "TagWapper [tags=[";
+		for (Tag t : tags) {
+			str += t.toString() + " ";
+		}
+		str += "], ";
+		str += "id=" + id + "]";
+		return str;
 	}
 	
 }

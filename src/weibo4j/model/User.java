@@ -40,7 +40,7 @@ import weibo4j.org.json.JSONObject;
 /**
  * A data class representing Basic user information element
  */
-public class User extends WeiboResponse implements java.io.Serializable {
+public class User extends WeiboResponse {
 
 	private static final long serialVersionUID = -332738032648843482L;
 	private String id;                      //用户UID
@@ -214,6 +214,11 @@ public class User extends WeiboResponse implements java.io.Serializable {
 	/*package*/public User(JSONObject json) throws WeiboException {
 		super();
 		init(json);
+	}
+	
+	public User(Response res ) throws WeiboException {
+		super(res);
+		init(res.asJSONObject());
 	}
 
 	private void init(JSONObject json) throws WeiboException {

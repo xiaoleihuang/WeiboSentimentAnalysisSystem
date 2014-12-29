@@ -3,7 +3,7 @@ package model.feature;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entity.OneWeibo;
+import entity.OneWeibo;
 
 /**
  * compute Posting Type's feature value

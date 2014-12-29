@@ -33,8 +33,7 @@ import weibo4j.org.json.JSONArray;
 import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 
-public class RateLimitStatus extends WeiboResponse implements
-		java.io.Serializable {
+public class RateLimitStatus extends WeiboResponse {
 
 	private static final long serialVersionUID = -3153374766679996576L;
 

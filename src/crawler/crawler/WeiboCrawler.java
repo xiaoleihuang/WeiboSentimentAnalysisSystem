@@ -6,8 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 import javax.swing.JOptionPane;
 
-import model.entity.OneWeibo;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,6 +15,7 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 
 import crawler.config.ErrorLogger;
 import crawler.extractor.WeiboExtractor;
+import entity.OneWeibo;
 
 /**
  * Using Simulating Chrome_Browser Log-in to grab users' WeiBo

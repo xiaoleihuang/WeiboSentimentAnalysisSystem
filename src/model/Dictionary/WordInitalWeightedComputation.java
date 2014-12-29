@@ -4,7 +4,7 @@ import io.GetAllWeiboPosts;
 
 import java.util.HashMap;
 
-import model.entity.OneWeibo;
+import entity.OneWeibo;
 
 /**
  * Compute each dictionary words's initial weight

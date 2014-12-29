@@ -53,6 +53,11 @@
 	<classpathentry kind="lib" path="lib/opencloud.jar"/>
 	<classpathentry kind="lib" path="lib/ansj_lucene4_plug-2.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/IKAnalyzer2012_u6.jar"/>
+	<classpathentry kind="lib" path="lib/gson/gson-2.3.1.jar" sourcepath="lib/gson/gson-2.3.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/WeiboSentimentAnalysisSystem/lib/gson/gson-2.3.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/poi"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mallet"/>

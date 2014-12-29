@@ -12,11 +12,10 @@ import weibo4j.model.WeiboException;
  * @version 1.0
  */
 public class GetUserProfile {
-	String access_token = AccountConfig.accesstoken1;
-	Users um = new Users();
-	
+	Users um;
 	public GetUserProfile(){
-		um.client.setToken(access_token);
+		String access_token = AccountConfig.accesstoken1;
+		um = new Users(access_token);
 	}
 	
 	/**

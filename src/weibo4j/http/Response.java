@@ -268,8 +268,7 @@ public class Response {
         }
     }
 
-    @SuppressWarnings("unused")
-	private void log(String message, String message2) {
+    private void log(String message, String message2) {
         if (DEBUG) {
             log(message + message2);
         }

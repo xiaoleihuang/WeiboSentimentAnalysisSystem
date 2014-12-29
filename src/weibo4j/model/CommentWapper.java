@@ -3,6 +3,7 @@ package weibo4j.model;
 import java.util.List;
 
 public class CommentWapper {
+	
 	private List<Comment> comments;
 
 	private long previousCursor;
@@ -62,4 +63,18 @@ public class CommentWapper {
 		this.hasvisible = hasvisible;
 	}
 		
+	@Override
+	public String toString() {
+		String str = "";
+		str += "CommentWapper [comments=[";
+		for (Comment c : comments) {
+			str += c.toString() + " ";
+		}
+		str += "], ";
+		str += "previousCursor=" + previousCursor + ", ";
+		str += "nextCursor=" + nextCursor + ", ";
+		str += "totalNumber=" + totalNumber + ", ";
+		str += "hasvisible=" + hasvisible + "]";
+		return str;
+	}
 }

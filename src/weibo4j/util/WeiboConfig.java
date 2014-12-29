@@ -3,10 +3,7 @@ package weibo4j.util;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-/**
- * Configuration
- * @author xiaolei
- */
+
 public class WeiboConfig {
 	public WeiboConfig(){}
 	private static Properties props = new Properties(); 

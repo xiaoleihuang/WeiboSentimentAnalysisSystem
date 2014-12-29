@@ -5,7 +5,6 @@ package weibo4j.org.json;
  * @author JSON.org
  * @version 2008-09-18
  */
-@SuppressWarnings("serial")
 public class JSONException extends Exception {
     private Throwable cause;
 

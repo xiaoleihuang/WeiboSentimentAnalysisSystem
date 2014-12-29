@@ -82,4 +82,18 @@ public class UserWapper implements Serializable {
 		this.hasvisible = hasvisible;
 	}
 
+	@Override
+	public String toString() {
+		String str="";
+		str += "UserWapper [users=[";
+		for(User u : users) {
+			str += u.toString() + " ";
+		}
+		str += "], ";
+		str += "previousCursor=" + previousCursor + ", ";
+		str += "nextCursor=" + nextCursor + ", ";
+		str += "totalNumber=" + totalNumber + ", ";
+		str += "hasvisible=" + hasvisible + "]";
+		return str;
+	}
 }
