@@ -20,7 +20,6 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
  */
 public class Fans_FollowCrawler {
 	String uid="";
-	Login login;
 	final String url="http://login.weibo.cn/login/?ns=1&revalid=2&backURL=http%3A%2F%2Fweibo.cn%2F&backTitle=%CE%A2%B2%A9&vt=";
 	WebDriver driver;
 	List<String> funs=new ArrayList<String>();
@@ -141,6 +140,6 @@ public class Fans_FollowCrawler {
 	
 //	public static void main(String[] args) {
 //		// TODO Auto-generated method stub
-//		new Fans_FollowCrawler("1775931057","610337308@qq.com","h67868377");
+//		new Fans_FollowCrawler("1775931057","","");
 //	}
 }
