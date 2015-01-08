@@ -25,6 +25,7 @@ public class WeiboExtractor {
 	public static OneWeibo extract(WebElement element) {
 		// TODO Auto-generated method stub
 		String id=element.getAttribute("id");
+		id=id.substring(2,id.length());
 		String all=element.getText();
 		try{
 			if(all.contains("转发了")||all.contains("Repost")){
@@ -65,12 +66,12 @@ public class WeiboExtractor {
 				//get Time
 				String time=e.findElement(By.className("ct")).getText().split("来自")[0];
 				time=TimeExtractor.extractTime(time);
-				return new OneWeibo(content, time, 0,fromWho, forwardReason, forwardChain);
+				return new OneWeibo(id,content, time, 0,fromWho, forwardReason, forwardChain);
 			}else{
 				String content=element.findElement(By.className("ctt")).getText();
 				String time=element.findElement(By.className("ct")).getText().split("来自")[0];
 				time=TimeExtractor.extractTime(time);
-				return new OneWeibo(content, time, 1);
+				return new OneWeibo(id,content, time, 1);
 			}
 		}catch(Exception e){
 			ErrorLogger.ErrorLog(WeiboExtractor.class.getName(), e.getMessage(), all);

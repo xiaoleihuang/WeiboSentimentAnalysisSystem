@@ -9,7 +9,6 @@ import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.filechooser.FileSystemView;
 /**
  * Read weibo user's id from chosen file, return a list of user's id
  * @author xiaolei
@@ -21,7 +20,7 @@ public class ReadUidFile {
 	File file=null;
 	List<String> list=new ArrayList<String>();
 	public ReadUidFile() {
-		chooser=new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+		chooser=new JFileChooser("./resource");
 		JOptionPane.showMessageDialog(null, "Choose txt file contains user id");
 		chooser.setFileFilter(new FileNameExtensionFilter("Choose txt format file", "txt"));
 		chooser.showOpenDialog(chooser);

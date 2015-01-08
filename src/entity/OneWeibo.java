@@ -21,13 +21,15 @@ public class OneWeibo{
 	 * @param d the date of post, like 2014-01-01:15:30,that would be 201401011530
 	 * @param t the type of post, original is 1, forward is 0; this one is 0
 	 */
-	public OneWeibo(String c,String d, int t){
+	public OneWeibo(String id,String c,String d, int t){
+		this.pid=id;
 		this.content=c;
 		this.date=d;
 		this.type=t;
 	}
 	/**
 	 * Store one post's information, this post is forward post
+	 * @param id Post's id
 	 * @param c original content of the forward
 	 * @param d the date of post, like 2014-01-01:15:30
 	 * @param t the type of post, original is 0, forward is 1; this one is <b>1</b>
@@ -35,7 +37,8 @@ public class OneWeibo{
 	 * @param fR forward Reason for each forward post
 	 * @param fC forward Chain for recording everyone who has previously forwarded this post
 	 */
-	public OneWeibo(String c,String d, int t,String fw,String fR,String fC){
+	public OneWeibo(String id,String c,String d, int t,String fw,String fR,String fC){
+		this.pid=id;
 		this.content=c;
 		this.date=d;
 		this.type=t;
@@ -49,7 +52,7 @@ public class OneWeibo{
 	 * @param date the date of post
 	 * @param pid post id
 	 */
-	public OneWeibo(String content, String date, String pid) {
+	public OneWeibo(String pid, String content, String date) {
 		// TODO Auto-generated constructor stub
 		this.content=content;
 		this.date=date;
@@ -63,7 +66,7 @@ public class OneWeibo{
 	 * @param type 1 for original post, 0 for forward post
 	 * @param date
 	 */
-	public OneWeibo(String content,String pid,String type,String date){
+	public OneWeibo(String pid,String content,String type,String date){
 		this.content=content;
 		this.pid=pid;
 		this.type=Integer.parseInt(type);
@@ -78,9 +81,9 @@ public class OneWeibo{
 	 * @param date
 	 * @param suicide 1 for suicidal post, 0 for none;
 	 */
-	public OneWeibo(String content,String pid,String type,String date,String suicide){
-		this.content=content;
+	public OneWeibo(String pid,String content,String type,String date,String suicide){
 		this.pid=pid;
+		this.content=content;
 		this.type=Integer.parseInt(type);
 		this.date=date;
 		this.suicide=suicide;

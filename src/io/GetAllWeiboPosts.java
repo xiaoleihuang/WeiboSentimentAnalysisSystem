@@ -30,7 +30,7 @@ public class GetAllWeiboPosts {
 				String PostType=infos[3].trim();
 				String suicide=infos[4].trim();
 				
-				list.add(new OneWeibo(content, pid,PostType, date,suicide));
+				list.add(new OneWeibo(pid, content, PostType, date,suicide));
 			}
 			System.out.println("Post Size:"+list.size());
 			reader.close();

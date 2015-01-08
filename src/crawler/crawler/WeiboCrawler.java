@@ -23,7 +23,6 @@ import entity.OneWeibo;
  * @version 1.0
  */
 public class WeiboCrawler {
-	static Logger log=Logger.getLogger(WeiboCrawler.class.getName());
 	final String url="http://login.weibo.cn/login/?ns=1&revalid=2&backURL=http%3A%2F%2Fweibo.cn%2F&backTitle=%CE%A2%B2%A9&vt=";
 	String loginName="",passwd="";
 	String uid="";
@@ -52,7 +51,7 @@ public class WeiboCrawler {
 			driver.findElement(By.xpath("//input[@type='submit']")).click();
 			System.err.println("Page's Title "+driver.getTitle());
 		}catch(Exception e){
-			log.error("Uid Error:"+uid,e);
+			ErrorLogger.ErrorLog("Login Error", e.getClass().getName(), e.getMessage());
 		}
 		
 		if(driver.getTitle().contains("我的首页")){
@@ -68,8 +67,7 @@ public class WeiboCrawler {
 				driver.findElement(By.xpath("//input[@type='submit']")).click();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
-				log.error("Uid Error:"+uid,e);
+				ErrorLogger.ErrorLog("Login Error", e.getClass().getName(), e.getMessage());
 			}
 		}
 		
@@ -81,7 +79,7 @@ public class WeiboCrawler {
 			page=Integer.valueOf(driver.findElement(By.xpath("//*[@id='pagelist']/form/div/input[1]")).getAttribute("value"));
 		}catch(Exception e){
 			page=1;
-			log.error("Uid Error:"+uid,e);
+			ErrorLogger.ErrorLog("WeiboCrawler", e.getClass().getName(), e.getMessage());
 		}
 		System.err.println("User's Weibo has "+page+" pages");
 		System.setProperty(uid, String.valueOf(page));
@@ -131,6 +129,14 @@ public class WeiboCrawler {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	/**
+	 * Set logger on
+	 */
+	@SuppressWarnings("unused")
+	public static void setLogger(){
+		Logger logger= Logger.getLogger(WeiboCrawler.class);
 	}
 	
 	/**
