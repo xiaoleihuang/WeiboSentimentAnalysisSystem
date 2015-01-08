@@ -1,0 +1,16 @@
+0    DEBUG [2015-01-08 12:28:00]  Request:
+15   DEBUG [2015-01-08 12:28:00]  GET:https://api.weibo.com/2/users/domain_show.json
+314  DEBUG [2015-01-08 12:28:00]  Authorization: OAuth2 2.00mDtZOD1fvoTDbb478d8b94b8BahB
+314  DEBUG [2015-01-08 12:28:00]  API-RemoteIP: 10.0.1.140
+2925 DEBUG [2015-01-08 12:28:03]  Response:
+2925 DEBUG [2015-01-08 12:28:03]  https StatusCode:200
+2925 DEBUG [2015-01-08 12:28:03]  Server:nginx/1.6.1
+2925 DEBUG [2015-01-08 12:28:03]  Date:Thu, 08 Jan 2015 04:27:05 GMT
+2925 DEBUG [2015-01-08 12:28:03]  Content-Type:application/json;charset=UTF-8
+2925 DEBUG [2015-01-08 12:28:03]  Transfer-Encoding:chunked
+2925 DEBUG [2015-01-08 12:28:03]  Connection:keep-alive
+2925 DEBUG [2015-01-08 12:28:03]  Api-Server-IP:10.77.108.55
+2925 DEBUG [2015-01-08 12:28:03]  Vary:Accept-Encoding
+2973 WARN  [2015-01-08 12:28:03]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+2973 DEBUG [2015-01-08 12:28:03]  {"id":1784312304,"idstr":"1784312304","class":1,"screen_name":"龙儿龙儿哥","name":"龙儿龙儿哥","province":"52","city":"27","location":"贵州 黔南","description":"","url":"","profile_image_url":"http://tp1.sinaimg.cn/1784312304/50/39997477346/0","profile_url":"sixvivian","domain":"sixvivian","weihao":"","gender":"f","followers_count":0,"friends_count":0,"pagefriends_count":0,"statuses_count":0,"favourites_count":7,"created_at":"Mon Aug 02 11:12:27 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":220,"remark":"","status":{},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tp1.sinaimg.cn/1784312304/180/39997477346/0","avatar_hd":"http://tp1.sinaimg.cn/1784312304/180/39997477346/0","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"online_status":0,"bi_followers_count":118,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"credit_score":80,"urank":15}
+
