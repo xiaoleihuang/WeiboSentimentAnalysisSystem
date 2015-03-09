@@ -6,7 +6,8 @@ package weibo4j.org.json;
  * @version 2008-09-18
  */
 public class JSONException extends Exception {
-    private Throwable cause;
+	private static final long serialVersionUID = -6466458668177029743L;
+	private Throwable cause;
 
     /**
      * Constructs a JSONException with an explanatory message.

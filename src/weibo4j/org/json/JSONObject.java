@@ -85,6 +85,7 @@ import java.util.TreeSet;
  * @author JSON.org
  * @version 2008-09-18
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class JSONObject {
 
     /**
@@ -128,7 +129,8 @@ public class JSONObject {
     /**
      * The map where the JSONObject's properties are kept.
      */
-    private Map map;
+    
+	private Map map;
 
 
     /**
@@ -243,7 +245,7 @@ public class JSONObject {
      * @param map - A map with Key-Bean data.
      * @param includeSuperClass - Tell whether to include the super class properties.
      */
-    public JSONObject(Map map, boolean includeSuperClass) {
+	public JSONObject(Map map, boolean includeSuperClass) {
        	this.map = new HashMap();
        	if (map != null){
             for (Iterator i = map.entrySet().iterator(); i.hasNext(); ) {
@@ -294,7 +296,8 @@ public class JSONObject {
         populateInternalMap(bean, includeSuperClass);
     }
     
-    private void populateInternalMap(Object bean, boolean includeSuperClass){
+
+	private void populateInternalMap(Object bean, boolean includeSuperClass){
     	Class klass = bean.getClass();
     	
         //If klass.getSuperClass is System class then includeSuperClass = false;
@@ -636,12 +639,12 @@ public class JSONObject {
      *
      * @return An array of field names, or null if there are no names.
      */
-    public static String[] getNames(JSONObject jo) {
+	public static String[] getNames(JSONObject jo) {
     	int length = jo.length();
     	if (length == 0) {
     		return null;
     	}
-    	Iterator i = jo.keys();
+    	Iterator<String> i = jo.keys();
     	String[] names = new String[length];
     	int j = 0;
     	while (i.hasNext()) {

@@ -140,7 +140,8 @@ public class WeiboMetaFeaturesCrawler {
 		
 		List<WebElement> elements=new ArrayList<WebElement>();
 		elements = driver.findElements(By.className("c"));;
-				
+		
+		
 		//iterate to read every elements
 		if(page!=0){
 			for(int i=2;i<=page;i++){
@@ -155,7 +156,7 @@ public class WeiboMetaFeaturesCrawler {
 //				elements.remove(e);
 //				continue;
 //			}
-			System.err.println(e.getText());
+			System.err.println(e);
 		}
 		return elements;
 	}

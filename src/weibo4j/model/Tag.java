@@ -3,6 +3,7 @@ package weibo4j.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import weibo4j.Weibo;
 import weibo4j.http.Response;
 import weibo4j.org.json.JSONArray;
@@ -23,6 +24,7 @@ public class Tag extends WeiboResponse {
 	
 	private String weight;
 
+	@SuppressWarnings("unchecked")
 	public Tag(JSONObject json) throws WeiboException, JSONException {			
 			if (!json.getString("id").isEmpty()) {
 				id = json.getString("id"); 

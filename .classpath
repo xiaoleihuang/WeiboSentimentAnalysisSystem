@@ -59,18 +59,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/poi"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mallet"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/stanford">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="WeiboSentimentAnalysisSystem/lib/stanford"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="lib/ansj_seg-2.0.6.jar"/>
 	<classpathentry kind="lib" path="lib/nlp-lang-0.2.jar"/>
 	<classpathentry kind="lib" path="lib/IKAnalyzer3.2.8.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jfreechart"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Lucene"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/poi"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mallet"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jchart"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lucence"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Stanford"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

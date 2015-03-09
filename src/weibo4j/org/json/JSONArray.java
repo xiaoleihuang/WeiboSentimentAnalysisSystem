@@ -79,14 +79,17 @@ import java.util.Map;
 
  * @author JSON.org
  * @version 2008-09-18
+ * 
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class JSONArray {
 
 
     /**
      * The arrayList where the JSONArray's properties are kept.
      */
-    private ArrayList myArrayList;
+    
+	private ArrayList myArrayList;
 
 
     /**

@@ -70,7 +70,7 @@ public class ImageItem {
 		try {
 			bais = new ByteArrayInputStream(mapObj);
 			mcis = new MemoryCacheImageInputStream(bais);
-			Iterator itr = ImageIO.getImageReaders(mcis);
+			Iterator<ImageReader> itr = ImageIO.getImageReaders(mcis);
 			while (itr.hasNext()) {
 				ImageReader reader = (ImageReader) itr.next();
 				if (reader instanceof GIFImageReader) {
