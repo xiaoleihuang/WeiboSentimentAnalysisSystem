@@ -26,6 +26,9 @@ public class StanfordParser {
 	 */
 	public StanfordParser(String[] sentence){
 		List<CoreLabel> rawWords = Sentence.toCoreLabelList(sentence);
+		
+		System.out.println(rawWords);
+		
 		parse= lp.apply(rawWords);
 		parse.pennPrint();
 		
@@ -55,7 +58,5 @@ public class StanfordParser {
 	public static void main(String[] args) {
 		String[] sent = { "他", "和", "我", "在", "学校", "里", "常", "打", "桌球", "。" };
 		new StanfordParser(sent);
-		
-		
 	}
 }

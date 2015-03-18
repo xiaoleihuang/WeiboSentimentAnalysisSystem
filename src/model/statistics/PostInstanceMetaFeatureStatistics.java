@@ -1,4 +1,4 @@
-package model.feature;
+package model.statistics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
